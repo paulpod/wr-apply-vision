@@ -1,0 +1,131 @@
+{% extends "layouts/_manage.html" %}
+
+{% if data.billRunData[0].status == "ready" %}
+{% set pTitle = '<h1 class="govuk-heading-xl govuk-!-margin-bottom-3"><span class="govuk-caption-l">Billing account ' + data.billRunData[0].bills[data.ID].account + '</span>Bill for ' +  data.billRunData[0].bills[data.ID].contact + '</h1>'%}
+{% set title = 'Bill for ' + data.billRunData[0].bills[data.ID].contact%}
+{% else %}
+{% set pTitle = '<h1 class="govuk-heading-xl govuk-!-margin-bottom-3"><span class="govuk-caption-l">Bill ' +  data.billRunData[0].bills[data.ID].number | default("OP656544") + '</span>Bill for ' +  data.billRunData[0].bills[data.ID].contact + '</h1>'%}
+{% set title = 'Bill ' + data.billRunData[0].bills[data.ID].number  | default("OP123344") + 'Bill for ' + data.billRunData[0].bills[data.ID].contact %}
+{% endif %}
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+
+<!--content block-->
+{% block service %}
+
+
+
+{% if ("true" in data.rebill) and ("false" in data.billRun ) %}
+{{ govukWarningText({
+  text: "This bill is marked for reissue",
+  iconFallbackText: "Warning"
+}) }}
+
+{% elseif ("true" in data.rebill) and ("created" in data.billRun ) %}
+
+{{ govukWarningText({
+  text: "This bill is marked for reissue",
+  iconFallbackText: "Warning"
+}) }}
+
+{% endif %}
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-0">
+        <div class="govuk-grid-column-full">
+        
+              <!-- billing title-->
+      {{ pTitle | safe }}
+  
+      <p class="govuk-body">
+
+
+
+        {{govukTag({
+                    text: [data.billRunData[0]['status']],
+                    classes: data.billRunData[0]['status'] | replaceWS | statusColour + " govuk-!-font-size-27 "
+                  })}}
+      </p>
+  
+         
+      {% include "sandbox/_includes/billing/meta-data.html" %}
+  
+          <details class="govuk-details govuk-!-margin-bottom-6" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Billing account details
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body "><span class="govuk-!-font-weight-bold">Billing account <a class="govuk-link" href="#"> {{data.billRunData[0].bills[data.ID].account}}</a></span><br>
+                {{data.billRunData[0].bills[data.ID].contact}}<br>
+                <!-- billing account address -->
+                {{data.billRunData[0].bills[data.ID].accountAddress.join("<br>") | safe }} </p>
+    
+            </div>
+          </details>
+
+
+
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-3">
+
+  <div class="govuk-grid-column-one-half">
+    <!--  <h2 class="govuk-heading-l govuk-!-margin-bottom-0">
+        Total
+      </h2> -->
+    <h2><span class="govuk-body govuk-!-font-size-80 govuk-!-font-weight-bold">{{data.billRunData[0].bills[data.ID].debit | currency}}</span><br>
+      <!-- <span class="govuk-body govuk-!-font-weight-bold govuk-body govuk-!-font-size-24">Net amount</span></h3> -->
+      <span class="govuk-body govuk-!-font-weight-bold govuk-body govuk-!-font-size-24">Total</span></h2>
+  </div>
+
+</div>
+
+
+
+{% if data.billRunData[0].status == "ready" %}
+
+<!--remove from the bill run button-->
+<p class="govuk-body govuk-!-margin-bottom-0">
+
+  {{ govukButton({
+classes: "govuk-button--secondary",
+text: "Remove bill",
+href: "confirm-remove-bill?runType=annual"
+}) }}
+</p>
+
+{% endif %}
+
+
+
+<div class="divider govuk-!-margin-bottom-7"></div>
+<div class="govuk-grid-row govuk-!-margin-bottom-0">
+  <div class="govuk-grid-column-full">
+{%if data.billRunData[0].bills[data.ID].licences.length > 1%}
+{% include "sandbox/_includes/billing/annual-billing/licences-table.html" %}
+{% else %}
+<h2 class="govuk-heading-xl govuk-!-margin-bottom-3">{{data.billRunData[0].bills[data.ID].licences[0].transactions.length | plural("Transaction")}} for {{data.billRunData[0].bills[data.ID].licences[0].licence}}</h2>
+{% set transactions = data.billRunData[0].bills[data.ID].licences[0].transactions %}
+{% include "sandbox/_includes/billing/annual-billing/transactions-table.html" %}
+{% endif %}
+
+
+</div>
+</div>
+
+
+
+
+
+  </div>
+  </div>
+
+{% endblock %}

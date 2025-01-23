@@ -1,0 +1,25 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block header %}
+  {{ govukHeader({
+    useTudorCrown: true,
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/css/accessible-autocomplete.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}

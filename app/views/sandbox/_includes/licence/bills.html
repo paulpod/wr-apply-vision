@@ -1,0 +1,285 @@
+
+
+{{ govukTable({
+  caption: "Bills",
+  captionClasses: "govuk-table__caption--l",
+  firstCellIsHeader: false,
+  head: [
+
+    {
+      text: "Bill number"
+    },
+    {
+      text: "Date created"
+    },
+
+    {
+      text: "Billing account"
+    },
+    {
+      text: "Bill run type"
+    },
+    {
+      text: "Financial year",
+      format: 'numeric'
+    },
+    {
+      text: "Bill total",
+      format: 'numeric'
+
+    }
+  ],
+  rows: [
+  [
+
+    {
+      html: '<a class="govuk-link" href="/bd/charges-2020/supplementary-bill?status=sent&region=Anglian">OP213344</a>'
+    },
+    {
+      text: '5 March 2020'
+    },
+
+    {
+      html: ' <a href="billing-account?BAID=0" class="govuk-link">BA1234443S</a>'
+    },
+    {
+      text: "Supplementary"
+    },
+    {
+      text: "2019",
+      format: 'numeric'
+    },
+    {
+      text: "£5,345.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="/bd/charges-2020/supplementary-bill?status=sent&region=Anglian">OP123334</a>'
+    },
+    {
+      text: '5 March 2020'
+    },
+
+    {
+      html: ' <a href="billing-account?BAID=0" class="govuk-link">BA1234443S</a>'
+    },
+    {
+      text: "Supplementary"
+    },
+    {
+      text: "2018",
+      format: 'numeric'
+    },
+    {
+      text: "£3,002.75",
+      format: 'numeric'
+    }
+  ],
+
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">2345432</a>'
+    },
+    {
+      text: '1 April 2017'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2018",
+      format: 'numeric'
+    },
+    {
+      text: "£5,345.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">9876431</a>'
+    },
+
+    {
+      text: '11 April 2016'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2017",
+      format: 'numeric'
+    },
+    {
+      text: "£5,345.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">2345432</a>'
+    },
+
+    {
+      text: '9 April 2015'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2016",
+      format: 'numeric'
+    },
+    {
+      text: "£5,345.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">45436364</a>'
+    },
+
+    {
+      text: '9 April 2014'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2015",
+      format: 'numeric'
+    },
+    {
+      text: "£5,100.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">876787687</a>'
+    },
+
+    {
+      text: '13 April 2013'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2015",
+      format: 'numeric'
+    },
+    {
+      text: "£5,100.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">45456546</a>'
+    },
+
+    {
+      text: '5 April 2013'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2014",
+      format: 'numeric'
+    },
+    {
+      text: "£5,100.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">32593495</a>'
+    },
+
+    {
+      text: '9 April 2012'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2013",
+      format: 'numeric'
+    },
+    {
+      text: "£4,856.00",
+      format: 'numeric'
+    }
+  ],
+  [
+
+    {
+      html: '<a class="govuk-link" href="#">2323642</a>'
+    },
+
+    {
+      text: '2 April 2011'
+    },
+
+    {
+      html: '<a class="govuk-link" href="#">34920356</a>'
+    },
+    {
+      text: "Annual"
+    },
+    {
+      text: "2012",
+      format: 'numeric'
+    },
+    {
+      text: "£4,856.00",
+      format: 'numeric'
+    }
+  ]
+
+  ]
+}) }}
+
+  <p class="govuk-body"><a class="govuk-link" href="/bd/all-sent-bills">View all sent bills</a></p>

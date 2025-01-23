@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">NALD replacement, abstraction leg</span>
+    <h1 class="govuk-heading-xl">
+      Create Licence
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p>test: 01.1.2002</p>
+
+    <div class="govuk-form-group">
+      
+      <form>
+  <label for="day">Day:</label>
+  <input type="text" id="day" name="day">
+
+  <label for="month">Month:</label>
+  <input type="text" id="month" name="month">
+
+  <label for="year">Year:</label>
+  <input type="text" id="year" name="year">
+</form>
+
+<script>
+   // Attach paste event listener to the document
+  const dayInput = document.getElementById('day');
+const monthInput = document.getElementById('month');
+const yearInput = document.getElementById('year');
+
+handleDateInput(dayInput, monthInput, yearInput);
+
+
+  
+
+  function handleDateInput(dayInput, monthInput, yearInput) {
+
+  // Add event listener to each input field
+  dayInput.addEventListener('input', (e) => processDateInput(e.target, dayInput, monthInput, yearInput));
+  monthInput.addEventListener('input', (e) => processDateInput(e.target, dayInput, monthInput, yearInput));
+  yearInput.addEventListener('input', (e) => processDateInput(e.target, dayInput, monthInput, yearInput));
+}
+
+function processDateInput(inputField, dayInput, monthInput, yearInput) {
+  // Get the value from the input field
+  let dateString = inputField.value;
+
+  // Check if the value contains a slash, period or hyphen
+  if (dateString.match(/[/\.-]/)) {
+    // Split the date string into day, month and year
+    let dateParts = dateString.split(/[/\.-]/);
+
+    // Populate the individual input fields
+    dayInput.value = dateParts[0];
+    monthInput.value = dateParts[1];
+    yearInput.value = dateParts[2];
+
+    // Move focus to the year input field
+    yearInput.focus();
+  }
+}
+  
+</script>
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <h1 class="govuk-heading-l">
+      User type
+    </h1>
+    <p class="govuk-body govuk-!-font-weight-bold">
+
+      {% if data['userType'] == "bd" %}
+      Billing and Data
+      {% elseif data['userType'] == "nps" %}
+      National permitting service
+      {% else %}
+      Super user
+      {% endif %}
+
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="set-user-type">Change the user type</a></p>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+

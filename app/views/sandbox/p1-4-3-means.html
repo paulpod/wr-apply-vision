@@ -1,0 +1,263 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Point A</span>
+        <h1 class="govuk-heading-xl">
+          Select the means of abstraction
+        </h1>
+
+     
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  .govuk-radios__label {
+    margin-top: -7px;
+  }
+</style>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="crossRegionFlag-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <!--<h3 class="govuk-fieldset__heading">
+                What is the means of abstraction for point A?
+              </h3>-->
+            </legend>
+            <div id="crossRegionFlag-hint" class="govuk-hint">
+              Select one option
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <!-- see the file p1-4-3-means-prefixedcode for ones like that -->
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag" name="crossRegionFlag" type="radio" value="M1">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag">
+                  Artesian<span class="govuk-hint govuk-radios__hint">ART</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="M2">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-2">
+                  Bucket<span class="govuk-hint govuk-radios__hint">BUC</span>
+                </label>
+              </div>
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-3" name="crossRegionFlag" type="radio" value="M3">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-3">Gravity and fixed means<span class="govuk-hint govuk-radios__hint">GFX</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-4" name="crossRegionFlag" type="radio" value="M4">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-4">
+                  Gravity<span class="govuk-hint govuk-radios__hint">GRA</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-5" name="crossRegionFlag" type="radio" value="M5">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-5">
+                  Gravity and sluice (adjustable)<span class="govuk-hint govuk-radios__hint">GSA</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-6" name="crossRegionFlag" type="radio" value="M6">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-6">
+                  Hydram(s)<span class="govuk-hint govuk-radios__hint">HYD</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-7" name="crossRegionFlag" type="radio" value="M7">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-7">
+                  Mixed means<span class="govuk-hint govuk-radios__hint">MXM</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-8" name="crossRegionFlag" type="radio" value="M8">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-8">
+                  Other means<span class="govuk-hint govuk-radios__hint">OTH</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-9" name="crossRegionFlag" type="radio" value="M9">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-9">
+                  Surface mounted pump (fixed)<span class="govuk-hint govuk-radios__hint">SMF</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-10" name="crossRegionFlag" type="radio" value="M10">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-10">
+                  Surface Mounted pump (mobile)<span class="govuk-hint govuk-radios__hint">SMM</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-11" name="crossRegionFlag" type="radio" value="M11">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-11">
+                  Submersible pump (fixed)<span class="govuk-hint govuk-radios__hint">SPF</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-12" name="crossRegionFlag" type="radio" value="M12">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-12">
+                  Submersible pump (mobile)<span class="govuk-hint govuk-radios__hint">SPM</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-13" name="crossRegionFlag" type="radio" value="M13">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-13">
+                  Unspecified means<span class="govuk-hint govuk-radios__hint">UNM</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-14" name="crossRegionFlag" type="radio" value="M14">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-14">
+                  Unspecified pump<span class="govuk-hint govuk-radios__hint">UNP</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-15" name="crossRegionFlag" type="radio" value="M15">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-15">
+                  Unspecified structure and means<span class="govuk-hint govuk-radios__hint">UNS</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-16" name="crossRegionFlag" type="radio" value="M14">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-16">
+                  Weir and gravity<span class="govuk-hint govuk-radios__hint">WRG</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-17" name="crossRegionFlag" type="radio" value="M15">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-17">
+                  Weir and pump<span class="govuk-hint govuk-radios__hint">WRP</span>
+                </label>
+              </div>
+
+
+
+            </div>
+          </fieldset>
+        </div>
+        <!-- end form group item -->
+
+
+        <div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+
+    
+          <p class="govuk-hint">
+            The licence will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

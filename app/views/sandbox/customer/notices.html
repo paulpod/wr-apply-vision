@@ -1,0 +1,74 @@
+{% extends "layouts/_manage.html" %}
+
+{% set title =  'Set' + [data.contacts[data.contactID]['name']] + 'to get water abstraction alerts by email?' %}
+
+
+
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+
+{% set warning %}
+   {{ govukWarningText({
+     text:  "The licence holder will not get alerts by post if you set a contact to get email alerts.",
+     iconFallbackText: "Warning",
+     classes: "govuk-!-margin-bottom-0 govuk-!-margin-top-1"
+   }) }}
+{% endset %}
+
+{% set qTitle = '<span class="govuk-caption-l">' + [data.customers[data.customerID]['name']] + '</span> Should ' + [data.contacts[data.contactID]['name']] + ' get water abstraction email alerts?' + warning%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+
+    <form method="post" novalidate>
+
+
+
+
+     {{ govukRadios({
+       idPrefix: "notices",
+       name: "notices",
+       fieldset: {
+         legend: {
+           text: qTitle|safe,
+           isPageHeading: true,
+           classes: "govuk-fieldset__legend--l"
+         }
+       },
+       items: [
+         {
+           value: "yes",
+           text: "Yes",
+           checked: checked("notices", "yes")
+         },
+         {
+           value: "no",
+           text: "No",
+           checked: checked("notices", "no")
+         }
+       ]
+     }) }}
+
+
+      {{ govukButton({
+  text: "Continue"
+}) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

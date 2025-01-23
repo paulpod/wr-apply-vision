@@ -1,0 +1,348 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">NALD replacement, abstraction leg</span>
+    <h1 class="govuk-heading-xl">
+      Create Licence
+    </h1>
+
+    <h2 class="govuk-heading-l">
+      1. Basics
+    </h2>
+
+   
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+     <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-number-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading ">
+            Licence number
+          </h3>
+        </legend>
+
+       
+
+        <input type="text" id="licence-number" name="licence-number" class="govuk-input govuk-input--width-20" autocomplete="off" />
+
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-number-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Application number
+          </h3>
+        </legend>
+
+        
+
+        <input type="text" id="application-number" name="application-number" class="govuk-input govuk-input--width-20" autocomplete="off" />
+
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    
+    <hr style="margin:2em 0">
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="suic-area-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            SUIC Area
+          </h3>
+        </legend>
+        
+
+        <input type="text" id="application-number" name="suic-area" class="govuk-input govuk-input--width-10" autocomplete="off" />
+
+      </fieldset>
+    </div>
+
+    <!-- end form group item -->
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="eiuc-area-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            EIUC Area
+          </h3>
+        </legend>
+        
+
+        <input type="text" id="application-number" name="eiuc-area" class="govuk-input govuk-input--width-10" autocomplete="off" />
+
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+    <!-- end form group item -->
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="agency-area-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Agency Area
+          </h3>
+        </legend>
+        
+
+        <input type="text" id="application-number" name="agency-area" class="govuk-input govuk-input--width-10" autocomplete="off" />
+
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+
+    <hr style="margin:2em 0">
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="signature-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Signature date
+          </h3>
+        </legend>
+
+        
+        <div class="govuk-date-input" id="signature-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="signature-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="signature-date-day" name="signature-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="signature-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="signature-date-month" name="signature-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="signature-date-year">
+                Year
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="signature-date-year" name="signature-date-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        
+      </fieldset>
+    </div>
+
+
+    <div>
+
+
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="effective-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">Effective start date</h3>
+        </legend>
+
+        
+
+
+        <div class="govuk-date-input" id="effective-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="effective-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="effective-date-day" name="effective-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="effective-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="effective-date-month" name="effective-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="effective-date-year">
+                Year
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="effective-date-year" name="effective-date-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </div>
+
+      
+
+      <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="expiry-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">Expiry date</h3>
+        </legend>
+
+        <div class="govuk-date-input" id="expiry-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="expiry-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-date-day" name="expiry-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="expiry-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-date-month" name="expiry-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="expiry-date-year">
+                Year
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-date-year" name="expiry-date-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </div>
+
+
+    <hr style="margin:2em 0">
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licholder-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Licence holder ID
+          </h3>
+        </legend>
+
+         <div id="licholder-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          Use an existing contact. Enter the party ID code, for example: 1104807 
+        </div>
+
+        
+
+        <input type="text" id="application-number" name="licholder" class="govuk-input govuk-input--width-10" autocomplete="off" />
+
+      </fieldset>
+    </div>
+
+    <!-- end form group item -->
+
+   
+
+
+  </div>
+
+
+
+    <!-- list of the abstraction purposes -->
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+
+  </div>
+
+</div>
+
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+{% endblock %}
+
+
+

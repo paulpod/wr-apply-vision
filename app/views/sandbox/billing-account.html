@@ -1,0 +1,56 @@
+{% extends "layouts/_manage.html" %}
+
+
+<!--lookup the Billing account ID and set the ID based on the index of the billing account-->
+{% set BAID = data['BAID'] %}
+
+
+<!--set title-->
+{% set title = "Billing account for " + [data.billingAccounts[BAID].customer]  %}
+
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">Billing account {{[data.billingAccounts[BAID].number]}}</span>
+    {{ title }}</h1>
+  </div>
+</div>
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
+
+    <section>
+      <h2 class="govuk-heading-m">
+      Billing address
+      </h2>
+      <!-- billing account address -->
+      <p class="govuk-body">
+      {% include "sandbox/_includes/billing-account/ba-address.html" %}
+      </p>
+      {{ govukButton({
+  text: "Change address",
+  classes: "govuk-button--secondary",
+  href: "/bd/contacts/bill-manager?ba=true&createNewContact=false"
+}) }}
+
+</section>
+</div>
+</div>
+
+
+{% endblock %}

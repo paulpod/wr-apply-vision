@@ -1,0 +1,57 @@
+
+
+<section class="govuk-!-margin-bottom-7">
+
+
+
+
+    {% set invoiceAddress %}
+   <a href="../billing-account?BAID=0" class="govuk-link">BA1234443S</a>
+    {% endset %}
+
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Charge information</h2>
+
+
+{{ govukSummaryList({
+rows: [
+  {
+    classes: 'govuk-summary-list',
+    key: {
+      text: "Reason"
+    },
+    value: {
+      text: [data.licences[data.ID].chargeInformation[chargeInfoNumber].reasonNewCharge]
+    }
+  },
+  {
+    key: {
+      text: "Start date"
+    },
+    value: {
+      text: [data.licences[data.ID].chargeInformation[chargeInfoNumber].chargeStart]
+    }
+  },
+  {
+    key: {
+      text: "Billing account"
+    },
+    value: {
+      html: invoiceAddress
+    }
+  },
+  {
+    classes: 'govuk-summary-list__row--no-border',
+    key: {
+      text: "Licence holder"
+    },
+    value: {
+      text: [data.licences[data.ID].holder]
+    }
+  }
+]
+}) }}
+
+
+
+
+</section>

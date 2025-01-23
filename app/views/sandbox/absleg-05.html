@@ -1,0 +1,337 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">NALD replacement, abstraction leg</span>
+    <h1 class="govuk-heading-l">
+      Licence 20/56/22/0027 <span style="position: relative;top:-0.16em;left:0.5em"><strong class="govuk-tag govuk-tag--green">
+  Draft</strong></span>
+</strong>
+    </h1>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-issue-number-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Licence issue number
+          </h3>
+        </legend>
+
+        <div id="licence-issue-number-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          All new licences start with issue 1, but it may be edited
+
+          <!--<p>
+            Preamble from NALD User Manual:<br>
+            The entry of the data for the Licence should be straightforward. If there is missing mandatory data then something is wrong with the Licence! You should have a copy of the Licence that you are entering onto NALD with you!! [sic]
+          </p>-->
+        </div>
+
+        <input type="text" id="licence-issue-number" name="licence-issue-number" class="govuk-input govuk-input--width-4" autocomplete="off" />
+
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    <!-- is greyed out so no user input on increment
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-increment-number-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Increment number
+          </h3>
+        </legend>
+
+        <div id="licence-increment-number-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          All new issues start at zero
+         
+        </div>
+
+        <input type="text" id="licence-increment-number" name="licence-increment-number" class="govuk-input govuk-input--width-4" autocomplete="off" />
+
+      </fieldset>
+    </div>-->
+    <!-- end form group item -->
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="effective-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">Effective start date</h2>
+        </legend>
+
+        <!--<div id="effective-date-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          This has
+        </div>-->
+
+        <div class="govuk-date-input" id="effective-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="effective-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="effective-date-day" name="effective-date-day" type="text" inputmode="numeric" value="27">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="effective-date-month" value="3">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="effective-date-month" name="effective-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="effective-date-year">
+                Year
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="effective-date-year" name="effective-date-year" type="text" inputmode="numeric" value="2017">
+            </div>
+          </div>
+
+
+      </fieldset>
+        </div><!-- end form item -->
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="returnsreqFlag-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Are returns required?
+          </h3>
+        </legend>
+        <div id="returnsreqFlag-hint" class="govuk-hint">
+          Does the licence require returns of abstracted quantities to be made.
+        </div>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="returnsreqFlag" name="returnsreqFlag" type="radio" value="yes" checked>
+            <label class="govuk-label govuk-radios__label" for="returnsreqFlag">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="returnsreqFlag-2" name="returnsreqFlag" type="radio" value="no" >
+            <label class="govuk-label govuk-radios__label" for="returnsreqFlag-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="chargesreqFlag-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Are charges required?
+          </h3>
+        </legend>
+        <div id="chargesreqFlag-hint" class="govuk-hint">
+          Does the licence require charges for abstracted quantities to be made.
+        </div>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="chargesreqFlag" name="chargesreqFlag" type="radio" value="yes" checked>
+            <label class="govuk-label govuk-radios__label" for="chargesreqFlag">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="chargesreqFlag-2" name="chargesreqFlag" type="radio" value="no" >
+            <label class="govuk-label govuk-radios__label" for="chargesreqFlag-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-notes-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Notes
+          </h3>
+        </legend>
+
+        <div id="licence-notes-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          This is a free format text field to hold miscellaneous information relating to the licence.
+          
+          <!--Not sure what hint for notes you would have...
+          NALD says: This is a free format text field to hold miscellaneous information relating to the licence. The contents of this field are not available for using in searches.-->
+        </div>
+
+        <input type="text" id="licence-number" name="licence-number" class="govuk-input" autocomplete="off" />
+
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    <!-- the other NALD flags are greyed out on a new licence so just one Q here
+        i'm not even sure that this is something that needs to be asked at this point
+        as we are not in areas yet, which should be defined by points, and as such it can be answered automatically at that step?
+     -->
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="crossRegionFlag-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Is this a cross region licence?
+          </h3>
+        </legend>
+        <div id="crossRegionFlag-hint" class="govuk-hint">
+          Each region issues a licence referring solely to the points in their region.
+        </div>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="crossRegionFlag" name="crossRegionFlag" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="crossRegionFlag">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="no" checked>
+            <label class="govuk-label govuk-radios__label" for="crossRegionFlag-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>
+
+    <div>
+      <p class="govuk-hint">
+        Saving will check the licence number and create a new licence if it does not already exist. The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+
+    <div>
+      <h3>Other dates - content from NALD user manual</h3>
+      <h4>Original effective date</h4>
+      <p>Content</p>
+
+    </div>
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

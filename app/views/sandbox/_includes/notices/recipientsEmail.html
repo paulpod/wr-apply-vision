@@ -1,0 +1,79 @@
+<!-- count the number of recipients for the alert-->
+
+{% set recipients  = data['recipients'] %}
+{% set recipientsLetter  = 0 %}
+{% set recipientsEmail  = 0 %}
+
+<!--split the licences entered in to the flow into an array-->
+{% set licenceList = data['licenceList'].split(',') %}
+<!--set a global variable for the licence holder-->
+{% set licenceHolder = "" %}
+<!--loop through the licence numbers entered by the user-->
+{% for i in licenceList %}
+<!--set the individual licence number to licence-->
+{% set licence = i %}
+<!--getting the licence data-->
+{% set licences = data['licences'] %}
+<!--loop through the licence data-->
+{% for i in licences %}
+<!--set the loop index-->
+{% set loopNumber = loop.index0 %}
+<!--match the licence number entered against the licence number in the list-->
+{% if i.number == licence  %}
+<!--set a variable for the licenceHolder-->
+{% set licenceHolder = [data.licences[loopNumber].holder] %}
+
+
+<!--add in address details-->
+
+{% set addresses = data['addresses'] %}
+{% for i in addresses %}
+<!--set the index of the address-->
+{% set loopNumber = loop.index0 %}
+
+<!--for each of the adresses check to see if the address has the correct customer and the billing role-->
+{% set addressCustomers = i.customers %}
+{% for i in addressCustomers %}
+{% if "Licence holder" in i.role and licenceHolder == i.customer %}
+
+
+{% set recipientsLetter = recipientsLetter + 1 %}
+{% set recipients = recipients + 1 %}
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+
+
+
+
+<!--getting the contact data-->
+{% set contacts = data['contacts'] %}
+<!--loop through the contacts-->
+{% for contact in contacts %}
+<!--set the index of the contact-->
+{% set contactIndex = loop.index0 %}
+
+<!--for each of the adresses check to see if the address has the correct customer and the billing role-->
+{% set contactCustomers = contact.customers %}
+{% for i in contactCustomers %}
+{% if "Water abstraction alerts" in i.notices and licenceHolder == i.customer %}
+
+{% if contacts[contactIndex].email == "" %}
+{% else %}
+{% set recipientsEmail = recipientsEmail + 1 %}
+{% set recipients = recipients + 1 %}
+
+{% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+
+
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+{{recipientsEmail}}

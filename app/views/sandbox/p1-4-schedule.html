@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Headline caption</span>
+        <h1 class="govuk-heading-xl">
+          Check licence conditions
+        </h1>
+
+        <p>
+          Check the details that have been uploaded from the licence.
+        </p>
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          <h2 class="govuk-heading-m">Schedule of conditions</h2>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              1. Source of supply
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1.1 Underground strata comprising of Chalk at Apple Tree Farm.
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              taken from licence
+                <br>
+                <a class="govuk-link" href="#">Confirm source</a>
+            </dd>
+          </div>
+        
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              2. Points of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2.1 At National Grid References <strong>SK&nbsp;675124</strong> marked <span class="map-blob">A</span> on the map.
+
+              <br class="govuk-!-margin-bottom-3">
+              2.2 At National Grid References <strong>SK&nbsp;675126</strong> marked <span class="map-blob">B</span> on the map.
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+              <br>
+              <a class="govuk-link" href="p1-4-2-point-picker-a">Confirm point A</a>
+            </dd>
+
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              3. Means of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">
+                3.1 For point A: A borehole not exceeding 55 metres in depth and 219 millimetres in diameter steel lined to 55 metres with <a href="">a submersible pump</a>.</p>
+              <p class="govuk-body">
+                3.2 For point B: A borehole not exceeding 60 metres in depth and 400 millimetres in diameter with plain steel lined to 60 metres with <a href="">a submersible pump</a>.</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--taken from licence-->
+              <br>
+              <p>
+                <a class="govuk-link" href="p1-4-3-means">Confirm means for point A<span class="govuk-visually-hidden">  </span></a>
+              </p>
+              <br>
+              <p style="margin-top: 50px;">
+                <a class="govuk-link" href="p1-4-3-means">Confirm means for point B<span class="govuk-visually-hidden">  </span></a>
+              </p>
+            </dd>
+          </div>
+
+        </dl>
+
+
+        <div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+
+    
+          <p class="govuk-hint">
+            The licence will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

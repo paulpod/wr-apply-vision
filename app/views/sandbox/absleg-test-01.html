@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div>
+        <h3 class="govuk-caption-l">
+          Licence number: 20/56/22/0027
+
+          <span style="position: relative;top:-0.16em;left:0.5em">
+            <strong class="govuk-tag govuk-tag--green">Draft</strong>
+          </span>
+
+          <span class="govuk-caption-l">Application number: NPW/WR/038046</span>
+        </h3>
+    </div>
+
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Create a new licence
+    </h1>
+
+
+    <div class="govuk-!-margin-bottom-4">
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-0">
+      Abstraction purpose
+      </h3>
+      <span class="govuk-caption-m">A &ndash; AGR &ndash; 140 General Farming & Domestic</span>
+    </div>
+
+
+
+
+    <div id="id-preamble">
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-4 ">
+        Where is the water taken?
+      </h2>
+
+    </div>
+
+    <!-- end form group item -->
+
+
+
+   
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="gridref-hint">
+
+         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <!--<h3 class="govuk-fieldset__heading">
+            Point 1
+          </h3>
+          </legend>-->
+
+          <p>
+            <strong>Local name</strong><br>
+          Manor Farm ltd B/H1 Spridlington</p>
+
+          <p>
+            <strong>Grid reference</strong><br>
+          SZ 65750 98047</p>
+
+           <p>
+            <strong>Supply and means</strong><br>
+          Ground water, borehole using submersible pump</p>
+
+        
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+
+    <div class="govuk-form-group address-lookup">
+      <label for="address-picker" class="govuk-label  govuk-label--s">Find code</label>
+      <div id="address-picker-hint" class="govuk-hint">
+        Type code, or part of description to begin
+      </div>
+        <div id="my-autocomplete-wrapper">
+            <select id="address-picker" class="govuk-select">
+              <option value="" selected disabled hidden></option>
+              {% for address in data['dpsaddresses'] %}
+                <option value="{{ address.id }}">{{ address.id }} - {{ address.line_1 }}</option>
+              {% endfor %}
+            </select>
+        </div>
+    </div>
+    <!-- end form group item -->
+
+
+    <div class="govuk-form-group subcode-lookup">
+      <!--<label for="address-picker" class="govuk-label  govuk-label--s">Find code</label>-->
+      <div id="subcode-picker-hint" class="govuk-hint">
+        Type subcode or part of description
+      </div>
+        <div id="my-autocomplete-wrapper">
+            <select id="subcode-picker" class="govuk-select">
+              <option value="" selected disabled hidden></option>
+              {% for address in data['dpsaddresses'] %}
+                <option value="{{ address.line_2 }}">{{ address.line_2 }} - {{ address.town }}</option>
+              {% endfor %}
+            </select>
+        </div>
+    </div>
+    <!-- end form group item -->
+
+
+
+
+
+    
+
+
+
+
+    
+
+<br>
+    <!--<div class="govuk-!-margin-bottom-8">
+      <p>
+        <a href="#" onclick="return false;">Save and add</a> another point
+      </p>
+    </div>-->
+
+
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#address-picker')
+  })
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#subcode-picker')
+  })
+</script>
+
+{% endblock %}
+
+

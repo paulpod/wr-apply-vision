@@ -1,0 +1,121 @@
+{% extends "layouts/_manage.html" %}
+
+<!--set title-->
+{% set title = 'Search results for "' + data['search']+ '"' %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+<!--header without searchbar-->
+{% include "sandbox/_includes/nav/header.html" %}
+
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl"> {{ title }}</h1>
+
+
+    <!-- search for licences -->
+    <form action="search" method="post" novalidate>
+
+      <label class="govuk-label  " for="search">
+        Enter a licence number, customer name, returns ID, registered email address or monitoring station
+      </label>
+
+      <input class="govuk-input govuk-!-width-two-thirds govuk-!-display-inline-block" id="search" name="search" type="text"  value="{{data['search']}}">
+      {{ govukButton({
+        text: "Search",
+        classes: "govuk-!-display-inline-block govuk-!-padding-right-6 govuk-!-padding-left-6"
+      }) }}
+
+
+    </form>
+
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <!-- find the correct table-->
+    {% set term = data['search'] %}
+    {% set resultsTable = "sandbox/_includes/customers-table.html" %}
+
+    {# customer data #}
+    {% set customers = data['customers'] %}
+    {% for customer in customers %}
+    {% if customer.name |lower == term | lower or (term == "*") %}
+    {% set resultsTable = "sandbox/_includes/customers-table.html" %}
+    {% endif %}
+    {% endfor %}
+
+    {# station data #}
+    {% set stations = data['stations'] %}
+    {% for station in stations %}
+    {% if (station.label |lower == term | lower) or (term == "Monitoring stations") %}
+    {% set resultsTable = "sandbox/_includes/stations-table.html" %}
+    {% endif %}
+    {% endfor %}
+
+    {# licences data #}
+    {% set licences = data['licences'] %}
+    {% for licence in licences %}
+    {% if (licence.number |lower == term | lower) or (term == "/") %}
+    {% set resultsTable = "sandbox/_includes/licences-table.html" %}
+    {% endif %}
+    {% endfor %}
+
+    {# billingaccount data #}
+    {% set billingAccounts = data['billingAccounts'] %}
+    {% for billingAccount in billingAccounts %}
+    {% if (billingAccount.number |lower == term | lower) or (term.startsWith("BA")) %}
+    {% set resultsTable = "sandbox/_includes/billing-accounts-table.html" %}
+    {% endif %}
+    {% endfor %}
+
+    {# users data #}
+    {% set users = data['users'] %}
+    {% for user in users %}
+    {% if (user.email |lower == term | lower) or (term.includes("@")) %}
+    {% set resultsTable = "sandbox/_includes/users-table.html" %}
+    {% endif %}
+    {% endfor %}
+
+
+{# Old way if searching
+    {% if term.startsWith("BA") %}
+      {% set resultsTable = "sandbox/_includes/billing-accounts-table.html" %}
+   {% elseif term.includes("@") %}
+      {% set resultsTable = "sandbox/_includes/users-table.html" %}
+    {% elseif term.includes("/") %}
+      {% set resultsTable = "sandbox/_includes/licences-table.html" %}
+    {% elseif term.includes("*") %}
+      {% set resultsTable = "sandbox/_includes/stations-table.html" %}
+    {% else  %}
+      {% set resultsTable = "sandbox/_includes/customers-table.html" %}
+    {% endif %}  #}
+
+    {% if resultsTable.length %}
+    <!-- results table -->
+    {% include resultsTable | default("sandbox/_includes/stations-table.html") %}
+    {% endif %}
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

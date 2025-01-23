@@ -1,0 +1,688 @@
+
+
+[
+  {
+	"id": "20",
+    "line_1": "Boiler Feed",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "30",
+    "line_1": "Conveying Materials",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "60",
+    "line_1": "Dust Suppression",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "70",
+    "line_1": "Effluent/Slurry Dilution",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "80",
+    "line_1": "Evaporative Cooling",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "90",
+    "line_1": "Fish Farm/Cress Pond Throughflow",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "110",
+    "line_1": "Gas Suppression/Scrubbing",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "120",
+    "line_1": "General Cooling (Existing Licences Only) (High Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "130",
+    "line_1": "General Cooling (Existing Licences Only) (Low Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "140",
+    "line_1": "General Farming & Domestic",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "150",
+    "line_1": "General Use Relating To Secondary Category (High Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "160",
+    "line_1": "General Use Relating To Secondary Category (Medium Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "170",
+    "line_1": "General Use Relating To Secondary Category (Low Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "180",
+    "line_1": "General Use Relating To Secondary Category (Very Low Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "190",
+    "line_1": "General Washing/Process Washing",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "200",
+    "line_1": "Heat Pump",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "220",
+    "line_1": "Hydraulic Rams",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "230",
+    "line_1": "Hydraulic Testing",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "250",
+    "line_1": "Lake & Pond Throughflow",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "280",
+    "line_1": "Make-Up Or Top Up Water",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "310",
+    "line_1": "Non-Evaporative Cooling",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "350",
+    "line_1": "Process Water",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "380",
+    "line_1": "Spray Irrigation - Anti Frost",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "390",
+    "line_1": "Spray Irrigation - Anti Frost Storage",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "400",
+    "line_1": "Spray Irrigation - Direct",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "410",
+    "line_1": "Spray Irrigation - Spray Irrigation Definition Order",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "420",
+    "line_1": "Spray Irrigation - Storage",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "430",
+    "line_1": "Supply To A Canal For Throughflow",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "440",
+    "line_1": "Supply To A Leat For Throughflow",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "450",
+    "line_1": "Transfer Between Sources (Pre Water Act 2003)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "460",
+    "line_1": "Vegetable Washing",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "600",
+    "line_1": "Trickle Irrigation - Direct",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "610",
+    "line_1": "Trickle Irrigation - Under Cover/Containers",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "620",
+    "line_1": "Trickle Irrigation - Storage",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "630",
+    "line_1": "Flood Irrigation, Including Water Meadows, Warping And Pest Control",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "640",
+    "line_1": "Wet Fencing And Nature Conservation",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "650",
+    "line_1": "Transfer Between Sources (Post Water Act 2003)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "70",
+    "line_1": "Effluent/Slurry Dilution",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "90",
+    "line_1": "Fish Farm/Cress Pond Throughflow",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "100",
+    "line_1": "Fish Pass/Canoe Pass",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "150",
+    "line_1": "General Use Relating To Secondary Category (High Loss)",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "160",
+    "line_1": "General Use Relating To Secondary Category (Medium Loss)",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "170",
+    "line_1": "General Use Relating To Secondary Category (Low Loss)",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "180",
+    "line_1": "General Use Relating To Secondary Category (Very Low Loss)",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "190",
+    "line_1": "General Washing/Process Washing",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "220",
+    "line_1": "Hydraulic Rams",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "250",
+    "line_1": "Lake & Pond Throughflow",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "280",
+    "line_1": "Make-Up Or Top Up Water",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "350",
+    "line_1": "Process Water",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "430",
+    "line_1": "Supply To A Canal For Throughflow",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "440",
+    "line_1": "Supply To A Leat For Throughflow",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "640",
+    "line_1": "Wet Fencing And Nature Conservation",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "650",
+    "line_1": "Transfer Between Sources (Post Water Act 2003)",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "AQF",
+    "town": "Aquaculture fish"
+  },
+{
+  "id": "70",
+    "line_1": "Effluent/Slurry Dilution",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "90",
+    "line_1": "Fish Farm/Cress Pond Throughflow",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "100",
+    "line_1": "Fish Pass/Canoe Pass",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "150",
+    "line_1": "General Use Relating To Secondary Category (High Loss)",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "160",
+    "line_1": "General Use Relating To Secondary Category (Medium Loss)",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "170",
+    "line_1": "General Use Relating To Secondary Category (Low Loss)",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "180",
+    "line_1": "General Use Relating To Secondary Category (Very Low Loss)",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "190",
+    "line_1": "General Washing/Process Washing",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "220",
+    "line_1": "Hydraulic Rams",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "280",
+    "line_1": "Make-Up Or Top Up Water",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "350",
+    "line_1": "Process Water",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "380",
+    "line_1": "Spray Irrigation - Anti Frost",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "390",
+    "line_1": "Spray Irrigation - Anti Frost Storage",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "400",
+    "line_1": "Spray Irrigation - Direct",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "410",
+    "line_1": "Spray Irrigation - Spray Irrigation Definition Order",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "420",
+    "line_1": "Spray Irrigation - Storage",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "440",
+    "line_1": "Supply To A Leat For Throughflow",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "450",
+    "line_1": "Transfer Between Sources (Pre Water Act 2003)",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "600",
+    "line_1": "Trickle Irrigation - Direct",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "610",
+    "line_1": "Trickle Irrigation - Under Cover/Containers",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "620",
+    "line_1": "Trickle Irrigation - Storage",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "630",
+    "line_1": "Flood Irrigation, Including Water Meadows, Warping And Pest Control",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "640",
+    "line_1": "Wet Fencing And Nature Conservation",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "650",
+    "line_1": "Transfer Between Sources (Post Water Act 2003)",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+{
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "AQP",
+    "town": "Aquaculture plant"
+  },
+  {
+  "id": "10",
+    "line_1": "Animal Watering & General Use In Non Farming Situations",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "30",
+    "line_1": "Conveying Materials",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "60",
+    "line_1": "Dust Suppression",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "70",
+    "line_1": "Effluent/Slurry Dilution",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "150",
+    "line_1": "General Use Relating To Secondary Category (High Loss)",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "160",
+    "line_1": "General Use Relating To Secondary Category (Medium Loss)",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "170",
+    "line_1": "General Use Relating To Secondary Category (Low Loss)",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "180",
+    "line_1": "General Use Relating To Secondary Category (Very Low Loss)",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "190",
+    "line_1": "General Washing/Process Washing",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "210",
+    "line_1": "Horticultural Watering",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "220",
+    "line_1": "Hydraulic Rams",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "250",
+    "line_1": "Lake & Pond Throughflow",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "260",
+    "line_1": "Large Garden Watering",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "280",
+    "line_1": "Make-Up Or Top Up Water",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "350",
+    "line_1": "Process Water",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "380",
+    "line_1": "Spray Irrigation - Anti Frost",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "390",
+    "line_1": "Spray Irrigation - Anti Frost Storage",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "400",
+    "line_1": "Spray Irrigation - Direct",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "410",
+    "line_1": "Spray Irrigation - Spray Irrigation Definition Order",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "420",
+    "line_1": "Spray Irrigation - Storage",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "430",
+    "line_1": "Supply To A Canal For Throughflow",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "440",
+    "line_1": "Supply To A Leat For Throughflow",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "450",
+    "line_1": "Transfer Between Sources (Pre Water Act 2003)",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "480",
+    "line_1": "Water Wheels Not Used For Power",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "600",
+    "line_1": "Trickle Irrigation - Direct",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "610",
+    "line_1": "Trickle Irrigation - Under Cover/Containers",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "620",
+    "line_1": "Trickle Irrigation - Storage",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "630",
+    "line_1": "Flood Irrigation, Including Water Meadows, Warping And Pest Control",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "640",
+    "line_1": "Wet Fencing And Nature Conservation",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "650",
+    "line_1": "Transfer Between Sources (Post Water Act 2003)",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+  {
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "FOR",
+    "town": "Forestry"
+  },
+{
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "HOR",
+    "town": "Horticulture and nurseries"
+  },
+  {
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "ORC",
+    "town": "Orchards"
+  },
+  {
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "ZOO",
+    "town": "Zoos/Kennels/Stables"
+  }
+]

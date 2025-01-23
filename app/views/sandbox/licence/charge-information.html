@@ -1,0 +1,181 @@
+{% extends "layouts/_manage.html" %}
+
+{% set title = "Charge information valid from" %}
+{% set chargeInfoNumber = data['chargeInfoNumber'] %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{#
+{% block breadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../home"
+    },
+    {
+      text: "Licence " + [data.licences[data.ID].number],
+      href: "../licence?ID=" + data['ID']
+    }
+  ]
+}) }}
+
+{% endblock %}
+#}
+
+<!--content block-->
+{% block service %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+  <h1 class="govuk-heading-l">
+<span class="govuk-caption-l">Licence {{[data.licences[data.ID].number]}}</span>
+      <span class="screen-reader-only">Current</span> {{ title }} <br> {{[data.licences[data.ID].chargeInformation[chargeInfoNumber].chargeStart]}}
+      </h1>
+
+    {% set status = [data.licences[data.ID].chargeInformation[chargeInfoNumber].chargeStatus] %}
+<p class="govuk-body govuk-!-margin-bottom-9">
+    {{govukTag({
+    text: status | chargeStatusText | striptags(true),
+    classes: status | chargeStatusColour + " govuk-!-font-size-27"
+  })}}
+  </p>
+
+  </div>
+</div>
+
+
+
+<!--if the status is changes show the request changes information-->
+    {% if status =="CHANGES" %}
+<h2 class="govuk-heading-m">
+  Change request
+</h2>
+<p class="govuk-body govuk-!-margin-bottom-9">{{[data.licences[data.ID].chargeInformation[chargeInfoNumber].changeRequest] | default("Please change the purpose to Spray")}}</p>
+
+{% endif %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+  {% include "sandbox/_includes/licence/charge-information/details.html" %}
+  {% if status =="CHANGES" %}
+  {% include "current/includes/bd/elements-change.html" %}
+  {% else %}
+  {% include "sandbox/_includes/licence/charge-information/elements-no-change.html" %}
+  {% endif %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+<!-- if status is Review-->
+{% if status =="NOT APPROVED" %}
+<form action="#" method="post" class="form">
+
+<!--set request changes text area-->
+  {% set requestChanges %}
+  {{ govukTextarea({
+label: {
+  text: "Which parts of the charge information are incorrect?",
+  isPageHeading: false,
+  classes: "govuk-label--m govuk-!-margin-bottom-3"
+},
+hint: {
+  text: "Describe what needs to change. This will help the person who set up the charge information to correct it."
+},
+id: "requestChanges",
+name: "requestChanges"
+}) }}
+
+  {% endset -%}
+
+
+<!--set approve conditional reveal-->
+  {% set approve %}
+
+  <p class="govuk-body"><br>This licence will be added to the supplementary bill run and billed up to {{[data.licences[data.ID].chargeInformation[chargeInfoNumber].chargeBilledDate]}}.<br><br></p>
+
+
+  {% if date < 2020 %}
+  {{ govukWarningText({
+  text: "Older charge information will be invalid when you approve these details.",
+  iconFallbackText: "Warning"
+  }) }}
+  {% endif %}
+  {% endset %}
+
+  {{ govukRadios({
+idPrefix: "approve",
+name: "approve-charge-information",
+fieldset: {
+legend: {
+  text: "Do you want to approve this charge information?",
+  isPageHeading: false,
+  classes: "govuk-fieldset__legend--l"
+}
+},
+items: [
+{
+  value: "approve",
+  text: "Yes, approve",
+  conditional: {
+    html: approve
+  }
+},
+{
+  value: "requestChanges",
+  text: "No, request a change",
+  conditional: {
+    html: requestChanges
+  }
+}
+]
+}) }}
+
+
+
+  <button type="submit" class="govuk-button govuk-!-margin-right-1">
+    Confirm
+  </button>
+
+</form>
+
+
+{% endif %}
+
+<!--if status is changes-->
+{% if status =="CHANGES" %}
+<form action="#" method="post" class="form">
+
+
+        {{ govukButton({
+    text: "Confirm",
+    classes: "govuk-!-margin-right-6"
+    }) }}
+
+    {{ govukButton({
+    text: "Cancel charge information",
+    classes: "govuk-button--secondary",
+    href: "#"
+    }) }}
+
+
+
+</form>
+
+{% endif %}
+
+</div>
+</div>
+
+{% endblock %}

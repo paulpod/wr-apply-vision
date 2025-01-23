@@ -1,0 +1,100 @@
+{% extends "layouts/_manage.html" %}
+
+<!--set page title-->
+{% set title = [data.customers[data.customerID]['name']] + " - Check contact details" %}
+<!--set question title-->
+{% set qTitle = "<span class='govuk-caption-l'>" + [data.customers[data.customerID]['name']] + "</span> Check contact details" %}
+
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form method="post" novalidate>
+
+     <h1 class="govuk-heading-l">{{qTitle | safe}}</h1>
+
+     <h2 class="govuk-heading-m">Contact details</h2>
+
+    {% if data['contactType'] == "person" %}
+    {% set nameLink = "enter-a-name"%}
+    {% else %}
+    {% set  nameLink = "select-a-contact-type"%}
+    {% endif %}
+
+      {{ govukSummaryList({
+    rows: [
+    {
+      key: {
+        text: "Type"
+      },
+      value: {
+        text: data['contactType']|capitalize
+      },
+      actions: {
+        items: [
+          {
+            href: "select-a-contact-type",
+            text: "Change",
+            visuallyHiddenText: "contact type"
+          }
+        ]
+      }
+    },
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          text: data['fullName']
+        },
+        actions: {
+          items: [
+            {
+              href: nameLink,
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          text: data['emailDetails']
+        },
+        actions: {
+          items: [
+            {
+              href: "enter-an-email-address",
+              text: "Change",
+              visuallyHiddenText: "email address"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+      {{ govukButton({
+  text: "Confirm"
+}) }}
+
+    </form>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

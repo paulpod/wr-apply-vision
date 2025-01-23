@@ -1,0 +1,92 @@
+[
+  {
+	"id": "AGG",
+    "line_1": "Aggregate",
+    "line_2": "LLL",
+    "town": "Licence to Licence; link between licences"
+  },
+  {
+	"id": "AGG",
+    "line_1": "Aggregate",
+    "line_2": "PL",
+    "town": "Licence to Purpose; link between different licences"
+  },
+  {
+	"id": "AGG",
+    "line_1": "Aggregate",
+    "line_2": "PP",
+    "town": "Purpose to purpose; Link within a licence"
+  },
+  {
+	"id": "AGG",
+    "line_1": "Aggregate",
+    "line_2": "PPL",
+    "town": "Purpose to purpose; link between different licences"
+  },
+  {
+	"id": "AGI",
+    "line_1": "Additional Groundwater Information",
+    "line_2": "DIM",
+    "town": "Dimensions"
+  },
+  {
+	"id": "BYPAS",
+    "line_1": "By-pass flow",
+    "line_2": "FLOW",
+    "town": "Flow"
+  },
+  {
+	"id": "CES",
+    "line_1": "Cessation Condition",
+    "line_2": "CHE",
+    "town": "Chemical"
+  },
+  {
+	"id": "CES",
+    "line_1": "Cessation Condition",
+    "line_2": "DEP",
+    "town": "Dependent on release from schemes/other licences"
+  },
+  {
+	"id": "CES",
+    "line_1": "Cessation Condition",
+    "line_2": "FLOW",
+    "town": "Flow"
+  },
+  {
+	"id": "CES",
+    "line_1": "Cessation Condition",
+    "line_2": "GWL",
+    "town": "Groundwater Level"
+  },
+  {
+	"id": "CES",
+    "line_1": "Cessation Condition",
+    "line_2": "LEV",
+    "town": "Level"
+  },
+  {
+	"id": "CES",
+    "line_1": "Cessation Condition",
+    "line_2": "POL",
+    "town": "Political - Hosepipe ban"
+  },
+  {
+	"id": "COMB",
+    "line_1": "Condition to indicate licence split on NALD",
+    "line_2": "LINK",
+    "town": "Link between split licences"
+  },
+  {
+	"id": "COMP",
+    "line_1": "Complex condition",
+    "line_2": "GEN",
+    "town": "General"
+  },
+  {
+	"id": "COMPR",
+    "line_1": "Compensation release",
+    "line_2": "FLOW",
+    "town": "Flow"
+  }
+]

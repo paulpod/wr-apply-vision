@@ -1,20 +1,1202 @@
-{% extends "layouts/main.html" %}
+{% extends "layout.html" %}
 
-{% set pageName="Home" %}
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
 
 {% block content %}
 
+<!--
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+    <h1 class="govuk-heading-xl">Water resource licensing service prototype!
+      <span class="govuk-caption-xl">{{releaseVersion}}</span>
     </h1>
+    {{releaseVersion | log }}
+    <!-- <p><a href="#">Prototype change log</a></p> -->
+<!--
+    <dl class="govuk-list">
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+      <dt><a class="govuk-link" href="sandbox/">Sand box</a></dt>
+      <dd>Work in progress and design experiments</dd>
+
+      <dt><a class="govuk-link" href="stable/">Stable</a></dt>
+      <dd>Ready for build</dd>
+
+      <dt><a class="govuk-link" href="archive/previous-proto/">Archive</a></dt>
+      <dd>Archived versions of the prototype</dd>
+
+    </dl>
+
   </div>
 </div>
+-->
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <!-- hacky hack! -->
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Water resource licensing service prototype
+      <span class="govuk-caption-xl">{{releaseVersion}}</span>
+    </h1>{{releaseVersion | log }}
+    <p>
+      This is a new version of the prototype and contains a limited set of views.
+    </p>
+
+    <h2 class="govuk-heading-m">
+        Abs leg NALD replacement - create a new licence
+      </h2>
+      <p class="govuk-body">
+        Prototype 1, flow for using basic licence upload and manual input of free text.
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+
+          <li><a href="sandbox/p1-1-upload">Start</a> on a search page</li>
+          <li><a href="">Search results</a> showing a customer list</li>
+          <li><a href="">Customer licences</a> in a list, with a 'create new' button</li>
+          <li><a href="">Upload a licence file</a></li>
+          <li><a href="">Processed upload</a> styled as a check details page</li>
+          <li><a href="">Confirm points,</a> there are two</li>
+          <li><a href="">Confirm purposes,</a> there are two</li>
+          <li><a href="">Confirm quantities,</a> different for each</li>
+          <li>lets see how far we can get...</li>
+
+        </ul>
+
+
+      </p>
+
+    <p class="govuk-!-margin-bottom-8">
+      
+      <br><a href="https://water-resource-licensing.herokuapp.com/">
+        See the previous prototype views here
+      </a>
+    </p>
+
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-!-margin-bottom-8">
+
+      <h2 class="govuk-heading-m">
+        Sandbox
+      </h2>
+      <p class="govuk-body">
+        The sandbox is an area of the prototype where designs are tested and refined. The pages in this part of the prototype are not finialised.
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+
+
+        <li><a href="sandbox/">
+            Sand box
+          </a></li>
+
+
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Recent changes
+      </h2>
+
+
+      <h3 class="govuk-heading-s">
+        Quarterly returns - 16 Aug 2024
+      </h3>
+      <p class="govuk-body">This is an update to how returns can work to allow for a quarterly submission rather than an annual one.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><p class="govuk-body"><a class="govuk-link" href="/bd/licence-summary?wid=31&ID=1#returns">Licence summary - returns</a></p></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        SRoC TPT supplementary iteration - 17 Jul 2024
+      </h3>
+      <p class="govuk-body">This is an update to how Two-part tariff bill runs are named building on the update from March below.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><p class="govuk-body"><a class="govuk-link" href="/bd/charges-2020/pick-charge-type">Pick a bill run type</a></p></li>
+        <li><p class="govuk-body"><a class="govuk-link" href="/bd/licence-summary-expired?wid=32">Licence has ended and is marked for the TpT supplementary bill run </a></p></li>
+        <li><p class="govuk-body"><a class="govuk-link" href="/create-charge-information/confirm-tpt-supplementary">Historic charge information has been created and the user gets a choice about whether to include it in the TpT supplementary as well as the normal supplementary bill run </a></p></li>
+        <li><p class="govuk-body"><a class="govuk-link" href="/bd/iterations/manual-billing/recalculate-bills-select-year">User has clicked recalcuate bills, they then get a choice for the SRoC years of which years to mark for the TpT supplementary bill run </a></p></li>
+        <li><p class="govuk-body"><a class="govuk-link" href="/bd/returns/return-submitted?returnStatus=submitted&editReturn=true&TpTSupplementary=true">User has edited a TpT return, they then get a choice whether to mark it for the TpT supplementary bill run </a></p></li>
+        <li><p class="govuk-body">There are also routes for removing a licence from the TpT annual bill run and then including it in the TpT supplementary</p></li>
+      </ul>
+  
+   
+
+      <h3 class="govuk-heading-s">
+        SRoC TPT iteration - 4 Mar 2024
+      </h3>
+      <p class="govuk-body">This is an update to how Two-part tariff bill runs are selected. Essentially all of these will now be on the current (SRoC) charge scheme, unless a TpT year for the old charge scheme hasn't yet been billed. You can get to this route by creating a bill run and selecting TpT, Wales and a pre-2022 financial year.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><p class="govuk-body"><a class="govuk-link" href="/bd/charges-2020/pick-charge-type">Pick a bill run type</a></p></li>
+      </ul>
+     
+      <h3 class="govuk-heading-s">
+        Create requirements for returns - December 2023 - May 2024
+      </h3>
+      <p class="govuk-body">These are routes for creating requirements that specify what abstraction data is needed to be returned to the business.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p class="govuk-body"><a class="govuk-link" href="/current/bd/licence-summary?wid=31&ID=1">Licence set up</a> (03/28/60/0032)</p>
+        </li>
+        </ul>
+
+      <h3 class="govuk-heading-s">
+        SRoC TPT iteration - 2 Nov 2023
+      </h3>
+      <p class="govuk-body">A wide ranging iteration on the UI to allow returns to be matched to elements. The link below will take you into the review stage for the bill run. You can also get to this route by creating a bill run and selecting TpT, Wales and the most current year</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><p class="govuk-body"><a class="govuk-link" href="/bd/iterations/bill-runs/tpt/review?billRunIndex=0">Wales TpT bill run in review</a></p></li>
+        <li>
+          <p class="govuk-body">This licence has been set up with multiple charge versions and more scenarios than others. <a class="govuk-link" href="/bd/iterations/bill-runs/tpt/licence-review?ID=0&status=review">Review licence 32/00/79/0796</a></p>
+        </li>
+        <li>
+          <p class="govuk-body">This licence has been set up with returns received but not processed and a checking query. <a class="govuk-link" href="/bd/iterations/bill-runs/tpt/licence-review?ID=1&status=review">Review licence 67/87/36/3539</a></p>
+        </li>
+        <li>
+          <p class="govuk-body">This licence has been set up with no returns and returns received late. <a class="govuk-link" href="/bd/iterations/bill-runs/tpt/licence-review?ID=2&status=review">Review licence 83/85/29/8975</a></p>
+        </li>
+        <li>
+          <p class="govuk-body">This licence has unmatched returns. <a class="govuk-link" href="/bd/iterations/bill-runs/tpt/licence-review?ID=3&status=review">Review licence 81/91/62/5878</a></p>
+        </li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Select a financial year - 5 May 2022
+      </h3>
+      <p class="govuk-body">A feature to allow the user to select a previous financial year for Two-part tariff billing, if that previous year has not yet been billed as part of a Two-part tariff bill run</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/charges-2020/bill-runs">Create a two-part tariff bill run and select Wales as the region</a> </li>
+        <li><a class="govuk-link" href="/bd/charges-2020/pick-two-part-financial-year.html">Select a financial year</a> </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Split billing - 26 April 2022
+      </h3>
+      <p class="govuk-body">SOP has a constraint that means it can't handle pre-and post SRoC transactions on the same bill run, therefore when a supplementary bill run is created it is now split between the old charge scheme and current one.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/charges-2020/bill-runs">Create a supplementary bill run and it will now show as a split bill run</a> </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        SRoC Water companies only annual bill - 18 March 2022 (Updated 24 March)
+      </h3>
+      <p class="govuk-body">Billing and data would have the ability to create an annual bill that only contained water companies.</p>
+      <p class="govuk-body">24 March update, water companies only billing will only be able to be billed once a year and only if all abstractors type hasn't alerady been run.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/charges-2020/pick-charge-type">Selecting an annual bill that contains only water companies</li>
+          <li><a class="govuk-link" href="/bd/charges-2020/pick-charge-type?annualType=water%20companies">Selecting an annual bill when water companies only has already been run</a><br>(24 March update)</li>
+              <li><a class="govuk-link" href="/bd/charges-2020/annual-exists?annualType=all%20abstractors">Annual bill run already exists</a><br>(24 March update)</li>
+
+        <li><a class="govuk-link" href="/bd/charges-2020/annual-charges?annualstatus=ready&region=Anglian&annualType=water%20companies">An annual bill run that only contains water companies</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Two part tariff SRoC updates - 8 March 2022
+      </h3>
+      <p class="govuk-body">Some of the element fields are being removed under SRoC. This means that there are some updates to TpT.</p>
+      <p class="govuk-body">We've also iterated some extra features based on user feedback from TpT BAT.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/bill-runs/two-part-tariff/reviewLicence?licence=03/28/60/0032">Changes to the data issues page for a particular licence.</a> <br>Removal of fields (billable volume, source and season) and incorporation of purpose and description into an element heading</li>
+        <li><a class="govuk-link" href="/bd/iterations/bill-runs/two-part-tariff/review">Download a licence review report </a><br>A CSV of all the elements that are in the review</li>
+        <li><a class="govuk-link" href="/bd/iterations/bill-runs/two-part-tariff/review">Aggregates marked on licences </a><br>Licences with aggregates are now flagged on the review overview</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Agreements update - 16 Feb 2022
+      </h3>
+      <p class="govuk-body">The agreement process was amended so that it remained outside the charge information flow, but with validation to always start and end with charge information or a financial year. Under SRoC the agreement flow would become information only and the charge would be affected by the adjustments</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/charges-2020/add-agreement">Set up an agreement</a></li>
+        <li><a class="govuk-link" href="/bd/charges-2020/remove-agreement-date?agreementNumber=1">End an agreement</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        SRoC bill designs - 7 Feb 2022
+      </h3>
+      <p class="govuk-body">New SRoC bill designs for supplementary and annual billing. Incorporating updated SRoC charge elements and references with purpose type, abstraction period and purpose volume in a toggle feature.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/current/bd/iterations/sroc/bills/bill">Supplementary bill design</a></li>
+        <li><a class="govuk-link" href="/current/bd/iterations/sroc/bills/bill-tpt">Annual bill design</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Agreement creation - 24 Jan 2022
+      </h3>
+      <p class="govuk-body">Agreement creation was incorporated into the charge information flow. Agreements now always start and end with charge information.</p>
+      <p class="govuk-body">This version was slimmed down so that the agreement process remained outside the charge information flow, but with validation to always start and end with charge information or a financial year.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check">Agreement creation flow now showing inside charge information</a></li>
+        <li><a class="govuk-link" href="/bd/charges-2020/charge-version/charge-data-confirmation">Charge information confirmation (Agreements route removed)</a></li>
+        <li><a class="govuk-link" href="/bd/licence-summary#charge">Licence summary (agreements now only present in charge info if one has been created)</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        SRoC charge information - 30 Dec 2021
+      </h3>
+      <p class="govuk-body">SRoC charge information creation incorporated into the wider charge creation flow, the routing is from the licence start date. This is after 1 April 2022 so will be an SRoC charge version</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/licence-summary-no-charge#charge">SRoC charge information set up (New licence, single element and charge ref)</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        SRoC charge information - 20 Dec 2021
+      </h3>
+      <p class="govuk-body">Charge references logic updated so that they update to the correct charge information rather than using stubbed data.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check">SRoC charge information set up (single element and charge ref)</a></li>
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check?scenario=b">SRoC charge information set up (two elements in a single charge ref)</a></li>
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check?scenario=c">SRoC charge information set up (three elements and multiple charge refs)</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        SRoC charge information - 15 Dec 2021
+      </h3>
+      <p class="govuk-body">Third scenario added for a licence that has 3 elements split over 2 charge categories</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check?scenario=c">SRoC charge information set up (three elements and multiple charge refs)</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        SRoC charge information - 9 Dec 2021
+      </h3>
+      <p class="govuk-body">Add a note feature added to the charge information screen. Add a note, delete a note, change a note.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check">SRoC charge information with no note added</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        SRoC charge information - 3 Dec 2021
+      </h3>
+      <p class="govuk-body">Iteration on the design of assigning charge reference to charge elements, 2 scenarios being developed</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check">SRoC charge information set up (single element and charge ref)</a></li>
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check?scenario=b">SRoC charge information set up (two elements in a single charge ref)</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Filtering a table -  10 Nov 2021
+      </h3>
+      <p class="govuk-body">First pass of building a table filter. The table filter uses existing components to create a filter pattern. It works without using frontend JS, but could be enhanced by using it. The user is able to combine the filters in the list or use them individually. We also handle no results being returned and if no filters are applied.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/licence-notices/notification-report">Notices</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        SRoC charge information - 2 Nov 2021
+      </h3>
+      <p class="govuk-body">First pass of building SRoC charge information and assigning charge categories/references to charge elements</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/iterations/sroc/create-charge-information/charge-data-check">SRoC charge information set up</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Remove a customer contact - 26 October 2021
+      </h3>
+      <p class="govuk-body">Added a route for removing a customer contact, this could be if someone set one up in error or if the contact has left the company</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/sandbox/customer?customerID=1#contacts">Remove a customer contact</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Cancelling a building bill run - 18 October 2021
+      </h3>
+      <p class="govuk-body">B&D will be able to cancel bill runs that are building</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/bd/charges-2020/annual-charges-load?region=Anglian&annualstatus=building">Cancel a building bill run</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Editing a name for a customer contact - 11 October 2021
+      </h3>
+      <p class="govuk-body">If the contact was created in WRLS users will now be able to edit their name</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="/sandbox/customer?customerID=1#contacts">Remove a customer contact</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Customer and trasaction file - 8 October 2021
+      </h3>
+      <p class="govuk-body">When a billing account is updated a customer reference file is generated and sent to SSCL, sometimes the change of address won't be actioned by SSCL. When this happens B&D need to find which customer file the change was
+        sent to SSCL in. By displaying the file reference and the date is was created we're making this task easier for B&D. The same thing applies to the transaction file once a bill run has been sent.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/billing-account">Customer file on a billing account</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/annual-charges?annualstatus=sent">Transaction file on a annual bill run</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-charges?region=Anglian&status=sent">Transaction file on a supplementary bill run</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/two-part-charges?tptstatus=sent">Transaction file on a TpT bill run</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Manually adding a licence to a supplementary bill run - 13 September 2021
+      </h3>
+      <p class="govuk-body">When a licence has a TPT agreement, B&D may need to specify that it needs to be supplementary billed. This is so they can
+        re-calculate the amount of water that is used in the second part charge on a TpT.</p>
+      <p class="govuk-body"> The scenario can occur if someone submitted returns late and
+        there was a legitimate reason for rebilling them. This process has three parts, marking the licence for supplementary billing, reviewing the changes to the billable volumes and sending the revised bills. The sending part of the process in the
+        prototype is the same
+        as supplementary billing. B&D will need to mark up the downloaded bill run with specific actions for SSCL.
+      </p>
+      <p class="govuk-body">The user can mark the licence for the supplementary bill by following the flow form the "recalculate bills" action on the TpT agreement.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/licence-summary?wid=31#charge">TpT agreement with "recalculate bills" action</a></li>
+        <li> <a class="govuk-link" href="/bd/iterations/manual-billing/recalculate-bills">You're about to recalculate bills</a></li>
+        <li> <a class="govuk-link" href="/bd/iterations/manual-billing/recalculate-bills-confirmation">You've marked this licence for the next supplementary bill run</a></li>
+        <li> <a class="govuk-link" href="/bd/licence-summary?suppBilling=true">Licence marked for supplementary billing</a></li>
+      </ul>
+      <p class="govuk-body">The user can then review the changes for the licences billable returns as part of the supplementary bill run</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/iterations/manual-billing/bill-run/review">Review bill run overview screen</a></li>
+        <li> <a class="govuk-link" href="/bd/iterations/manual-billing/bill-run/reviewLicence?licence=03/28/60/0032">Review licence</a></li>
+        <li> <a class="govuk-link" href="/bd/iterations/manual-billing/bill-run/remove-financial-year?fy=2017&fyIndex=4&licenceNumber=03/28/60/0032&ba=BA1234443S">Remove financial year</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Billing account - scenario specific change - 20th August 2021
+      </h3>
+      <p class="govuk-body">The version of the billing account page when no bills have been sent from the account. You don't see any information on the table or the reissue a bill button.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/billing-account-no-bills">Billing account no bills</a></li>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Navigation update - 9th August 2021
+      </h3>
+      <p class="govuk-body">The first iteration on the navigation bar, to split out Bill runs from the manage page and add it to the navigation bar. To add search to the nav bar replacing licences</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/iterations/navigation/bill-runs-V2">Bill runs - version 2</a></li>
+        <li> <a class="govuk-link" href="/bd/iterations/navigation/search-V2">Search - version 2</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Two part tariff review revisions - 29 June 2021
+      </h3>
+      <p class="govuk-body">Updates to the two part tariff review process based on feedback from B&D UAT, redesigned billing volumes table, making it clearer for the user to see what has been edited and navigate through the different issues.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="/bd/iterations/bill-runs/two-part-tariff/review">Two part tarriff review</a>
+        </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Bill page iterations - 16 June 2021
+      </h3>
+      <p class="govuk-body">Iteration on the bill page designs, so that transactions are more readable and it is easier to scan from the paper bill to the service. Also to handle min charge inline transactions and other minor UI tweaks.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="/bd/iterations/bills/bill?status=ready">Supplementary bill - ready</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/bd/iterations/bills/bill?status=sent">Supplementary bill - sent</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/bd/iterations/bills/bill-tpt?status=sent">Two-part tariff bill - sent</a>
+        </li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Remove a licence from a bill
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill-2-licences?removeLicence=false">Bill before licence removed</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/confirm-remove-licence">Remove licence confirmation page</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill-2-licences?removeLicence=true">Bill after licence removed</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Cookies
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/ex/licences">Cookies banner</a></li>
+        <li> <a class="govuk-link" href="/ex/cookies">Cookies page</a></li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Rebilling
+      </h3>
+
+      <h4 class="govuk-heading-s">Feature - mark bills for reissue</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/what-date-do-you-need-to-reissue-bills-from">What date do you need to reissue bills from?</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/select-bills">Select bills for reissue</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/check-rebill">Check bills marked for reissue</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/confirm-rebill?rebill=true&billRun=false">Confirmation of bills marked for reissue</a></li>
+      </ul>
+      <h4 class="govuk-heading-s">Feature - cancel reissue</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/confirm-cancel-rebilling">Cancel reissue</a></li>
+      </ul>
+      <h4 class="govuk-heading-s">Billing account states</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/billing-account?rebill=false">No bills marked for reissue</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/billing-account?rebill=true&status=building">Bills marked for reissue, bill run not created</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/billing-account?billRun=created&status=ready&rebill=true">Bill run created (Same as above)</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/billing-account?billRun=created&status=sent&rebill=true">Bill run sent</a></li>
+      </ul>
+      <h4 class="govuk-heading-s"> Original bill states</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill?status=sent&region=Anglian&billrun=false&rebill=false">Not marked for reissue</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill?status=sent&region=Anglian&billRun=false&rebill=true">Bill marked for reissue - bill run not created </a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill?status=sent&region=Anglian&billRun=created&rebill=true"> Bill marked for reissue - bill run created (same as above)</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill?status=sent&region=Anglian&billRun=sent&rebill=true"> Bill reissued - bill run sent</a></li>
+      </ul>
+      <h4 class="govuk-heading-s"> Reversed bill states</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill-credit?bill=OP444333&rebill=true&billRun=ready&status=ready">Reversed bill -ready</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill-credit?bill=OP444333&rebill=true&billRun=rsent&status=sent">Reversed bill - sent</a></li>
+      </ul>
+      <h4 class="govuk-heading-s">The reissue bill states</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill-rebilled?bill=OP765990&rebill=true&billRun=ready&status=ready">Reissue bill -ready</a></li>
+        <li> <a class="govuk-link" href="/bd/charges-2020/supplementary-bill-rebilled?bill=OP765990&rebill=true&billRun=rsent&status=sent">Reissue bill - sent</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Bill run updates
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li>
+            <a class="govuk-link" href="/bd/charges-2020/sending-bill-run">
+              Sending bill run
+            </a>
+          </li>
+
+          <li>
+            <a class="govuk-link" href="/bd/charges-2020/sent-bill-run?status=sent">
+              Supplementary bill run confirmation
+            </a>
+          </li>
+
+          <li>
+            <a class="govuk-link" href="/bd/charges-2020/supplementary-charges?status=sent">
+              Supplementary bill run overview sent
+            </a>
+          </li>
+
+          <li>
+            <a class="govuk-link" href="/bd/charges-2020/supplementary-bill?status=sent">
+              Supplementary bill showing bill number
+            </a>
+          </li>
+        </section>
+
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Charge information forecaste reports
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li>
+            <a class="govuk-link" href="/current/bd/download-a-charging-forecast-report">
+              Download a charging forecast report
+            </a>
+          </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Bill run already exists pages
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="/current/bd/charges-2020/bill-run-exists?live=true">There is already a bill run that has been created but not sent</a></li>
+          <li><a href="/current/bd/charges-2020/bill-run-exists?live=false">There is already a bill run that has been created and sent for a financial year</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Bill run transaction errors
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="/bd/charges-2020/supplementary-charges-transaction-errors?region=Anglian#">Transaction errrors bill summary</a></li>
+          <li><a href="/bd/charges-2020/supplementary-bill-transaction-errors">Transaction errors bill page</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Returns paper forms requests (for multiple billing cycles)
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="/bd/manage/send-paper">Returns paper forms requests</a></li>
+          <li><a href="/bd/manage/send-paper-changed-ownership">A licence has had a change of ownership</a></li>
+          <li><a href="/bd/manage/send-paper-confirm">Send paper forms check your answers</a></li>
+          <li><a href="/bd/manage/send-paper-which-returns?url=send-paper-confirm&licenceNum=AN/546/234/234&returnIndex=0">Select the returns forms</a></li>
+          <li><a href="/bd/manage/send-paper-select-address?url=send-paper-confirm&licenceNum=AN/546/234/234&returnIndex=0">Select the address</a></li>
+          <li><a
+              href="/bd/manage/send-paper-select-address?url=send-paper-confirm&licenceNum=AN/546/234/234&returnIndex=0&returns[0][singleUseAddressFlag]=true&returns[0][returnAddress]=Jimmy%20Greaves,%20Forbes%20Lane,%20West%20Crudwell,%20SN16%209EW">Select
+              the address - one time address has been set up</a></li>
+          <li><a href="/bd/manage/send-paper-done">Send paper forms confirm</a></li>
+          <li><a href="/bd/manage/send-paper-done?returns[0][singleUseAddressFlag]=true&returnIndex=0">Send paper forms confirm - one time address has been set up</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Min charge and de minimus rule
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="/bd/charges-2020/bill-sent-de-minimus">De minimus bill</a></li>
+          <li><a href="/bd/charges-2020/bill-sent-minimum-charge">Minimum charge</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        KPIs
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="kpi/performance">Performance</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Licence charge information approval
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/charges-2020/licences-with-new-charge-information#new">New licences</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Charge information
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/charges-2020/add-new-reason">New charge information for an existing licence</a></li>
+          <li><a href="bd/charges-2020/add-reason">Make licence non-chargeable for an existing licence</a></li>
+          <li><a href="bd/charges-2020/add-new-reason?newLicence=true">New charge information for a new licence</a></li>
+          <li><a href="bd/charges-2020/add-reason?newLicence=true&invoiceAccount=null">Make licence non-chargeable for a new licence</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Bill run error pages
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/charges-2020/two-part-charges-error-no-bills">No bills</a></li>
+          <li><a href="bd/charges-2020/two-part-charges-error">Creating</a></li>
+          <li><a href="bd/charges-2020/two-part-charges-error-sending">Sending</a></li>
+        </section>
+
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Bulk returns
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="ex/returns-overview">Returns overview</a></li>
+          <li><a href="ex/return/bulk/upload-bulk">Submit your returns using bulk upload (instructions)</a></li>
+          <li><a href="ex/return/bulk/upload-bulk-files">Upload bulk returns data</a></li>
+          <li><a href="ex/return/bulk/upload-bulk-uploading">Uploading returns data</a></li>
+          <li><a href="ex/return/bulk/upload-bulk-bad-data">You need to correct some of your returns data</a></li>
+          <li><a href="ex/return/bulk/upload-bulk-good-data">Check and submit your returns</a></li>
+          <li><a href="ex/return/bulk/upload-bulk-good-data-confirmed">You submitted 2 returns</a></li>
+          <li><a href="ex/returns-overview-3">Returns overview (returns complete)</a></li>
+        </section>
+
+      </ul>
+
+
+
+      <h3 class="govuk-heading-s">
+        Alternative bill run meta data
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/charges-2020/invoice">Invoice meta data</a></li>
+          <li><a href="bd/charges-2020/invoice-alt1">Invoice meta data - alternative 1</a></li>
+          <li><a href="bd/charges-2020/invoice-alt2">Invoice meta data - alternative 2</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Change billing contact (choose your path)
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary#charge">Licence charges</a></li>
+          <li><a href="bd/contacts/new-contact">Change billing contact</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Change to existing billing contact
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary#charge">Licence charges</a></li>
+          <li><a href="bd/contacts/contact-type">Change billing contact</a></li>
+          <li><a href="bd/contacts/new-person-contact">Billing contact name</a></li>
+          <li><a href="bd/contacts/contact-exists">Does this contact already have a record already?</a></li>
+          <li><a href="bd/contacts/confirm-contact-change">You are about to change the billing contact *</a></li>
+          <li><a href="bd/licence-summary-new-contact#charge">New contact on licence billing tab</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Change to a new billing contact
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary#charge">Licence charges</a></li>
+          <li><a href="bd/contacts/contact-type">Change billing contact</a></li>
+          <li><a href="bd/contacts/new-person-contact">Billing contact name</a></li>
+          <li><a href="bd/contacts/contact-exists">Does this contact already have a record already?</a></li>
+          <li><a href="bd/contacts/new-contact-postcode">Enter the UK postcode</a></li>
+          <li><a href="bd/contacts/select-contact-address">Select the address</a></li>
+          <li><a href="bd/contacts/contact-updated">Contact updated *</a></li>
+          <li><a href="bd/licence-summary-new-contact#charge">New contact on licence billing tab</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Change to new company billing contact, Companies House address
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary#charge">Licence charges</a></li>
+          <li><a href="bd/contacts/contact-type">Change billing contact</a></li>
+          <li><a href="bd/contacts/new-company-contact">Find your company</a></li>
+          <li><a href="bd/contacts/company-found">Is this your company?</a></li>
+          <li><a href="bd/contacts/confirm-company-change">Use this billing address?</a></li>
+          <li><a href="bd/licence-summary-new-company#charge">Billing contact updated</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Change to new company billing contact, new address
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary#charge">Licence charges</a></li>
+          <li><a href="bd/contacts/contact-type">Change billing contact</a></li>
+          <li><a href="bd/contacts/new-company-contact">Find your company</a></li>
+          <li><a href="bd/contacts/company-found">Is this your company?</a></li>
+          <li><a href="bd/contacts/confirm-company-change">Use this billing address?</a></li>
+          <li><a href="bd/contacts/new-company-postcode">Enter the UK postcode</a></li>
+          <li><a href="bd/contacts/select-company-address">Select the address</a></li>
+          <li><a href="bd/contacts/company-updated">Address added</a></li>
+          <li><a href="bd/licence-summary-new-company#charge">Billing contact updated</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Change to new company billing contact, manual address with fao
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary#charge">Licence charges</a></li>
+          <li><a href="bd/contacts/contact-type">Change billing contact</a></li>
+          <li><a href="bd/contacts/new-company-contact">Find your company</a></li>
+          <li><a href="bd/contacts/company-found">Is this your company?</a></li>
+          <li><a href="bd/contacts/confirm-company-change">Use this billing address?</a></li>
+          <li><a href="bd/contacts/new-company-postcode">Enter the UK postcode</a></li>
+          <li><a href="bd/contacts/select-company-address">Select the address</a></li>
+          <li><a href="bd/contacts/manual-company-address">Select the address</a></li>
+          <li><a href="bd/contacts/company-updated-fao">Address added</a></li>
+          <li><a href="bd/licence-summary-new-company-fao#charge">Billing contact updated</a></li>
+        </section>
+
+      </ul>
+
+
+      <h3 class="govuk-heading-s">
+        Two-part tariff bills
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/manage">Manage view (link)</a></li>
+          <li><a href="bd/charges-2020/pick-charge-type">Pick charge type</a></li>
+          <li><a href="bd/charges-2020/two-part-review">Two-part tariff review with matching issues</a></li>
+          <li><a href="bd/charges-2020/two-part-bill-issue">A licence with issues</a></li>
+          <li><a href="bd/charges-2020/two-part-bill-element">A two-part tariff charge element</a></li>
+          <li><a href="bd/charges-2020/two-part-confirm-custom-quantity">Confirm a custom quantity</a></li>
+          <li><a href="bd/charges-2020/two-part-review-cleared">Two-part tariff review is complete</a></li>
+          <li><a href="bd/charges-2020/two-part-charges">Unsent Two-part bill run</a></li>
+          <li><a href="bd/charges-2020/two-part-bill">A two-part bill</a></li>
+          <li><a href="bd/charges-2020/two-part-charges">Sent Two-part bill run</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Bill runs / unsent and sent bills
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/manage">Manage view (link)</a></li>
+          <li><a href="bd/charges-2020/bill-runs">Bill runs view</a></li>
+          <li><a href="bd/charges-2020/supplementary-charges">Supplementary charges unsent</a></li>
+          <li><a href="bd/charges-2020/bill">Unsent bill</a></li>
+          <li><a href="bd/charges-2020/supplementary-charges-sent">Supplementary charges sent</a></li>
+          <li><a href="bd/charges-2020/bill-sent">Sent bill</a></li>
+          <li><a href="bd/charges-2020/bill-sent-minimum-charge">Bill with minimum charge applied</a></li>
+          <li><a href="bd/charges-2020/bill-sent-new-licence-minimum">Bill with 'New licence' minimum charge applied</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Create a supplementary bill run
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/manage">Manage view (link)</a></li>
+          <li><a href="bd/charges-2020/pick-charge-type">Select charge type</a></li>
+          <li><a href="bd/charges-2020/pick-supplementary-region">Select region</a></li>
+          <li><a href="bd/charges-2020/supplementary-charges-load">If there is a wait for the data</a></li>
+          <li><a href="bd/charges-2020/supplementary-charges">Supplementary bill (batch)</a></li>
+          <li><a href="bd/charges-2020/supplementary-charges-none">No supplementary charges</a></li>
+          <li><a href="bd/charges-2020/bill-run-exists">Bill run already exists</a></li>
+          <li><a href="bd/charges-2020/bill">An invoice</a></li>
+          <li><a href="bd/charges-2020/bill-credit">A credit note</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Prepare charge data
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary-no-charge#charge">No charge version</a></li>
+        </section>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Charging (Abstraction Licensing Charging Scheme)
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="bd/licence-summary-no-charge#charge">No charge version</a></li>
+        </section>
+
+        <li><a href="bd/licence-summary#charge">Charge summary</a></li>
+        <li><a href="bd/licence-summary-suspended#charge">Suspended charges</a></li>
+        <li><a href="bd/charges-2020/current-charge-version">Charge version / charge element details</a></li>
+        <li><a href="bd/charges-2020/charge-record">Charge record</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Digitise! connect licences
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ar/licence-review">Licence review</a></li>
+        <li><a href="ar/further-condition-groups">Choosing a condition group</a></li>
+        <li><a href="ar/licence-review/add-aggregate-amounts">Aggregate condition options</a></li>
+        <li><a href="ar/licence-review/add-aggregate-values">Adding aggregate condition data</a></li>
+        <li><a href="ar/licence-review-with-aggregate-condition">Licence with aggregate condition</a></li>
+        <li><a href="ar/confirm-remove-aggregated-licence-condition">Confirm remove the condition</a></li>
+
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Dashboard concept
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="dashboard/detailed-guidance">Detailed guidance</a></li>
+        <li><a href="dashboard/start-option">Start options</a></li>
+        <li><a href="dashboard/dashboard">Dashboard landing view</a></li>
+      </ul>
+
+      <!-- <h3 class="govuk-heading-s">
+          New charging (SROC)
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="bd/licence-summary-sroc#charges">New charges for a licence without charge agreements (SROC)</a></li>
+          <li><a href="bd/charges-2020/element-sroc">New charge element (purpose)</a></li>
+        </ul> -->
+
+
+      <!-- <h3 class="govuk-heading-s">
+          ACLS charging
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="bd/licence-summary#charges">Licence charges summary</a></li>
+          <li><a href="bd/charges-2020/elements">Charge version elements</a></li>
+          <li><a href="bd/charges-2020/category">Update charge category</a></li>
+        </ul> -->
+
+      <h3 class="govuk-heading-s">
+        Manage internal user accounts
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="bd/manage">Create account from manage view</a></li>
+        <li><a href="bd/internal-user/user-status">Internal user page with permissions</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Agents can not regiser
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/start-option">Start options</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Agent registration, licence holder invite
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/register/account-mode">Account type</a></li>
+        <li><a href="ex/invite-licence-holder/create-account-start">Invite to licence holder</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        External returns
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/returns-overview">External returns overview</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Claim licences
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/licences">Signed in landing view</a></li>
+        <li><a href="ex/manage">Manage view</a></li>
+        <li><a href="ex/manage/add-licences">Claim licences / add licences?</a></li>
+        <li><a href="ex/manage/send-code">Sending a code to the licence holder’s address</a></li>
+        <li><a href="ex/manage/code-sent">Code sent</a></li>
+      </ul>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/manage">Manage view</a></li>
+        <li><a href="ex/manage/enter-code">Entering a security code</a></li>
+        <li><a href="ex/licences-added">Licences have been added</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Change my email (happy path)</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/sign-in">Sign in</a></li>
+        <li><a href="ex/licences">Signed in landing view</a></li>
+        <li><a href="ex/account/settings">Account settings</a></li>
+        <li><a href="ex/account/change-email-check">Account password</a></li>
+        <li><a href="ex/account/change-email">Change account email address</a></li>
+        <li><a href="ex/account/change-email-sent">Verify new email</a></li>
+        <li><a href="ex/account/change-email-done">Email changed</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Registration (as it is in LIVE)</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://www.gov.uk/guidance/manage-your-water-abstraction-or-impoundment-licences-online">GOV UK service launch page - LIVE</a></li>
+        <li><a href="ex/start-option">Start options</a></li>
+        <li><a href="ex/register/create-account-start">Create an account start</a></li>
+        <li><a href="ex/register/register">Register with an email address</a></li>
+        <li><a href="ex/register/success">Email sent</a></li>
+        <li><a href="ex/register/create-password">Create a password</a></li>
+        <li><a href="ex/register/add-licences">Add licences</a></li>
+        <li><a href="ex/register/confirm-licences">Confirm your licences</a></li>
+        <li><a href="ex/register/send-code">Send security code</a></li>
+        <li><a href="ex/register/code-sent">Code sent</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Sign in</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/start-option">Start options</a></li>
+        <li><a href="ex/sign-in">Sign in</a></li>
+        <li><a href="ex/licences">Signed in landing view</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Upload CSV</h3>
+
+      <div class="govuk-!-margin-bottom-3">
+        <a href="https://eaflood.atlassian.net/browse/WATER-2078">Jira story 2078</a><br>
+        <a href="https://eaflood.atlassian.net/browse/WATER-2083">Jira task 2083</a><br>
+      </div>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/returns-overview">External return overview with bulk upload link</a></li>
+        <li><a href="ex/upload-bulk">Instructions on the process of sending bulk returns</a></li>
+        <li><a href="ex/upload-bulk-files">Select a file to upload</a></li>
+        <li><a href="ex/uploading-returns">Upload process view</a></li>
+        <li><a href="ex/uploaded-returns-data-problems">Confirm your data (problems in data)</a></li>
+        <li><a href="ex/uploaded-returns-data-no-problems">Confirm your data (no problems with data)</a></li>
+        <li><a href="ex/returns-data-confirmed">Submission confirmed</a></li>
+        <li><a href="ex/returns-overview-2">Some completed returns</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Digitise! update</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ar/licence-review-add-sub-condition">Adding subconditions</a></li>
+        <li><a href="ar/licence-review-list">"Park a case" - Pending status</a></li>
+        <li><a href="ar/licence-review">Tidy review screen</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Expired licence</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="bd/results-licences">Expired licence in a list</a></li>
+        <li><a href="bd/results-returns">Expired licence in return results</a></li>
+        <li><a href="bd/licence-summary-expired">Expired licence summary</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Primary user contact preferences</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/contact">Set contact preferences</a></li>
+        <li><a href="ex/contact-set">Contact preferences set</a></li>
+        <li><a href="ex/contact-update">Update contact preferences</a></li>
+        <li><a href="ex/licences">Licences</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Agent with no other licences</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/agent-contact">Set contact preferences</a></li>
+        <li><a href="ex/agent-contact-set">Contact preferences set</a></li>
+        <li><a href="ex/agent-contact-update">Update contact preferences</a></li>
+        <li><a href="ex/licences">Licences</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Company switcher</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/licences">Licences</a></li>
+        <li><a href="ex/companies">Company switcher</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">External returns data upload (XML)</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/returns-overview">Returns view</a></li>
+        <li><a href="ex/upload-returns-data">Upload data / XML view</a></li>
+        <li><a href="ex/upload-returns-data-error">Wrong file format uploaded</a></li>
+        <li><a href="ex/uploaded-returns-data">Check your returns data</a></li>
+        <li><a href="ex/uploaded-returns-data-problems">Problems with the return data</a></li>
+        <li><a href="ex/confirm-return-details">Check your returns data details</a></li>
+        <li><a href="ex/returns-data-confirmed">Confirmation screen for submitted returns data</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Registration support</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/user-status">External user status</a></li>
+        <li><a href="ex/user-status-empty">External user status with no licences requested</a></li>
+        <li><a href="bd/user-internal-status-empty">Internal user status (Billing & Data)</a></li>
+        <li><a href="bd/unregistered-licence-summary">Unregistered licence</a></li>
+        <li><a href="bd/licence-summary">Registered licence</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Search by name, number or email</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="bd/search-archive">Internal search</a></li>
+        <li><a href="bd/no-search-results">No results</a></li>
+        <li><a href="bd/results-licences">Name or phrase results</a></li>
+        <li><a href="bd/results-returns">Return reference results</a></li>
+        <li><a href="bd/results-users">Email address results</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Send final return reminder letters</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="bd/manage">See a link to send return reminders</a></li>
+        <li><a href="bd/send-return-reminders">Sending the return reminders (link to licence holders CSV)</a></li>
+        <li><a href="bd/return-reminders-sent">Confirmation of reminders sent</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Billing & Data (Billing & returns)</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="bd/search-archive">Licence search</a></li>
+        <li><a href="bd/manage">Manage view</a></li>
+        <li><a href="bd/find-return">Find a return</a></li>
+        <li><a href="bd/returns-overview">Returns overview</a></li>
+        <li><a href="bd/returns-statistics">Return statistics (current/recent cycle)</a></li>
+        <li><a href="bd/void-returns">See void returns</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Void returns</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="bd/licence-summary?wid=31#returns">Licence returns showing a void return (internal only)</a></li>
+        <li><a href="bd/void-returns">List of void returns</a></li>
+        <li><a href="bd/return-status-void">Void return status</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Environment officers</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="eo/licence-search">Search for licences</a></li>
+        <li><a href="eo/licences-list">Licence results</a></li>
+        <li><a href="eo/licence-summary">Licence summary</a></li>
+        <li><a href="eo/licence-summary#communications">Licence communications summary</a></li>
+        <li><a href="eo/notification-review">Notification review</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Abstraction reform</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ar/licence-review-list">Abstraction reform review list (inbox)</a></li>
+        <li><a href="ar/licence-review">Abstraction reform licence review</a></li>
+        <li><a href="ar/further-condition-groups">Select the conditions group</a></li>
+        <li><a href="ar/licence-review-add-condition">Add a further condition</a></li>
+        <li><a href="ar/licence-review-add-values">Link data to the condition</a></li>
+        <li><a href="ar/licence-review-with-further-conditions#wr22">Licence review with further conditions</a></li>
+        <li><a href="ar/licence-review-change-values">Change further conditions</a></li>
+        <li><a href="ar/confirm-remove-further-condition">Confirm removal of further condition</a></li>
+      </ul>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ar/manage">Abstraction reform manage view</a></li>
+        <li><a href="ar/ar-report">Download abstraction reform Comma Separated Values</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">External user</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/guidance">Guidance page</a></li>
+        <li><a href="ex/licences">Licence list</a></li>
+        <li><a href="ex/confirm-return">Inset meter details</a></li>
+      </ul>
+
+      <h4 class="govuk-heading-s">Licenceless registration</h4>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/registration/postcode">Access to licences & returns (sign up)</a></li>
+        <li><a href="ex/registration/licence-holder">Licence holder</a></li>
+        <li><a href="ex/registration/send-code">Send a code</a></li>
+        <li><a href="ex/registration/code-sent">Letter sent</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Waste and Industry Regulatory Services</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="wirs/returns/find-return">Find a return</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third float-right">
+
+    <div class="govuk-!-margin-bottom-8">
+      <h2 class="govuk-heading-m">Start points</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="ex/licences">External</a></li>
+        <li><a href="bd/search-archive">Billing and Data</a></li>
+        <li><a href="ar/licence-review-list">Abstraction reform editor</a></li>
+        <li><a href="ar/licence-review">Abstraction reform approver</a></li>
+        <li><a href="wirs/search">Waste and Industry Regulatory Services</a></li>
+        <li><a href="eo/licence-search">Environment Officer</a></li>
+      </ul>
+    </div>
+
+    <div class="govuk-!-margin-bottom-8">
+      <h2 class="govuk-heading-m">Patterns</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="patterns/licence-search">Licence search</a></li>
+        <li><a href="patterns/licence-data">Licence data</a></li>
+        <li><a href="patterns/licence-condition">Licence condition</a></li>
+        <li><a href="patterns/table-checkbox">Checkbox tables</a></li>
+        <li><a href="patterns/table-three-columns">Table with three columns</a></li>
+        <li><a href="patterns/returns-list">Returns list</a></li>
+        <li><a href="patterns/licence-returns">Licence returns</a></li>
+        <li><a href="patterns/card">Card (experimental)</a></li>
+        <li><a href="patterns/access-list">Access list</a></li>
+        <li><a href="patterns/return-data">Return data</a></li>
+        <li><a href="patterns/meta-data">Meta data</a></li>
+        <li><a href="/patterns/alert">System messages, errors and alerts</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div><!-- row -->
 
 {% endblock %}

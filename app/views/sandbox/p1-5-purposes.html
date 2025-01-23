@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Headline caption</span>
+        <h1 class="govuk-heading-xl">
+          Check licence conditions
+        </h1>
+
+        <p>
+          Check the details that have been uploaded from the licence.
+        </p>
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          <h2 class="govuk-heading-m">Schedule of conditions</h2>
+
+
+        
+
+          
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              4. Purpose of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">
+                4.1 From point A: 
+                <br>
+                4.1.1 Agriculture other than spray irrigation</p>
+              <p class="govuk-body">
+                4.2 From point B:
+               <br>
+                4.2.1 Trickle irrigation - direct
+              </p>
+              <p class="govuk-body">
+                4.2.2 Filling a sealed storage reservoir for subsequent trickle irrigation
+              </p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <p class="govuk-body">
+                &nbsp;
+              </p>
+              <p class="govuk-body">
+                <a class="govuk-link" href="p1-4-4-purpose">Confirm purpose from point A</a>
+              </p>
+              <br>
+              <p style="margin-top: 50px;">
+                <a class="govuk-link" href="p1-4-4-purpose">Confirm purpose 1 from point B</a>
+                <br>
+                <a class="govuk-link" href="p1-4-4-purpose">Confirm purpose 2 from point B</a>
+              </p>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              5. Period of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              5.1 All year
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+             
+              <a class="govuk-link" href="p1-4-5-period">Change</a>
+            </dd>
+
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              6. Quantities
+            </dt>
+            <dd class="govuk-summary-list__value">
+              6.1
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+              <br>
+              <a class="govuk-link" href="p1-4-5-period">Change</a>
+            </dd>
+
+          </div>
+
+        </dl>
+
+
+        <div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+
+    
+          <p class="govuk-hint">
+            The licence will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,212 @@
+
+   <!--create array-->
+   {% set lines = [] %}
+   
+
+   <!--select array to loop through-->
+   {% set selectData = data.monthTotals %}
+
+   {# set global scope #}
+   {% set cubicMetersCalcTotal = 0 %}
+   {% set volCalcTotal = 0 %}
+
+
+
+  {# show start reading if the return is readings and not volumes #} 
+  {% set startReadingInsetHTML = "" %}
+{% if data.readingsOrVolumes == "readings" %}
+{% set startReadingHTML %}
+  
+{{ govukSummaryList({
+  classes: 'govuk-summary-list--no-border govuk-!-margin-top-0 govuk-!-margin-bottom-0',
+  rows: [
+    {
+      key: {
+        text: "Start Reading",
+        classes: "meta-data__label govuk-!-font-weight-bold"
+      },
+      value: {
+        text: data.startReading,
+        classes: "width-10"
+      },
+      actions: {
+        classes: "govuk-!-text-align-left",
+        items: [
+          {
+            href: "water-abstracted-start-reading?change=true",
+            text: "Change",
+            visuallyHiddenText: "start reading"
+          }
+        ]
+      }
+    }
+    ]
+  })
+}}
+
+{% endset%}
+
+{% set startReadingInsetHTML %}
+<div class="govuk-grid-column-one-half govuk-!-padding-left-0">
+{{ govukInsetText({
+  html: startReadingHTML,
+  classes: "govuk-!-margin-bottom-4 govuk-!-margin-top-2 govuk-!-padding-top-0 govuk-!-padding-bottom-0"
+}) }}
+</div>
+{% endset %}
+
+{% endif %}
+
+   <!--loop through the data-->
+   {% for item in selectData %}
+
+ 
+
+   <!--calculate the cubic meters if needed-->
+   {% set cubicMetersCalc = "" %}
+
+
+  
+   {% if item.total !== "" and data.units !== "cm3" %}
+   
+   {% if data.units == "ml" %}
+   {% set cubicMetersCalc = item.total| stringToNumber /  1000 %}
+   {% elseif data.units == "l" %}
+   {% set cubicMetersCalc = item.total | stringToNumber *  1000 %}
+   {% else %}
+   {% set cubicMetersCalc  = item.total | stringToNumber *   220 %}
+   {% endif %}
+
+
+
+   <!--set cubic meters calc total-->
+   {% set cubicMetersCalcTotal = cubicMetersCalcTotal + cubicMetersCalc %}
+   {% endif %}
+
+   {% if item.total !== "" %}
+   
+   {% set volCalcTotal = volCalcTotal | stringToNumber + item.total | stringToNumber %}
+
+
+   {% endif %}
+
+   {# get end reading  #}
+   {% set endReading = "" %}
+   {% for i in data.lines | filterByMonth(item.month)  %}
+   {% if i is defined and i !== '' %}
+     {% set endReading = i.reading %}
+     {% endif %}
+   {% endfor %} 
+  
+  
+   
+   <!--set the variable using the push filter to set up the rows-->
+   {% set lines = lines | push([{
+    text: item.month + " " + item.year
+      
+    },{
+      text: endReading,
+     format: 'numeric'
+   } if data.readingsOrVolumes == "readings",{
+       text:  cubicMetersCalc | toGovNumber ,
+      format: 'numeric'
+    }if data.units !== "cm3",{
+      text:  item.total | toGovNumber ,
+     format: 'numeric'
+   } ,{
+       html: '<a class="govuk-link" href="water-abstracted-'+data.readingsOrVolumes+'?monthID=' + loop.index0 +'">Change ' + data.licences[data.ID].returns[data.returnIndex].frequency + ' ' + data.readingsOrVolumes + '</a>',
+      format: 'numeric'
+    } 
+    
+    ])  %}
+  
+  {% endfor %}
+
+   <!--set col span-->
+{% set colSpan = 2 %}  
+{% if data.readingsOrVolumes == "readings" %}
+{% set colSpan = 2 %}
+{% endif %}
+
+
+
+  <!--set total-->
+  {% set lines = lines | push([{ text: "Total volume of water abstracted",
+   colspan: colSpan,
+   classes: "govuk-!-font-weight-bold "
+ },
+ { text: cubicMetersCalcTotal | round(3) | toGovNumber ,
+   format: 'numeric',
+   classes: "govuk-!-font-weight-bold "
+ }if data.units !== "cm3",
+ { text: volCalcTotal | toGovNumber,
+   format: 'numeric',
+   classes: "govuk-!-font-weight-bold "
+ },
+ { text: "",
+  format: 'numeric',
+  classes: "govuk-!-font-weight-bold "
+} if data.units !== "cm3"
+ ]
+ )%}
+
+
+ 
+
+
+{% set tableHTML %}
+
+   {{ govukTable({
+    caption: "",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: false,
+    head: [
+      {
+        text: "Month"
+      },
+      {
+        text: "End reading",
+        format: 'numeric'
+      }if data.readingsOrVolumes == "readings",
+      {
+        text: "Total " + data.units | returnUnitsWords,
+        format: 'numeric'
+      } if data.units !== "cm3",
+      {
+        text: "Total cubic meters",
+        format: 'numeric'
+      },
+      {
+        text: "Details",
+        format: 'numeric'
+      }
+    ],
+    rows: lines
+      
+    })  }}
+
+    {% endset %}
+
+
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title govuk-!-font-size-27">
+          Summary of {{data.licences[data.ID].returns[data.returnIndex].frequency}} {{data.readingsOrVolumes}}
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link" href="multiple">Enter multiple {{data.licences[data.ID].returns[data.returnIndex].frequency}} {{data.readingsOrVolumes}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          {{startReadingInsetHTML | safe}}
+          {{tableHTML | safe}}
+          </dl>
+          </div>
+          </div>
+    
+
+   

@@ -1,0 +1,304 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Sandbox
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <h2 class="govuk-heading-l">
+      Water company quarterly returns submissions
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold">Version 2</p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence?ID=10&returnsRouteVersion=3#returns">Licence 03/28/61/055 (For editing readings routes)</a><p>
+    </li>
+      
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence?ID=12&returnsRouteVersion=3#returns">Licence 100/22/33/0123 (For editing volumesroutes)</a><p>
+    </li>
+      <li>
+          <p class="govuk-body"><a class="govuk-link" href="licence?ID=13&returnsRouteVersion=3#charge">Licence 200/20/23/0111 (For new submission routes)</a><p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="customer?customerID=5#licences">Customer Public Water Plc</a><p>
+    </li>
+    <li>
+      <p class="govuk-body"><a class="govuk-link" href="manage">Manage</a><p>
+  </li>
+      </ul>
+ 
+
+    <h2 class="govuk-heading-l">
+      Returns set up
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold">Version 5.1 of the flow</p>
+    <ul class="govuk-list">
+      <li>
+          <p class="govuk-body"><a class="govuk-link" href="home-search?returnsRouteVersion=3">Search</a> (start point for UR)<p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence?ID=11&returnsRouteVersion=3#charge">Licence set up (variation licence)</a> (03/28/61/065)</p>
+      </li>
+      <li>
+        <p class="govuk-body">Version 4 licence links</p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence?ID=9&returnsRouteVersion=3#charge">Licence set up (new licence)</a> (03/28/61/044)</p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence?ID=10&returnsRouteVersion=3#charge">Licence set up time limited increase</a> (03/28/61/055)</p>
+      </li>
+  </ul>
+
+    <h2 class="govuk-heading-l">
+      TPT review (WATER-4152 and WATER-4183 Oct/Nov 2023)
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold"> Updating TPT Review (experimental)
+    <a class="govuk-link" href="https://www.figma.com/file/SdI0jCD7jZXkU0kYyzm5Kg/TpT-Review?type=design&node-id=0%3A1&mode=design&t=8U7MoAkXztPHZxzQ-1">Figma wires</a></p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="bill-runs">Create a bill run from scratch</a></p>
+      </li>
+      <li>
+        <p class="govuk-body">This licence has been set up with multiple charge versions and more scenarios than others. <a class="govuk-link" href="bill-runs/tpt/licence-review?ID=0&status=review">Review licence 32/00/79/0796</a></p>
+      </li>
+      <li>
+        <p class="govuk-body">This licence has been set up with returns received but not processed and a checking query. <a class="govuk-link" href="bill-runs/tpt/licence-review?ID=1&status=review">Review licence 67/87/36/3539</a></p>
+      </li>
+      <li>
+        <p class="govuk-body">This licence has been set up with no returns and returns received late. <a class="govuk-link" href="bill-runs/tpt/licence-review?ID=2&status=review">Review licence 83/85/29/8975</a></p>
+      </li>
+      <li>
+        <p class="govuk-body">This licence has unmatched returns. <a class="govuk-link" href="bill-runs/tpt/licence-review?ID=3&status=review">Review licence 81/91/62/58785</a></p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Bill page update (WATER-4072 Aug 2023)
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold"> Updating bill page to reduce cognitive load
+    <a class="govuk-link" href="https://www.figma.com/file/yztjhPByBVDgOL4KTnKwii/View-a-bill-(iteration-08%2F2023)?type=design&node-id=1%3A1935&mode=design&t=ifKhzTaxTIHPWno7-1">Figma wires</a></p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="bill-runs">Create a bill run from scratch</a></p>
+        <p class="govuk-body"><a class="govuk-link" href="bill-runs/annual/annual-charges?annualstatus=sent&billRunIndex=0">View a sent bill run</a></p>
+      </li>
+
+    </ul>
+
+
+    <h2 class="govuk-heading-l">
+      View changes on a licence
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold"> Comparing changes that happen on a licence (experimental)
+    <a class="govuk-link" href="https://www.figma.com/file/Xz7uODz2Bfh5sCMGOtpD0i/Abstraction%2FImpoundment-EPR?type=design&node-id=212%3A836&t=lKFlCbljX8MHDMg4-1">Figma wires</a></p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="compare?ID=3">Compare charge information changes</a> (03/28/60/0033)</p>
+      </li>
+
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      View a map showing abstraction points
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold"> View a map to supplement the abstraction point information on a licence (experimental)
+    <a class="govuk-link" href="https://www.figma.com/file/Xz7uODz2Bfh5sCMGOtpD0i/Abstraction%2FImpoundment-EPR?type=design&node-id=212%3A836&t=lKFlCbljX8MHDMg4-1">Figma wires</a></p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence/points?ID=3">An area</a> (03/28/60/0033)</p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence/points?ID=4">A reach</a> (03/28/60/0033)</p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence/points?ID=1">A point</a> (03/28/60/0032)</p>
+      </li>
+
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      View a full view of a licence
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold"> View old versions of abstraction information (experimental)</p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence?ID=7&previousVersionsConcept=1">Concept 1 - Licence summary</a> (03/28/61/033)<br>
+        This concept, is looking at switching between different versions of the summary information. <a class="govuk-link" href="https://www.figma.com/file/Xz7uODz2Bfh5sCMGOtpD0i/Abstraction%2FImpoundment-EPR?type=design&node-id=157%3A1838&t=vSGxCzw73pwo1Vj3-1">Figma wires</a>
+        </p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence-experimental/licence-experimental-manage?ID=7">Concept 2 - Licence summary</a> (03/28/61/033)<br>
+        This concept, is looking at breaking off management of the licence into its own section. <a class="govuk-link" href="https://www.figma.com/file/Xz7uODz2Bfh5sCMGOtpD0i/Abstraction%2FImpoundment-EPR?type=design&node-id=157%3A138&t=vSGxCzw73pwo1Vj3-1">Figma wires</a>
+        </p>
+      </li>
+
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      View an impoundment licence
+    </h2>
+    <p class="govuk-body govuk-!-font-weight-bold">Viewing an impoundment licence in the service</p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence?ID=8">Licence summary</a> (11/22/32/03)</p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Charge information workflow revisions
+    </h2>
+    <p class="govuk-body">Continuous improvements to the charge information workflow, filters, billed up to date, and move away from tabbed UI</p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="/sandbox/charge-information-workflow/to-set-up">To set up</a></p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Charge information workflow to licence set up workflow
+    </h2>
+    <p class="govuk-body">Testing out moving from charge information specific workflow to one that incorporates return requirement set up as well</p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="/sandbox/licence-setup-workflow/to-set-up">To set up</a></p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Split bill runs - supplementary billing
+    </h2>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="/sandbox/bill-runs/split-bills/split-bill-post-generation">Post bill creation, bills split interstitial page</a></p>
+        <p class="govuk-body"><a class="govuk-link" href="/sandbox/bill-runs/split-bills/bill-runs-filtered">Bill runs table with new filters</a></p>
+        <br>
+        <p class="govuk-body"><a class="govuk-link" href="/sandbox/bill-runs/split-bills/SRoC-bill">Linked bill run - review page</a></p>
+        <p class="govuk-body"><a class="govuk-link" href="/sandbox/bill-runs/split-bills/Pre-SRoC-bill">Linked bill run - ready page</a></p>
+        <br>
+        <p class="govuk-body"><a class="govuk-link" href="/sandbox/bill-runs/split-bills/Pre-SRoC-bill-cancelled">Linked bill run - error page</a></p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      SRoC upload charge information
+    </h2>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="upload/upload-charge-information?uploadRoute=success">Upload charge information - success</a></p>
+        <p class="govuk-body"><a class="govuk-link" href="upload/upload-charge-information?uploadRoute=inlineError">Upload charge information - inline error</a></p>
+        <p class="govuk-body"><a class="govuk-link" href="upload/upload-charge-information?uploadRoute=error">Upload charge information - validation error</a></p>
+      </li>
+    </ul>
+
+
+    <h2 class="govuk-heading-l">
+      Two part tariff review revisions
+    </h2>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="bill-runs/two-part-tariff/review">Two part tarriff review</a></p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Bill page revisions
+    </h2>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="bills/bill?status=ready">Supplementary bill - ready</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="bills/bill?status=sent">Supplementary bill - sent</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="bills/bill-tpt?status=sent">Two-part tariff bill - sent</a></p>
+      </li>
+    </ul>
+
+
+    <h2 class="govuk-heading-l">
+      Water abstraction alert user research
+    </h2>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="home-search">Search</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="manage">Manage</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="search?search=Monitoring stations">Stations</a></p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Customer
+    </h2>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="customer?customerID=0">Customer</a></p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">
+      Navigation and wayfinding scenarios
+    </h2>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="home">Home</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence-experimental/licence-experimental-summary?customerID=1&ID=1">Licence level nav (experimental)</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="licence-notices-experimental">Licence notices (experimental filter modal)</a></p>
+      </li>
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="notes-experimental">Licence notes(experimental notes modal)</a></p>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <h1 class="govuk-heading-l">
+      User type
+    </h1>
+    <p class="govuk-body govuk-!-font-weight-bold">
+
+      {% if data['userType'] == "bd" %}
+      Billing and Data
+      {% elseif data['userType'] == "nps" %}
+      National permitting service
+      {% else %}
+      Super user
+      {% endif %}
+
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="set-user-type">Change the user type</a></p>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+{% endblock %}

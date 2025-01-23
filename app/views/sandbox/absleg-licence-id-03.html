@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <div>
+        <h3 class="govuk-caption-l">
+          Licence number: 20/56/22/0027
+
+          <span style="position: relative;top:-0.16em;left:0.5em">
+            <strong class="govuk-tag govuk-tag--green">Draft</strong>
+          </span>
+
+          <span class="govuk-caption-l">Application number: NPW/WR/038046</span>
+        </h3>
+    </div>
+
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Create a new licence
+    </h1>
+
+
+
+    <div id="id-preamble">
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-6 ">
+        Who owns the licence?
+      </h2>
+
+      <!--<div id="dates-section-preamble" class=" govuk-hint govuk-!-margin-bottom-2">
+        Connect the new licence with the application, the holder and addresses
+      </div>-->
+    </div>
+
+
+
+    
+    <!-- end form group item -->
+
+
+
+  
+
+
+
+
+    
+
+
+   <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-number-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Licence holder
+          </h3>
+        </legend>
+
+        <div id="application-number-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          Use the party ID, for example 4807
+          <br>
+          
+        </div>
+
+        <input type="text" id="application-number" name="application-number" class="govuk-input govuk-input--width-4" autocomplete="off" />
+
+
+        <div class="govuk-hint govuk-!-margin-top-2">
+          <p>
+            If you do not have the party ID to find it, use the contacts service. If you need to create a new contact you can also use the contacts service to do this.
+          </p>
+
+          <p><a href="#" onclick="return false;">Use the licence contacts service (opens in a new tab)</a> 
+          </p>
+        </div>
+
+
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+
+
+
+
+
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

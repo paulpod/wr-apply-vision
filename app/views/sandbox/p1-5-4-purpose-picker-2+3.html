@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  .govuk-radios__label {
+    margin-top: -7px;
+  }
+</style>
+
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Point A purpose</span>
+        <h1 class="govuk-heading-l">
+          Select secondary and use code for Agriculture (A)
+        </h1>
+
+        
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+    <div class="govuk-form-group address-lookup">
+      <label for="address-picker" class="govuk-label  govuk-label--s">Find code</label>
+      <div id="address-picker-hint" class="govuk-hint">
+        Type code, or part of description to begin
+      </div>
+        <div id="my-autocomplete-wrapper">
+            <select id="address-picker" class="govuk-select">
+              <option value="" selected disabled hidden></option>
+              {% for address in data['auses'] %}
+                <option value="{{ address.id }}">{{ address.id }} - {{ address.line_1 }} - {{ address.line_2 }} - {{ address.town }}</option>
+              {% endfor %}
+            </select>
+        </div>
+    </div>
+    <!-- end form group item -->
+
+
+    
+
+
+
+
+    
+
+<br>
+    <!--<div class="govuk-!-margin-bottom-8">
+      <p>
+        <a href="#" onclick="return false;">Save and add</a> another point
+      </p>
+    </div>-->
+
+
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#address-picker')
+  })
+
+  
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+
+{% block header %}
+
+<!--header with searchbar-->
+{% include "sandbox/_includes/nav/header-search.html" %}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<!-- phase banner -->
+{% include "sandbox/_includes/nav/phase-banner.html" %}
+
+<!-- navigation block -->
+{% include "sandbox/_includes/nav/nav.html" %}
+
+{#
+{% block breadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "home"
+    }
+  ]
+}) }}
+
+{% endblock %}
+#}
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- start of service specific block -->
+    {% block service %}Text goes here, override this by overriding the block{% endblock %}
+    <!-- end service specific block-->
+
+
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/css/accessible-autocomplete.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}

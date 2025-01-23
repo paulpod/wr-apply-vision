@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+
+
+
+{% set billRunDataTpTReview = data.billRunDataTpTReview %}
+{% set licence = billRunDataTpTReview[data.ID]  %}
+
+
+{% set chargeVersion = licence.chargeVersions[data.chargeVersionID]%}
+{% set chargeReference = licence.chargeVersions[data.chargeVersionID].chargeReferences[data.chargeReferenceID] %}
+{% set chargeElement = licence.chargeVersions[data.chargeVersionID].chargeReferences[data.chargeReferenceID].chargeElements[data.elementID] %}
+
+
+{% set title = "Element review " + chargeElement.purpose.description + ", " + chargeElement.description %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   useTudorCrown: true,
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-margin-bottom-0">
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-bill-runs.html" %}
+</div>
+
+
+{{ govukBackLink({
+  text: "Go back to licence",
+  href: "licence-review"
+}) }}
+
+{#  experiment with breadcrumbs, opted for fixed back link up a level instead #}
+{#
+{{ govukBreadcrumbs({
+  items: [
+
+    {
+      text: "Review licenses",
+      href: "review"
+    },
+    {
+      text: "Licence "+licence.licenceRef,
+      href: "licence-review"
+    },
+    {
+      text: "Element 1 of 5"
+    }
+  ]
+}) }}
+#}
+
+{% endblock %}
+
+{% block content %}
+
+{% if data.statusBanner == "show" %}
+{{ govukNotificationBanner({
+  titleText: "Element updated",
+  text: "The billable returns for this licence have been updated"
+}) }}
+{% endif %}
+
+<!-- page title -->
+<div class="govuk-grid-row govuk-!-margin-bottom-5">
+  <div class="govuk-grid-column-full">
+
+
+
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3"><span class="govuk-caption-l">Element {{data.elementID | stringPlusPlus}} of {{licence.chargeVersions[data.chargeVersionID].chargeReferences[data.chargeReferenceID].chargeElements.length}}</span>
+       {{chargeElement.purpose.description | default(chargeElement.purpose)}}, {{chargeElement.description}}<br> {{chargeElement.abstractionPeriod[0].startDate |govukDate}} to {{chargeElement.abstractionPeriod[0].endDate |govukDate | firstnbsp |safe}}</h1>
+
+
+       {% if data.status == "review" %}
+       {% set colour = "govuk-tag--blue" %}
+       {% else %}
+       {% set colour = "govuk-tag--green" %}
+       {% endif %}
+
+       <p class="govuk-body">
+         {{govukTag({
+           text: data.status,
+           classes: colour
+         })}}
+       </p>
+
+       {# list of links through to the licence #}
+       {% include "sandbox/_includes/billing/tpt/licence-nav-links.html" %}
+
+
+
+
+     </div>
+     </div>
+
+
+
+
+
+
+
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-full">
+
+             <span class="govuk-caption-m">Financial year {{chargeVersion.startDate | year}} to {{chargeVersion.startDate | yearPlusPlus}}</span>
+       <h2 class="govuk-heading-m" id="{{licence.chargePeriod[data.chargeVersionID].startDate}}-{{licence.chargePeriod[data.chargeVersionID].endDate}}">Charge period {{licence.chargePeriod[data.chargeVersionID].startDate |govukDate}} to {{licence.chargePeriod[data.chargeVersionID].endDate |govukDate}}</h2>
+<!--
+       {#
+       {{ govukInsetText({
+        html: '<div>Financial year ' + chargeVersion.startDate | year + ' to ' + chargeVersion.startDate | yearPlusPlus + '</div><div>Charge period ' + licence.chargePeriod[data.chargeVersionID].startDate |govukDate +' to '+ licence.chargePeriod[data.chargeVersionID].endDate |govukDate+'</div>',
+        classes: "govuk-!-margin-bottom-0"
+      }) }} #}
+      <span class="govuk-caption-l">Financial year {{chargeVersion.startDate | year}} to {{chargeVersion.startDate | yearPlusPlus}}</span>
+      <h2 class="govuk-heading-l" id="{{licence.chargePeriod[data.chargeVersionID].startDate}}-{{licence.chargePeriod[data.chargeVersionID].endDate}}">Charge period {{licence.chargePeriod[data.chargeVersionID].startDate |govukDate}} to {{licence.chargePeriod[data.chargeVersionID].endDate |govukDate}}</h2>
+
+      {# setting issues from the element #}
+        {% set issuesText = [] %}
+        {% for issue in chargeElement.issues %}
+        {% if issue.issue.length %}
+        {% set issuesText = issuesText|push(issue.issue ) %}
+        {% endif %}
+        {% endfor %}
+
+    -->
+      </div>
+    </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+
+         <div class="govuk-!-margin-right-6 float-left">
+            <h3><span class="govuk-body govuk-font-size-64 govuk-!-font-weight-bold">{% if chargeElement.allocatedQuantity | isString%}Not set{% else %}{{chargeElement.allocatedQuantity | round(3)}}ML{% endif %}</span>{%if chargeElement.edited == true%}<span class="govuk-body govuk-!-font-weight-bold govuk-body govuk-!-font-size-19"> Edited</span>{% endif %}<br>
+              <span class="govuk-body govuk-!-font-weight-bold govuk-body govuk-!-font-size-19">Billable returns</span></h3>
+            </div>
+            <div class="govuk-!-margin-right-6 float-left">
+              <h3><span class="govuk-body govuk-font-size-64 govuk-!-font-weight-bold"> / </span><br>
+               </h3>
+              </div>
+            <div class="govuk-!-margin-right-6 float-left">
+              <h3><span class="govuk-body govuk-font-size-64 govuk-!-font-weight-bold">{{chargeElement.authorisedAnnualQuantity | round(3)}}ML</span><br>
+                <span class="govuk-body govuk-!-font-weight-bold govuk-body govuk-!-font-size-19">Authorised volume</span></h3>
+              </div>
+
+
+    {% if issuesText.length %}
+    <div class="govuk-!-margin-right-6 float-left">
+      {{ govukInsetText({
+        html: '<h4 class="govuk-heading-s govuk-!-font-weight-bold">Issue</h4>' + issuesText | formatList | capitalize
+      }) }}
+    </div>
+    {%endif%}
+  </div>
+  </div>
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-full">
+
+    <form class="inline" action="edit-the-billable-returns" method="post" novalidate >
+    {{ govukButton({
+      text: "Edit the billable returns",
+      classes: "govuk-button--secondary"
+    }) }}
+    </form>
+
+</div>
+</div>
+
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-full">
+
+    {# set the matched return details ***OLD CODE***
+    {% set matchedReturns = chargeElement.returns %}
+    {% if not licence.returns.length %}
+    {% include "sandbox/_includes/billing/tpt/element-match-2.html" %}
+    {% else %}
+    {% include "sandbox/_includes/billing/tpt/element-match.html" %}
+    {% endif %}
+    #}
+
+    {% include "sandbox/_includes/billing/tpt/returns-table-element.html" %}
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

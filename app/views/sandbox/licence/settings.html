@@ -1,0 +1,78 @@
+{% extends "layouts/_manage.html" %}
+
+{% set title = "Settings" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block breadcrumbs %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "../licence#charge"
+}) }}
+
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-full">
+
+
+  <h1 class="govuk-heading-l">
+<span class="govuk-caption-l">Licence {{[data.licences[data.ID].number]}}</span>
+{{ title }}
+      </h1>
+
+
+           {{ govukSummaryList({
+             rows: [
+             {
+               key: {
+                 text: "Licence information"
+               },
+               value: {
+                text: data.licences[data.ID]['confidentiality'] | default ("public") | capitalize
+               },
+               actions: {
+                items: [
+                  {
+                    href: "settings/confidentiality",
+                    text: "Change",
+                    visuallyHiddenText: "licence information confidentiality setting"
+                  }
+                ]
+              }
+             },
+             {
+               key: {
+                 text: "Returns multiple upload"
+               },
+               value: {
+                text: data.licences[data.ID]['multipleUpload'] | default ("no") | capitalize
+               },
+                 actions: {
+                items: [
+                  {
+                    href: "settings/multiple-upload",
+                    text: "Change",
+                    visuallyHiddenText: "multiple returns upload settings"
+                  }
+                ]
+              }
+             }
+             ]
+           }) }}
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

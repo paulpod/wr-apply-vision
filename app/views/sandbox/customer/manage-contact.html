@@ -1,0 +1,162 @@
+{% extends "layouts/_manage.html" %}
+
+<!-- show the contact name, if there isn't one then show the email address instead -->
+{% if data.contacts[data.contactID]['name'].length %}
+{% set titleName = [data.contacts[data.contactID]['name']] %}
+{% else %}
+{% set titleName = [data.contacts[data.contactID]['email']] %}
+{% endif %}
+<!--set page title-->
+{% set title = "Manage contact settings for " + titleName %}
+
+
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">{{data.customers[data.customerID]['name']}}</span>
+      {{title | safe}}
+    </h1>
+</div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-full">
+
+    <!--set the action text to be add if there isn't an email address already there-->
+    {% if [data.contacts[data.contactID].email] == "" %}
+    {% set action = "Add" %}
+    {% else %}
+    {% set action = "Change" %}
+    {% endif %}
+
+    <!--set the action text to be created in NALD if the contact wasn't created in WRLS-->
+    {% set nameItem = [] %}
+    {% if [data.contacts[data.contactID].wrls] == "true" %}
+    {% set nameItem = nameItem | push (
+    { href: "change-name?contactID=" + data.contactID,
+      text: "Change",
+     visuallyHiddenText: "name"}
+    ) %}
+    {% else %}
+    {% set nameItem = nameItem | push (
+    {
+      html: '<span class="govuk-body">Created in NALD</span>',
+      classes: "govuk-link--no-underline"
+    }
+    ) %}
+    {% endif %}
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Contact details</h2>
+
+      {{ govukSummaryList({
+  rows: [
+  {
+    key: {
+      text: "Name"
+    },
+    value: {
+      text: [data.contacts[data.contactID]['name']]
+    },
+    actions: {
+      items: nameItem
+    }
+  },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: [data.contacts[data.contactID]['email']]
+      },
+      actions: {
+        items: [
+          {
+            href: "change-email-address",
+            text: action,
+            visuallyHiddenText: "email address"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+</div></div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-full">
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-0">Email alerts</h2>
+
+{% set emailAlerts = "No" %}
+{% set details = "" %}
+{% for item in data.contacts[data.contactID].customers %}
+  {% if item.customer == data.customers[data.customerID].name %}
+    {% for i in item.notices %}
+      {% if i.type == "Water abstraction alerts" %}
+        {% if i.sendBy == "email" %}
+          {% if i.licences == "all"%}
+          {% set emailAlerts = "Yes, for all licences" %}
+
+          {% else %}
+          {% set emailAlerts = "Yes, for some licences" %}
+          {% set details %}
+          {% set licence = [] %}
+          {% for i in i.licences %}
+
+          {% set licence = licence | push (i)  %}
+          {% endfor %}
+          {{ govukDetails({
+  summaryText: "Licence details",
+  html: licence | dump | stripQuotes | stripSqBrackets | replaceComma | striptags(true) | escape | nl2br
+}) }}
+          {% endset -%}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor%}
+  {% endif %}
+{% endfor%}
+
+
+
+      {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Water abstraction alerts"
+      },
+      value: {
+        html: emailAlerts + details
+      },
+      actions: {
+        items: [
+          {
+            href: "notices",
+            text: "Change",
+            visuallyHiddenText: "water abstraction alerts"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+</div>
+</div>
+
+
+<p class="govuk-body"><a href="../customer?customerID={{data.customerID}}#contacts" class="govuk-link">Back to customer</a></p>
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layouts/_manage.html" %}
+
+<!--set page title-->
+
+{% set returnRequirements = data.licences[data.ID].returnsRequirements[data.returnVersionNumber] %}
+{% if data.licences[data.ID].returnsRequirements[data.returnVersionNumber].requirements.length %}
+{% set title = "Requirements for returns valid from " +  returnRequirements.startDate | numberToGovukDate %}
+{% else %}
+{% set title = "No returns required valid from " +  returnRequirements.startDate | numberToGovukDate %}
+{% endif %}
+
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+
+
+<!--content block-->
+{% block service %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!-- page heading -->
+
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-l ">Licence {{data.licences[data.ID]['number']}}</span> {{title}}</h1>
+<p class="govuk-body ">
+  {% set status = returnRequirements.status %}
+    {{govukTag({
+text: status,
+classes: status | tagColour + ' govuk-!-font-size-27'
+})}} </p>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+      {% include "sandbox/_includes/returns/requirements/reason-new-requirements-no-change.html" %}
+
+
+      {% if data.licences[data.ID].returnsRequirements[data.returnVersionNumber].requirements.length %}
+
+      {% include "sandbox/_includes/returns/requirements-archive/notes-no-change.html" %}
+
+      {% include "sandbox/_includes/returns/requirements-archive/requirement-no-change.html" %}
+
+     {% endif %}
+
+
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}

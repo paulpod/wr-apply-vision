@@ -1,0 +1,73 @@
+{% extends "layouts/_BASE.html" %}
+
+<!--home page style class-->
+{% set mainClasses = "home-no-padding-top" %}
+
+<!--set title-->
+{% set title = "Manage your water abstraction or impoundment licence" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+<!--header without searchbar-->
+{% include "sandbox/_includes/nav/header.html" %}
+
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+
+{% block service %}
+
+<!--search-->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="mastheader">
+      <div class="govuk-form-group govuk-width-container">
+
+
+        <!-- search  -->
+        <form action="search" method="post" novalidate>
+
+
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l  " for="search">
+              Search for a licence, user, return or account
+            </label>
+          </h1>
+          <span id="search-hint" class="govuk-hint hint-dark-grey">
+            Enter licence number, name, registered email address, return ID or billing account
+          </span>
+          <input class="govuk-input govuk-!-width-two-thirds govuk-!-display-inline-block" id="search" name="search" type="text" aria-describedby="search-hint">
+
+          {{ govukButton({
+            text: "Search",
+            classes: "govuk-!-display-inline-block govuk-!-padding-right-6 govuk-!-padding-left-6"
+          }) }}
+
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible govuk-!-margin-top-0">
+
+<!--navigation cards -->
+{% include "sandbox/_includes/cards/home-cards.html" %}
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<!--charge information workflow-->
+{% include "sandbox/_includes/reports/charge-info-workflow.html" %}
+
+
+{% endblock %}

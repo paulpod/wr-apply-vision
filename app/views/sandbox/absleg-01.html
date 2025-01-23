@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">NALD replacement, abstraction leg</span>
+    <h1 class="govuk-heading-xl">
+      Create Licence
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="signature-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h2 class="govuk-fieldset__heading">
+            Signature date
+          </h2>
+        </legend>
+
+        
+
+        
+        <div id="signature-date-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          For example, 27 3 2007
+        </div>
+
+        
+
+        <div class="govuk-date-input" id="signature-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="signature-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="signature-date-day" name="signature-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="signature-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="signature-date-month" name="signature-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="signature-date-year">
+                Year
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="signature-date-year" name="signature-date-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-0">
+          <details class="govuk-details govuk-!-margin-bottom-0">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">About the signature date</span></summary>
+              <div class="govuk-details__text">
+                Date that this licence was first signed. It relates directly to the Licence Number rather than any historical reason for creating the Licence. For example if the licence was created as a result of a part succession this date will be the date that the new Licence was signed, rather than the date of signature of the succeeded Licence.
+              </div>
+          </details>
+        </div>
+
+      </fieldset>
+    </div>
+
+
+    <div>
+      <h3>Other dates - content from NALD user manual</h3>
+      <h4>Original effective date</h4>
+      <p>date that the Licence first came into effect. This will be
+synonymous with the Licence effective date of the first version (issue) of the Licence, but as
+Licence history will not be initially loaded onto NALD, this version (issue) may not be
+accurately available. The original effective date also relates directly to the Licence number as
+described in ORIGINAL SIGNATURE DATE</p>
+
+      <h4>Expiry date</h4>
+      <p>date on which the entire Licence will expire. Populated when Licence
+version is saved as 'current'. Once set the Expiry date can only be modified by creating a new
+licence version or by the Administrator ‘Re-opening’ the ‘Current’ version as a ‘Draft’ to
+amend.</p>
+
+<h4>Revocation date</h4>
+<p>date on which the Licence was revoked. Populated at the time of
+Licence revocation. Once set, can only be modified by a user with Secure Data Fix access
+privileges, unless the date has already been used in the billing process.</p>
+
+<h4>Lapsed date</h4>
+<p>date on which the Licence was deemed to have lapsed. Populated at the time
+of Licence lapse. Once set, can only be modified by a user with Secure Data Fix access
+privileges, unless the date has already been used in the billing process.</p>
+
+<h4>V<span  style="text-transform: lowercase;">ERSION EFFECTIVE START DATE</h4>
+<p>date that this version (issue or increment) starts.
+For an issue, this will be the effective date that appears on the licence document. This date
+cannot be amended by the administrator once it is saved as 'current'. The Administrator must
+re-open the record as 'Draft’. to amend</p>
+
+<h4>V<span  style="text-transform: lowercase;">ERSION EFFECTIVE END DATE</h4>
+  <p>The date that this version (issue or increment) ends
+will be populated by the system in accordance with the rules given above. The end date
+cannot be amended by the system administrator once it is saved as 'current'. The system
+administrator must re-open the record as 'draft. to amend.</p>
+
+<h4>T<span  style="text-transform: lowercase;">IME LIMITED START DATE</span></h4>
+<p>date that a record which has some kind of time limit other
+than full licence expiry, comes into force. This will default to the version effective start date
+but may be amended to a later date if required to reflect the wording of the licence.</p>
+
+
+</div>
+
+
+
+    <!-- list of the abstraction purposes -->
+
+    <div>
+      <select class="govuk-select" name="choose-country" id="choose-country">
+        <option value="territory:AE-AZ">Abu Dhabi</option>
+        <option value="country:AF">Afghanistan</option>
+        <option value="territory:AE-AJ">Ajman</option>
+        <option value="territory:XQZ">Akrotiri</option>
+        <option value="country:AL">Albania</option>
+        <option value="country:ZM">Zambia</option>
+        <option value="country:ZW">Zimbabwe</option>
+        <option value="territory:AX">Åland Islands</option>
+      </select>
+    </div>
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <h1 class="govuk-heading-l">
+      User type
+    </h1>
+    <p class="govuk-body govuk-!-font-weight-bold">
+
+      {% if data['userType'] == "bd" %}
+      Billing and Data
+      {% elseif data['userType'] == "nps" %}
+      National permitting service
+      {% else %}
+      Super user
+      {% endif %}
+
+    </p>
+    <ul class="govuk-list">
+      <li>
+        <p class="govuk-body"><a class="govuk-link" href="set-user-type">Change the user type</a></p>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+{% endblock %}
+
+
+

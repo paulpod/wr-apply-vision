@@ -1,0 +1,35 @@
+<!--setting the loop number to 0-->
+{% set loopNumber = "" %}
+
+<!--getting the bill runs data-->
+{% set BA = data['billingAccounts'] %}
+
+
+
+{% set licenceHolder = [data.billingAccounts[BAID].customer] %}
+{% set billingContact = [data.billingAccounts[BAID].billingContact] %}
+
+
+<!--getting the address data-->
+{% set addresses = data['addresses'] %}
+{% for i in addresses %}
+<!--set the index of the address-->
+{% set loopNumber = loop.index0 %}
+
+
+<!--for each of the adresses check to see if the address has the correct customer and the billing role-->
+{% set addressCustomers = i.customers %}
+
+{% for i in addressCustomers %}
+
+{% if "Billing" in i.role and licenceHolder == i.customer %}
+
+
+{{[data.addresses[loopNumber].address1]}}<br>
+{{[data.addresses[loopNumber].city]}}<br>
+{{[data.addresses[loopNumber].postcode]}}
+
+
+{% endif %}
+{% endfor %}
+{% endfor %}

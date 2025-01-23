@@ -1,0 +1,373 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">NALD replacement, abstraction leg</span>
+    <h1 class="govuk-heading-xl">
+      Create Licence
+    </h1>
+
+    <h2 class="govuk-heading-l">
+      2. Purposes
+    </h2>
+
+   
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="abs-purpose-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Abstraction purpose
+          </h3>
+
+          <p id="abs-purpose-hint">The code is composed of three separate elements: Primary, secondary and use (numeric). Enter each into the fields below.
+        </legend>
+
+        
+        <div class="govuk-date-input" id="signature-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="abs-purpose-primary">
+                Primary
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="abs-purpose-primary" name="abs-purpose-primary" type="text" inputmode="text">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="abs-purpose-secondary">
+                Secondary
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="abs-purpose-secondary" name="abs-purpose-secondary" type="text" inputmode="text">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="abs-purpose-use">
+                Use
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="abs-purpose-use" name="abs-purpose-use" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        
+      </fieldset>
+    </div>
+
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="abs-start-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Abstraction period start 
+          </h3>
+        </legend>
+
+        
+        <div class="govuk-date-input" id="abs-start-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="abs-start-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="abs-start-date-day" name="abs-start-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="abs-start-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="abs-start-date-month" name="abs-start-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+         
+        </div>
+
+        
+      </fieldset>
+    </div>
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="abs-start-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Abstraction period end 
+          </h3>
+        </legend>
+
+        
+        <div class="govuk-date-input" id="abs-end-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="abs-end-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="abs-end-date-day" name="abs-start-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="abs-end-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="abs-end-date-month" name="abs-end-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+         
+        </div>
+      </fieldset>
+    </div>
+
+    <hr style="margin:2em 0">
+
+
+
+    <div id="id-preamble">
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-4 ">
+        How much water is authorised for this purpose?
+      </h3>
+
+    </div>
+
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-issue-number-hint">
+
+         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <!--<h3 class="govuk-fieldset__heading">
+            Authorised quantities
+          </h3>
+          </legend>-->
+        
+
+        <div id="licence-issue-number-hint" class="govuk-hint govuk-!-margin-bottom-4">
+          Enter the amounts from the licence for at least one of the time periods
+        </div>
+
+
+        <!--<div id="licence-issue-number-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          All new licences start with issue 1, but it may be edited
+        </div>-->
+
+       
+        <p>
+          Annual
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> m<sup>3</sup> each year
+        </p>
+
+        <p>
+          Daily
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> m<sup>3</sup> each day
+        </p>
+
+        <p>
+          Hourly
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> m<sup>3</sup> each hour
+        </p>
+
+        <p>
+          Instantaneous
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> l<sup>3</sup> per second
+        </p>
+
+     
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    <div class="govuk-form-group">
+      <h3 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="meter">
+          How is the water measured?
+        </label>
+      </h3>
+
+  <select class="govuk-select" id="meter" name="meter">
+    <option value="AAG">AAG - As agreed with Agency</option>
+
+    <option value="AAG">EST - Estimated Volume</option>
+
+    <option value="AAG">KAD - Known Area x Depth</option>
+
+    <option value="AAG">KCO - Known capacity x no of fills</option>
+
+    <option value="AAG">LEV - Level/Stage at flow measuring structure</option>
+
+    <option value="AAG">LIV - Nos of livestock a standard rate</option>
+
+    <option value="AAG" selected>MTR - Meter</option>
+
+    <option value="AAG">MXM - Mixed Means</option>
+
+    <option value="AAG">0СМ - Open Channel Measurement</option>
+
+    <option value="AAG">OTH - Other means</option>
+
+    <option value="AAG">PEO - Nos of People x Standard Rate</option>
+
+    <option value="AAG">PRT - Pump rate x time</option>
+
+    <option value="AAG">PWC - Power Consumed</option>
+
+    <option value="AAG">PWG - Power Generated</option>
+  </select>
+</div>
+
+
+
+    <hr style="margin:2em 0">
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="additionalP-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Does this licence require additional purposes?
+          </h3>
+        </legend>
+        <div id="additionalP-hint" class="govuk-hint">
+          Where quantities vary through the year, set up a separate purpose.
+        </div>
+        <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="additionalP" name="additionalP" type="radio" value="yes" >
+            <label class="govuk-label govuk-radios__label" for="additionalP">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="additionalP-2" name="additionalP" type="radio" value="no" >
+            <label class="govuk-label govuk-radios__label" for="additionalP-2">
+              No
+            </label>
+          </div>
+         
+          
+        </div>
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    <hr style="margin:2em 0">
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="notes-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
+          <h3 class="govuk-fieldset__heading">
+            Notes for this purpose
+          </h3>
+        </legend>
+
+        
+
+        
+
+        <textarea type="govuk-textarea" id="purpose-notes" name="purpose-notes" class="govuk-textarea" rows="5" autocomplete="off"></textarea>
+
+      </fieldset>
+    
+    </div><!-- end form group item -->
+
+
+
+    <div>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+
+    
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+
+  </div>
+
+</div>
+
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+{% endblock %}
+
+
+

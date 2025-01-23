@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+
+
+{% block header %}
+
+<!--header added sandbox copy-->
+{% include "sandbox/_includes/head.html" %}
+
+
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container header-border-bottom",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<!-- phase banner -->
+{% include "sandbox/_includes/nav/phase-banner.html" %}
+
+<!-- navigation block -->
+<div class="govuk-!-margin-bottom-3">
+  {% include "sandbox/_includes/nav/manage/nav-manage.html" %}
+</div>
+
+
+{% block breadcrumbs %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- start of service specific block -->
+    {% block service %}Text goes here, override this by overriding the block{% endblock %}
+    <!-- end service specific block-->
+
+
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.0/proj4.js"></script>
+{% endblock %}

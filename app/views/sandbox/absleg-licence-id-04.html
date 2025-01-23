@@ -1,0 +1,280 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div>
+        <h3 class="govuk-caption-l">
+          Licence number: 20/56/22/0027
+
+          <span style="position: relative;top:-0.16em;left:0.5em">
+            <strong class="govuk-tag govuk-tag--green">Draft</strong>
+          </span>
+
+          <span class="govuk-caption-l">Application number: NPW/WR/038046</span>
+        </h3>
+    </div>
+
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      Create a new licence
+    </h1>
+
+
+
+    <div id="id-preamble">
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-6 ">
+        When does the licence start?
+      </h2>
+
+      <!--<div id="dates-section-preamble" class=" govuk-hint govuk-!-margin-bottom-2">
+        Connect the new licence with the application, the holder and addresses
+      </div>-->
+    </div>
+
+    <!-- end form group item -->
+
+
+
+   
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="effective-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">Effective date</h3>
+        </legend>
+
+        <div id="effective-date-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          From the first version of the licence, for example 27 3 2017
+        </div>
+
+        <div class="govuk-date-input" id="effective-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="effective-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="effective-date-day" name="effective-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="effective-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="effective-date-month" name="effective-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="effective-date-year">
+                Year
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="effective-date-year" name="effective-date-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+
+          <!--<div class="govuk-!-margin-top-4 govuk-!-margin-bottom-0">
+          <details class="govuk-details govuk-!-margin-bottom-0">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">About the original effective date</span></summary>
+              <div class="govuk-details__text">The date that the Licence first came into effect. This will be synonymous with the Licence effective date of the first version (issue) of the Licence, but as Licence history will not be initially loaded onto NALD, this version (issue) may not be accurately available. The original effective date also relates directly to the Licence number as described in ORIGINAL SIGNATURE DATE</div>
+          </details>
+        </div>-->
+
+      </fieldset>
+        </div><!-- end form item -->
+
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="signature-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">
+            Signature date
+          </h3>
+        </legend>
+
+        <div id="signature-date-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          On a part succession licence, this is the date the new licence was signed, for example 27 3 2017
+        </div>
+
+        <!--<div>
+          <p>Fill as <a href="#" onclick="return false;">same as effective date</a> above.</p>
+
+        </div>-->
+
+        <div class="govuk-date-input" id="signature-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="signature-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="signature-date-day" name="signature-date-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="inputText govuk-label govuk-date-input__label" for="signature-date-month">
+                Month
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-2" id="signature-date-month" name="signature-date-month" type="" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="signature-date-year">
+                Year
+              </label>
+              <input class="inputText govuk-input govuk-date-input__input govuk-input--width-4" id="signature-date-year" name="signature-date-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="govuk-!-margin-top-4 govuk-!-margin-bottom-0">
+          <details class="govuk-details govuk-!-margin-bottom-0">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">About the signature date</span></summary>
+              <div class="govuk-details__text">
+                Date that this licence was first signed. It relates directly to the Licence Number rather than any historical reason for creating the Licence. For example if the licence was created as a result of a part succession this date will be the date that the new Licence was signed, rather than the date of signature of the succeeded Licence.
+              </div>
+          </details>
+        </div>-->
+
+      </fieldset>
+    </div><!-- end form item -->
+
+
+
+  
+
+
+
+
+    
+
+
+
+
+
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

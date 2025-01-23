@@ -1,0 +1,124 @@
+{% extends "layouts/_manage.html" %}
+
+<!--set title-->
+{% set title = "Manage reports and notices" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+<!--header without searchbar-->
+{% include "sandbox/_includes/nav/header.html" %}
+
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">
+      Create reports
+    </h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="licence-notices/create-waa-report/waa-alert-report">
+        Create a water abstraction alert report
+        </a>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      View reports
+    </h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="licence-notices/notification-report">
+          View sent notices
+        </a>
+      </li>
+      <!-- <li>
+        <a class="govuk-link" href="expired-licences">
+          Expired licences
+        </a>
+      </li> -->
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Send return notices
+    </h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="licence-notices/returns/send-quarterly-returns?returnNotificationType=invitations">
+          Invitations
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">
+          Paper forms
+        </a>
+      </li>
+      <li>
+        <a class="govuk-link" href="licence-notices/returns/send-quarterly-returns?returnNotificationType=reminders">
+          Reminders
+        </a>
+      </li>
+      <!-- <li>
+        <a class="govuk-link" href="expired-licences">
+          Expired licences
+        </a>
+      </li> -->
+    </ul>
+
+
+    <h2 class="govuk-heading-m">
+      Send a water abstraction alert
+    </h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="search?search=Monitoring stations">
+          Find monitoring station the alert is for
+        </a>
+      </li>
+
+    </ul>
+
+
+
+    <h2 class="govuk-heading-m">
+      Upload
+    </h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="upload/upload-charge-information">
+          Upload charge information
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+
+
+</main>
+
+</div>
+{% endblock %}

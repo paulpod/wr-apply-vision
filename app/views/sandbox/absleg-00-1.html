@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!--<span class="govuk-caption-xl">NALD replacement, abstraction leg</span>-->
+    
+
+
+     <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h1 class="govuk-heading-l">
+            What changes to an existing licence would you like to make?
+          </h1>
+
+        </legend>
+
+        <!--<div id="licence-issue-number-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          At least one purpose is required
+        </div>-->
+
+        <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="returnsreqFlag" name="returnsreqFlag" type="radio" value="yes" checked>
+            <label class="govuk-label govuk-radios__label" for="returnsreqFlag">
+              Change or add purposes for a licence
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="returnsreqFlag-1" name="returnsreqFlag" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="returnsreqFlag-1">
+              Change the quantities a licence covers
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="returnsreqFlag-2" name="returnsreqFlag" type="radio" value="no" >
+            <label class="govuk-label govuk-radios__label" for="returnsreqFlag-2">
+              Make changes to the dates on a licence
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="returnsreqFlag-2" name="returnsreqFlag" type="radio" value="no" >
+            <label class="govuk-label govuk-radios__label" for="returnsreqFlag-2">
+              Make changes to the contacts on a licence
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="returnsreqFlag-3" name="returnsreqFlag" type="radio" value="no" >
+            <label class="govuk-label govuk-radios__label" for="returnsreqFlag-3">
+              Something else
+            </label>
+          </div>
+         
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+    
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+   
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+
