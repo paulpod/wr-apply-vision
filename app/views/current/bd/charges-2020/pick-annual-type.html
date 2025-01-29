@@ -1,0 +1,122 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Select annual bill run type" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-bill-runs.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <form data-routing="1" method="post" class="form" id="choose-bill-type">
+
+
+
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "annualType",
+          name: "annualType",
+          fieldset: {
+            legend: {
+              text: [title],
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+  items: [
+    {
+      value: "annual-charges-load?region=" + data['region'] + "&annualType=all abstractors&annualBilled=true",
+      text: "All abstractors",
+      hint: {
+        text: "You can only have one of this bill run type for a region in a financial year"
+      }
+    },
+    {
+      value: "annual-charges-load?region=" + data['region'] + "&annualType=water companies",
+      text: "Water companies only"
+    }
+  ]
+}) }}
+
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+  <script>
+
+
+
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('input:checked').val();
+        console.log(url);
+
+        if(url) {
+
+  /*      if( $("#annualType").is(':checked')){
+        let  annualType = "all abstractors"
+        let radioUrl = $(this).find('input:checked').val();
+        const newurl = radioUrl+annualType;
+        ev.preventDefault();
+        window.location.href = newurl;
+        return false;
+      } else if ( $("#annualType-2").is(':checked')){
+        let  annualType = "water companies"
+        let radioUrl = $(this).find('input:checked').val();
+        const newurl = radioUrl+annualType;
+        ev.preventDefault();
+        window.location.href = newurl;
+        return false;
+      }
+*/
+
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}

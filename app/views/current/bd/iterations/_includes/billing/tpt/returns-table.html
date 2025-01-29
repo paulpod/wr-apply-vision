@@ -1,0 +1,73 @@
+
+
+
+
+{# set a blank array for the table rows #} 
+{% set rows = [] %} 
+
+{# Loop through the rows and push the returns into the list, this uses a custom filter "push" this is in filters.js#}
+
+
+
+{% for chargeVersion in licence.chargeVersions %}
+{% for chargeReference in chargeVersion.chargeReferences %}
+{% for chargeElement in chargeReference.chargeElements %}
+{% if chargeElement.tpt == true %}
+{% for return in chargeElement.returns %}
+
+
+{% set reference = '<a class="govuk-link" href="#"><span class="govuk-visually-hidden">View return for </span>' + return.returnRequirement + '</a><br>' + return.startDate | govukDate + ' to ' + return.endDate | govukDate  %}
+
+
+{% set statusTag %}
+{{govukTag({
+  text: return.status,
+  classes: return.status | returnStatusColour + ' govuk-!-font-size-14'
+})}}
+{% endset %}
+
+
+{% if return.returnsQuantity == "" %}
+{% set allocationMessage = '/ <br>Not processed'%}
+{% elseif chargeElement.allocatedQuantity == return.returnsQuantity %}
+{% set allocationMessage = chargeElement.allocatedQuantity + 'ML / ' + return.returnsQuantity + 'ML<br>Fully allocated'  %}
+{% elseif chargeElement.allocatedQuantity == "not set" %}
+{% set allocationMessage =  return.returnsQuantity + 'ML / ' + return.returnsQuantity + 'ML<br>Fully allocated'  %}
+{% else %}
+{% set allocationMessage = chargeElement.allocatedQuantity + 'ML / ' + return.returnsQuantity + 'ML<br>Over abstraction' %}
+{% endif %}
+
+
+{% set rows = rows | push([ {html: reference | safe, classes: 'govuk-body-s'}, {html: return.purpose + '<br>' + return.description,classes: 'govuk-body-s' }, {html: statusTag |safe, classes: 'govuk-body-s' }, {html: allocationMessage,format: 'numeric',classes: 'govuk-body-s' } ]) %} 
+
+
+
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+
+
+
+{{ govukTable({
+caption: "Matched returns",
+captionClasses: "govuk-table__caption--m",
+firstCellIsHeader: false,
+head: [
+{
+text: "Return reference and dates"
+},
+{
+text: "Purpose and description"
+},
+{
+text: "Status"
+},
+{
+html: "Return totals<br>Allocated / Total",
+format: "numeric"
+}
+],
+rows: rows 
+}) }}

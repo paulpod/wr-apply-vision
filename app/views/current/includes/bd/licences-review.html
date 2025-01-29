@@ -1,0 +1,260 @@
+{% set tableCaption = 'Review <br><span class="govuk-caption-l">5 licences</span>' %}
+
+  {% if [data.chargeVersions[0].chargeStatus] == "NOT APPROVED" %}
+  {{ govukTable({
+    caption: tableCaption | safe,
+    captionClasses: "govuk-heading-l",
+    firstCellIsHeader: false,
+    classes: "govuk-table-fix",
+    head: [
+      {
+        text: "Licence"
+      },
+      {
+        text: "Licence holder"
+      },
+      {
+        text: "Set up by"
+      },
+      {
+        html: "Charge information <br> start date"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+    [
+      {
+        text: '03/28/60/0031'
+      },
+      {
+        text: "Bottled Water Plc"
+      },
+      {
+        text: "Yourname@madeup.com"
+      },
+      {
+        text: "30 April 2022"
+      },
+      {
+        html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+      }
+    ],
+      [
+        {
+          text: '01/12/001/33'
+        },
+        {
+          text: "Sam Bidwell"
+        },
+        {
+          text: "michael.babb@madeup.com"
+        },
+        {
+          text: "4 October 2020"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=NOT%20APPROVED&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+      [
+        {
+          text: '12/28/66/0015'
+        },
+        {
+          text: "Jacqui Tempson"
+        },
+        {
+          text: "rose.conelly@madeup.com"
+        },
+        {
+          text: "30 April 2022"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+      [
+        {
+          text: '44/22/17/349'
+        },
+        {
+          text: "Osborne Farms Ltd."
+        },
+        {
+          text: "barry.crampton@madeup.com"
+        },
+        {
+          text: "15 July 2023"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+      [
+        {
+          text: '1/34/5555/0048'
+        },
+        {
+          text: "Little Jones Farms Ltd."
+        },
+        {
+          text: "barry.crampton@madeup.com"
+        },
+        {
+          text: "15 September 2022"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+
+      [
+        {
+          text: '22/25/55/9800',
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "Little Jones Farms Ltd.",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "jo.langton@madeup.com",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "28 January 2024",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>',
+          classes: 'govuk-table__cell--no-border'
+        }
+      ]
+
+    ]
+  }) }}
+
+  {% else %}
+
+
+  {{ govukTable({
+    caption: tableCaption | safe,
+    captionClasses: "govuk-heading-l",
+    firstCellIsHeader: false,
+    classes: "govuk-table-fix",
+    head: [
+      {
+        text: "Licence"
+      },
+      {
+        text: "Licence holder"
+      },
+      {
+        text: "Set up by"
+      },
+      {
+        html: "Charge information <br> start date"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: '01/12/001/33'
+        },
+        {
+          text: "Sam Bidwell"
+        },
+        {
+          text: "michael.babb@madeup.com"
+        },
+        {
+          text: "4 October 2020"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=NOT%20APPROVED&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+      [
+        {
+          text: '12/28/66/0015'
+        },
+        {
+          text: "Jacqui Tempson"
+        },
+        {
+          text: "rose.conelly@madeup.com"
+        },
+        {
+          text: "30 April 2022"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+      [
+        {
+          text: '44/22/17/349'
+        },
+        {
+          text: "Osborne Farms Ltd."
+        },
+        {
+          text: "barry.crampton@madeup.com"
+        },
+        {
+          text: "15 July 2023"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+      [
+        {
+          text: '1/34/5555/0048'
+        },
+        {
+          text: "Little Jones Farms Ltd."
+        },
+        {
+          text: "barry.crampton@madeup.com"
+        },
+        {
+          text: "15 September 2022"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>'
+        }
+      ],
+
+      [
+        {
+          text: '22/25/55/9800',
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "Little Jones Farms Ltd.",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "jo.langton@madeup.com",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "28 January 2024",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version">Review<span class="govuk-visually-hidden"> charge information</span></a>',
+          classes: 'govuk-table__cell--no-border'
+        }
+      ]
+
+    ]
+  }) }}
+
+    {% endif %}

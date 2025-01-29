@@ -1,0 +1,227 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Select the name of the supported source" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "#1",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+    {% include "current/includes/nav/nav-bd-view.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- page heading -->
+    <span class="govuk-caption-l">Licence 03/28/60/0032</span>
+
+  </div>
+</div>
+
+
+<form method="post" class="form">
+
+  {# get the index of the charge reference for populating data #}
+  {% set index = data.chargeReferenceIndex %}
+  {% if index == undefined %}
+  {% set index = 0 %}
+  {% endif %}
+
+          {{ govukRadios({
+          idPrefix: "supSourceName",
+          name: "supSourceName",
+          fieldset: {
+            legend: {
+              text: [title],
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+
+            {
+              divider: "<span class='govuk-!-font-weight-bold govuk-!-margin-left-3'>Anglian</span>" | safe
+            },
+            {
+              value: "earl soham - deben",
+              text: "Earl Soham - Deben",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "earl soham - deben")
+            },
+            {
+              value: "glen groundwater",
+              text: "Glen Groundwater",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "glen groundwater")
+            },
+            {
+              value: "great east anglian groundwater",
+              text: "Great East Anglian Groundwater",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "great east anglian groundwater")
+            },
+            {
+              value: "great east anglian surface water",
+              text: "Great East Anglian Surface Water",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "great east anglian surface water")
+            },
+            {
+              value: "loedes granta groundwater",
+              text: "Loedes Granta groundwater",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "loedes granta groundwater")
+            },
+            {
+              value: "nene - northampton",
+              text: "Nene - Northampton",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "nene - northampton")
+            },
+            {
+              value: "nene - water newton",
+              text: "Nene - Water Newton",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "nene - water newton")
+            },
+            {
+              value: "ouse - eaton socon",
+              text: "Ouse - Eaton Socon",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "ouse - eaton socon")
+            },
+            {
+              value: "ouse - hermitage",
+              text: "Ouse - Hermitage",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "ouse - hermitage")
+            },
+            {
+              value: "ouse - offord",
+              text: "Ouse - Offord",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "ouse - offord")
+            },
+            {
+              value: "rhee groundwater",
+              text: "Rhee groundwater",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "rhee groundwater")
+            },
+            {
+              value: "thet and little ouse surface water",
+              text: "Thet and Little Ouse Surface Water",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "thet and little ouse surface water")
+            },
+            {
+              value: "waveney groundwater",
+              text: "Waveney Groundwater",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "waveney groundwater")
+            },
+            {
+              value: "waveney surface water",
+              text: "Waveney Surface Water",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "waveney surface water")
+            },
+            {
+              value: "welland tinwell sluices",
+              text: "Welland Tinwell Sluices",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "welland tinwell sluices")
+            },
+            {
+              value: "witham and ancholme",
+              text: "Witham and Ancholme",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "witham and ancholme")
+            },
+            {
+              divider: "<span class='govuk-!-font-weight-bold govuk-!-margin-left-3'>Midlands</span>" | safe
+            },
+            {
+              value: "severn",
+              text: "Severn",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "severn")
+            },
+            {
+              divider: "<span class='govuk-!-font-weight-bold govuk-!-margin-left-3'>North&nbsp;East</span>" | safe
+            },
+            {
+              value: "kielder",
+              text: "Kielder",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "kielder")
+            },
+            {
+              value: "lower yorkshire derwent",
+              text: "Lower Yorkshire Derwent",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "lower yorkshire derwent")
+            },
+            {
+              divider: "<span class='govuk-!-font-weight-bold govuk-!-margin-left-3'>Southern</span>" | safe
+            },
+            {
+              value: "candover",
+              text: "Candover",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "candover")
+            },
+
+            {
+              value: "medway allington",
+              text: "Medway Allington",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "medway allington")
+            },
+
+
+            {
+              divider: "<span class='govuk-!-font-weight-bold govuk-!-margin-left-3'>Thames</span>" | safe
+            },
+            {
+              value: "thames",
+              text: "Thames",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "thames")
+            },
+            {
+              divider: "<span class='govuk-!-font-weight-bold govuk-!-margin-left-3'>Wales</span>" | safe
+            },
+            {
+              value: "dee",
+              text: "Dee",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "dee")
+            },
+            {
+              value: "wye",
+              text: "Wye",
+              checked: checked("chargeReferences["+ index +"].supSourceName", "wye")
+            }
+
+            ]
+        }) }}
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+{% endblock %}

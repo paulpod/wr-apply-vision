@@ -1,0 +1,201 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = data.billRuns[data.billRunIndex]['region']|capitalize + " " + data.billRuns[data.billRunIndex]['runType'] + " bill run" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-margin-bottom-3">
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-bill-runs.html" %}
+</div>
+
+{{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+{{ govukErrorSummary({
+  titleText: "There was a problem generating this bill run",
+  errorList: [
+    {
+      text: "Sorry, there has been a system error.  Please call the IT Service Desk on 0800 014 8255 and give them the error code 10."
+    }
+  ]
+}) }}
+
+<!-- page title -->
+<div class="govuk-grid-row govuk-!-margin-bottom-0">
+  <div class="govuk-grid-column-full">
+
+    <section class="govuk-!-margin-bottom-6">
+      <h1 class="govuk-caption-l">Bill run {{data.billRuns[data.billRunIndex]['number']}}
+      <span class="govuk-heading-xl govuk-!-margin-bottom-0">{{title}}</span></h1>
+    </section>
+
+  </div>
+</div>
+
+    <div class="govuk-grid-row  govuk-!-margin-bottom-6">
+      <div class="govuk-grid-column-two-thirds">
+
+        <p class="govuk-body">
+          {{govukTag({
+        text: "error",
+        classes: "govuk-tag--red govuk-!-font-size-27"
+      })}}
+        </p>
+
+        <section class="meta-data__row">
+          <div class="meta-data__container">
+            <div class="meta-data__label">
+              Date created
+            </div>
+            <div class="meta-data__value">
+              {{data.billRuns[data.billRunIndex]['date']}}
+            </div>
+            <div>
+        </section>
+        <section class="meta-data__row">
+          <div class="meta-data__container">
+            <div class="meta-data__label">
+              Region
+            </div>
+            <div class="meta-data__value">
+              {{data.billRuns[data.billRunIndex]['region']|title}}
+            </div>
+            <div>
+        </section>
+        <section class="meta-data__row">
+          <div class="meta-data__container">
+            <div class="meta-data__label">
+              Bill run type
+            </div>
+            <div class="meta-data__value">
+              {{data.billRuns[data.billRunIndex]['runType']|capitalize}}
+            </div>
+            <div>
+        </section>
+
+
+
+  </div>
+</div>
+
+
+
+{% if data.billRuns[data.billRunIndex]['sroc'] == true or data.billRuns[data.billRunIndex]['sroc'] == false %}
+
+<div class="govuk-grid-row  govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!--linked bill component-->
+
+    {% set index = "" %}
+    {% set scheme = "" %}
+    {% set number = "" %}
+    {% if data.billRuns[data.billRunIndex]['sroc'] == true %}
+    {% set index = +data.billRunIndex + 1 %}
+    {% set scheme = "Old charge scheme"%}
+    {% set number = data.billRuns[data.billRunIndex]['number'] - 1%}
+    {% else %}
+    {% set index = data.billRunIndex - 1 %}
+    {% set scheme = "Current charge scheme"%}
+      {% set number = +data.billRuns[data.billRunIndex]['number'] + 1%}
+    {% endif %}
+
+    {% set linkedBillTag %}
+    {{govukTag({
+                text: [data.billRuns[index]['status']],
+                classes: data.billRuns[index]['status'] | replaceWS | statusColour
+              })}}
+    {% endset %}
+
+    {% set url = "" %}
+    {% if data.billRuns[index]['status'] == "error" %}
+    {% set url = "/current/bd/iterations/bill-runs/charges-error?billRunIndex="  %}
+    {% else %}
+    {% set url = "/current/bd/charges-2020/supplementary-charges?billRunIndex=" %}
+    {% endif %}
+
+     {% set html = '<a href="' + url + index + '">'+number+'</a> (' + scheme+ ')' %}
+
+
+    {% set metaData %}
+    {{ govukSummaryList({
+  classes: 'govuk-summary-list--no-border',
+  rows: [
+
+    {
+      key: {
+        text: "Number",
+        classes: "meta-data__label line-height"
+      },
+      value: {
+        html: html,
+        classes: "meta-data__value"
+      }
+    },
+    {
+      key: {
+        text: "Status",
+        classes: "meta-data__label"
+      },
+      value: {
+        html: linkedBillTag,
+        classes: "meta-data__value"
+
+      }
+    }
+  ]
+  }) }}
+    {% endset %}
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">This bill run is linked to another one/h2> {{metaData|safe}}
+
+    <!--linkedbill component end-->
+
+    </div>
+    </div>
+
+{% endif %}
+<!--
+<div class="govuk-grid-row govuk-!-margin-bottom-0">
+  <div class="govuk-grid-column-two-thirds">
+{#
+{{ govukButton({
+  text: "Delete bill run",
+  classes: "govuk-button--secondary",
+  href: "confirm-delete-bill-run"
+}) }}
+#}
+</div>
+</div>
+-->
+{% endblock %}

@@ -1,0 +1,119 @@
+{% import "current/includes/macros/tables.njk" as table %}
+
+{% extends "layout_wrls.html" %}
+
+{% set title = "Meta data" %}
+
+{% block pageTitle %}
+   {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Water service patterns",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+  <!-- page title -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1  class="heading-large govuk-heading-l">
+        Licence data
+      </h1>
+    </div>
+  </div>
+
+  <p class="govuk-body govuk-!-font-weight-bold">HTML version</p>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-full">
+      <section class="meta-data__row">
+        <div class="meta-data__container">
+          <div class="meta-data__label">
+            Date created
+          </div>
+          <div class="meta-data__value">
+            12 January 2020
+          </div>
+        <div>
+      </section>
+      <section class="meta-data__row">
+        <div class="meta-data__container">
+          <div class="meta-data__label">
+            Region
+          </div>
+          <div class="meta-data__value">
+            Anglian
+          </div>
+        <div>
+      </section>
+      <section class="meta-data__row">
+        <div class="meta-data__container">
+          <div class="meta-data__label">
+            Bill run type
+          </div>
+          <div class="meta-data__value">
+            Supplementary
+          </div>
+        <div>
+      </section>
+
+    </div>
+  </div>
+
+<p class="govuk-body govuk-!-font-weight-bold">Modified summary list version</p>
+
+  {{ govukSummaryList({
+  classes: 'govuk-summary-list--no-border',
+  rows: [
+    {
+      key: {
+        text: "Date created",
+        classes: "meta-data__label"
+      },
+      value: {
+        text: "12 January 2020",
+        classes: "meta-data__value"
+      }
+    },
+    {
+      key: {
+        text: "Region",
+        classes: "meta-data__label"
+      },
+      value: {
+        text: "Anglian",
+        classes: "meta-data__value"
+      }
+    },
+    {
+      key: {
+        text: "Bill run type",
+        classes: "meta-data__label"
+      },
+      value: {
+        text: "Supplementary",
+        classes: "meta-data__value"
+      }
+    }
+  ]
+}) }}
+
+{% endblock %}

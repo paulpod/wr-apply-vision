@@ -1,0 +1,139 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Select the elements this charge reference is for" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "#1",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+    {% include "current/includes/nav/nav-bd-view.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- page heading -->
+    <span class="govuk-caption-l">Licence 03/28/60/0032</span>
+
+  </div>
+</div>
+
+
+<form method="post" class="form">
+
+  {% set scenario = data['scenario']%}
+  {% set elements = [] %}
+  {% if scenario == "b" %}
+  {% set elements = [data.srocElements[0],data.srocElements[1]] %}
+  {% elif scenario == "c" %}
+  {# if the user is changing there answers #}
+  {% if data['change'] == "true" %}
+  {% set srocElements = data['srocElements'] %}
+  {# loop through the elements find the ones that are grouped together under the same reference #}
+  {% for i in srocElements %}
+
+  {% if i.chargeReference == data.chargeReferenceIndex %}
+
+  {% set elements = elements|push(i) %}
+  {# Add in any other elements that aren't yet assigned to a charge version #}
+  {% elseif i.chargeReference == undefined %}
+  {% set elements = elements|push(i) %}
+  {% endif %}
+  {% endfor %}
+  {% else %}
+  {% set srocElements = data['srocElements'] %}
+  {# loop through the elements find the ones that are grouped together under teh same reference #}
+  {% for i in srocElements %}
+  {# Add in any other elements that aren't yet assigned to a charge version #}
+  {% if i.chargeReference == undefined %}
+
+  {% set elements = elements|push(i) %}
+
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% else %}
+  {% set elements = [data.srocElements[0]] %}
+  {% endif %}
+
+  {# get the index of the charge reference for populating data #}
+  {% set index = data.chargeReferenceIndex %}
+  {% if index == undefined %}
+  {% set index = 0 %}
+  {% endif %}
+
+
+
+  {% set selectItems = [] %}
+
+      {% for i in elements %}
+        {% set selectItems = selectItems | push({
+              value: i.id,
+              text: data['srocElements'][i.id].description,
+              checked: checked("chargeReferences["+ index +"].srocElementsAssigned", i.id|string),
+              hint: {
+                text: "Element " + (i.id|int +1)
+              }
+              }) %}
+        {% endfor %}
+
+
+
+
+          {{ govukCheckboxes({
+          idPrefix: "assignElements",
+          name: "assignElements",
+          fieldset: {
+            legend: {
+              text: [title],
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+          items: selectItems
+                }) }}
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+{% endblock %}

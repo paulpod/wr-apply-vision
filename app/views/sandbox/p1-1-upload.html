@@ -9,10 +9,18 @@ GOV.UK Prototype Kit
 
 
 
+<style>
+   a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+</style>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <span class="govuk-caption-xl">Something something NALD replacement, abstraction leg</span>
+      <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+
+    <!--<span class="govuk-caption-xl">Something something NALD replacement, abstraction leg</span>-->
     <h1 class="govuk-heading-xl">
       Create a new licence
     </h1>
@@ -29,7 +37,7 @@ GOV.UK Prototype Kit
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="file-upload-1">
-          Select a word doc or a pdf file of the issued licence to upload
+          Select a Word document or PDF of the issued licence
         </label>
         <br>
         <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
@@ -37,11 +45,22 @@ GOV.UK Prototype Kit
     </div>
 
 
-    <button type="submit" class="govuk-button" data-module="govuk-button">
+   <!--<button type="submit" class="govuk-button" data-module="govuk-button">
       Continue
-    </button>
+    </button>-->
+
+    <a href="p1-2-spinner" class="govuk-button">
+      Continue
+    </a>
 
     
+
+    
+    <p class="govuk-!-margin-top-6">
+      <a href="p1-3-manual" class="govuk-link" >
+        Or, enter all the details manually
+      </a>
+    </p>
 
 
 

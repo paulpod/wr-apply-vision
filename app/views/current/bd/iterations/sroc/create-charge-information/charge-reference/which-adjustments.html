@@ -1,0 +1,171 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Which adjustments apply?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "#1",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+    {% include "current/includes/nav/nav-bd-view.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- page heading -->
+    <span class="govuk-caption-l">Licence 03/28/60/0032</span>
+
+  </div>
+</div>
+
+
+<form method="post" class="form">
+
+
+  {# get the index of the charge reference for populating data #}
+  {% set index = data.chargeReferenceIndex %}
+  {% if index == undefined %}
+  {% set index = 0 %}
+  {% endif %}
+
+
+  {% set aggregateFactorHtml %}
+  {{ govukInput({
+    label: {
+      text: "Factor"
+    },
+    classes: "govuk-input--width-20",
+    id: "aggregateFactor",
+    name: "aggregateFactor",
+    spellcheck: false,
+    value: data.chargeReferences[index ].aggregateFactor
+  }) }}
+  {% endset -%}
+
+  {% set chargeAdjustmentFactorHtml %}
+  {{ govukInput({
+    label: {
+      text: "Factor"
+    },
+    classes: "govuk-input--width-20",
+    id: "chargeAdjustmentFactor",
+    name: "chargeAdjustmentFactor",
+    spellcheck: false,
+    value: data.chargeReferences[index].chargeAdjustmentFactor
+  }) }}
+  {% endset -%}
+
+  {% set abatementFactorHtml %}
+  {{ govukInput({
+    label: {
+      text: "Factor"
+    },
+  hint: {
+      text: "If a licence charge is reduced by 70% the abatement factor is 0.3"
+    },
+    classes: "govuk-input--width-20",
+    id: "abatementFactor",
+    name: "abatementFactor",
+    spellcheck: false,
+    value: data.chargeReferences[index].abatementFactor
+  }) }}
+  {% endset -%}
+
+          {{ govukCheckboxes({
+          idPrefix: "adjustments",
+          name: "adjustments",
+          fieldset: {
+            legend: {
+              text: [title],
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+          items: [
+            {
+              value: "aggregate",
+              text: "Aggregate",
+              checked: checked("chargeReferences["+ index +"].adjustments", "aggregate"),
+              conditional: {
+                  html: aggregateFactorHtml
+                }
+            },
+            {
+              value: "charge adjustment",
+              text: "Charge adjustment",
+              checked: checked("chargeReferences["+ index +"].adjustments", "charge adjustment"),
+              conditional: {
+                  html: chargeAdjustmentFactorHtml
+                }
+            },
+            {
+              value: "winter discount",
+              text: "Winter discount",
+              checked: checked("chargeReferences["+ index +"].adjustments", "winter discount")
+            },
+            {
+              value: "two part tariff agreement applies",
+              text: "Two-part tariff agreement",
+              checked: checked("chargeReferences["+ index +"].adjustments", "two part tariff agreement applies")
+            },
+            {
+              value: "abatement agreement applies",
+              text: "Abatement agreement",
+              checked: checked("chargeReferences["+ index +"].adjustments", "abatement agreement applies"),
+              conditional: {
+                  html: abatementFactorHtml
+                }
+            },
+            {
+              value: "canal and river trust agreement applies",
+              text: "Canal and River Trust agreement",
+              checked: checked("chargeReferences["+ index +"].adjustments", "canal and river trust agreement applies")
+            }
+
+          ]
+        }) }}
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+{% endblock %}

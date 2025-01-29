@@ -1,0 +1,130 @@
+{% extends "layout_wrls.html" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-margin-bottom-3">
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-bill-runs.html" %}
+</div>
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<!-- page title -->
+
+
+    <!--different warnings and titles displayed depending on whether the existing bill run has been sent or not-->
+    {% if data['live'] == "true" %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <!-- page heading -->
+        <!-- <span class="govuk-caption-l">5 March 2020</span> -->
+        <h1 class="govuk-heading-l">There is already a bill run in progress for this region</h1>
+
+      </div>
+
+      <div class="govuk-grid-column-full">
+
+    {{ govukWarningText({
+        text: "You need to confirm or cancel this bill run before you can create a new one.",
+        iconFallbackText: "Warning"
+      }) }}
+
+    {% else %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <!-- page heading -->
+        <!-- <span class="govuk-caption-l">5 March 2020</span> -->
+        <h1 class="govuk-heading-l">This bill run type has already  been processed for 2020</h1>
+
+      </div>
+
+      <div class="govuk-grid-column-full">
+
+    {{ govukWarningText({
+        text: "You can only have one of this bill run type for a region in a financial year",
+        iconFallbackText: "Warning"
+      }) }}
+
+    {% endif %}
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-6">
+      <div class="govuk-grid-column-full">
+        <section class="meta-data__row">
+          <div class="meta-data__container">
+            <div class="meta-data__label">
+              Date created
+            </div>
+            <div class="meta-data__value">
+              3 March 2020
+            </div>
+            <div>
+        </section>
+        <section class="meta-data__row">
+          <div class="meta-data__container">
+            <div class="meta-data__label">
+              Region
+            </div>
+            <div class="meta-data__value">
+              Anglian
+            </div>
+            <div>
+        </section>
+        <section class="meta-data__row">
+          <div class="meta-data__container">
+            <div class="meta-data__label">
+              Bill run type
+            </div>
+            <div class="meta-data__value">
+              Supplementary
+            </div>
+            <div>
+        </section>
+
+      </div>
+    </div>
+
+
+
+    <a href="supplementary-bill?dateToday=4 March 2020">
+      Go to this bill run
+    </a>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Enter a description for the charge reference" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "#1",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+    {% include "current/includes/nav/nav-bd-view.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- page heading -->
+    <span class="govuk-caption-l">Licence 03/28/60/0032</span>
+
+  </div>
+</div>
+
+
+<form method="post" class="form">
+
+  {# setting the value for the description, first pass uses the description from the element #}
+  {% set index = data.chargeReferenceIndex %}
+  {% set value = "" %}
+  {% if data['lineDescription'].length %}
+  {% set value = data.chargeReferences[index].lineDescription %}
+  {% else %}
+  {% set value = data['srocElements'][0].description %}
+  {% endif %}
+
+
+  {{ govukInput({
+    label: {
+      text: [title],
+      isPageHeading: true,
+      classes: "govuk-label--l"
+    },
+    hint : {
+      text: "This is the description that will appear on the invoice"
+    },
+    classes: "govuk-input--width-20",
+    id: "lineDescription",
+    name: "lineDescription",
+    spellcheck: false,
+    value: value
+  }) }}
+
+
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+{% endblock %}

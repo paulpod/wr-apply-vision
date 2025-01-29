@@ -1,0 +1,101 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Bill run sent" %}
+
+{% set type = data.billRuns[data.billRunIndex]['runType'].toLowerCase() %}
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- navigation block -->
+<div class="govuk-!-margin-bottom-3">
+
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-bill-runs.html" %}
+</div>
+
+<!--  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-!-margin-bottom-3"></div>
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+  titleText: [title],
+  html: "You've sent the " + data.billRuns[data.billRunIndex]['region'] + " " + [data.type | lower ]  + " bill run " +  data.billRuns[data.billRunIndex]['number'] + "."
+}) }}
+
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">You can now download the bill run with bill numbers included.</p>
+
+    {{ govukButton({
+  text: "Download the bill run"
+}) }}
+
+
+
+{% if [data.type] == "Annual" %}
+<p class="govuk-body">
+<a href="annual-charges?annualstatus=sent" class="govuk-link">
+  Go to bill run
+</a>
+</p>
+{% endif %}
+
+{% if [data.type] == "Supplementary" %}
+<p class="govuk-body">
+<a href="supplementary-charges?status=sent" class="govuk-link">
+  Go to bill run
+</a>
+</p>
+{% endif %}
+
+{% if [data.type] == "Two-part tariff" %}
+<p class="govuk-body">
+<a href="two-part-charges?tptstatus=sent" class="govuk-link">
+  Go to bill run
+</a>
+</p>
+{% endif %}
+
+  </div>
+</div>
+{% endblock %}

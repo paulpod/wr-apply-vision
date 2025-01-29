@@ -1,0 +1,294 @@
+{% extends "layout.html" %}
+
+
+
+{% set billRunDataTpTReview = data.billRunDataTpTReview %}
+
+
+
+{% set licence = billRunDataTpTReview[data.ID]  %}
+
+{% set chargeVersion = licence.chargeVersions[data.chargeVersionID]%}
+{% set chargeReference = licence.chargeVersions[data.chargeVersionID].chargeReferences[data.chargeReferenceID] %}
+{% set chargeElement = licence.chargeVersions[data.chargeVersionID].chargeReferences[data.chargeReferenceID].chargeElements[data.elementID] %}
+
+
+{% set title = "Licence " + licence.licenceRef %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-!-margin-bottom-0">
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-bill-runs.html" %}
+</div>
+
+
+  {{ govukBackLink({
+    text: "Go back to review licences",
+    href: "review"
+  }) }}
+
+
+
+{#  experiment with breadcrumbs, opted for fixed back link up a level instead #}
+{#
+    {{ govukBreadcrumbs({
+      items: [
+      {
+        text: "Bill runs",
+        href: "/bd/charges-2020/bill-runs"
+      },
+        {
+          text: "Review licences",
+          href: "review"
+        }
+      ]
+    }) }}
+#}
+
+{% endblock %}
+
+{% block content %}
+
+{% set notificationText = "" %}
+{% if data.aggregateUpdate == true %}
+{% set notificationText = "The aggregate factor for " + chargeReference.chargeCategory.shortDescription | base64Decode + " has been updated" %}
+{% elseif licence.progress == "&#10003;" %}
+{% set notificationText = "This licence has been marked" %}
+{% else %}
+{% set notificationText = "The progress mark for this licence has been removed" %}
+{% endif %}
+{% if data.statusBanner == "show" %}
+
+<div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Licence updated
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading max-width-full">
+      {{notificationText}}.
+    </p>
+  </div>
+</div>
+
+{% endif %}
+
+
+{% if data.licenceBanner == "show" %}
+
+<div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Licence updated
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading max-width-full">
+    Licence changed to {{data.status}}.
+    </p>
+    {# Possibly not needed now
+    {% if data.status == "ready"%}
+    <p class="govuk-body"><a class="govuk-notification-banner__link" href="undo-review">Undo</a></p>
+    {% endif %}
+    #}
+  </div>
+</div>
+
+{% endif %}
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-1"><span class="govuk-caption-l">{{data['region'] |default ("Anglian")| firstToUpperCase }} two-part tariff bill run</span>{{ title }}</h1>
+      <p>Licence holder {{licence.licenceHolder}}</p>
+
+      {% if data.status == "review" %}
+      {% set colour = "govuk-tag--blue" %}
+      {% else %}
+      {% set colour = "govuk-tag--green" %}
+      {% endif %}
+  
+      <p class="govuk-body">
+        {{govukTag({
+          text: data.status,
+          classes: colour + " govuk-!-margin-right-2"
+        })}}
+
+        {% set progress = "" %}
+{% if licence.progress %}
+<!--<span class="govuk-body">&#10003;<span class="govuk-visually-hidden">progress marked</span></span>-->
+
+{{govukTag({
+  text: "Marked",
+  classes: "govuk-tag--yellow"
+})}}
+
+{% endif %}
+      </p>
+
+    
+      {# list of links through to the licence #}
+      {% include "current/bd/iterations/_includes/billing/tpt/licence-nav-links.html" %} 
+
+      
+ 
+{% set showInset = "" %}
+
+{#loop through elements in charge references#}    
+{% for chargeVersion in licence.chargeVersions %}
+  {% for chargeReference in chargeVersion.chargeReferences %}
+    {% for chargeElement in chargeReference.chargeElements %}
+
+      {% if chargeElement.tpt == true %}
+        {% for issue in chargeElement.issues %}
+          {% if issue.issue.length %}
+           {% set showInset = "true" %}
+          {% endif %}
+        {% endfor %}
+      {% endif%}
+
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+
+           {% if showInset.length %}
+             {{ govukInsetText({
+              html: 'There are elements in review',
+              classes: "govuk-!-margin-bottom-6 govuk-!-margin-top-0"
+            }) }}
+            {% endif %}
+            
+             
+             {% if data.status == "review" %}
+             <form class="inline" action="complete-review" method="post" novalidate >{{ govukButton({
+              text: "Confirm licence is ready",
+              classes: "govuk-button--primary govuk-!-margin-right-2"
+            }) }}</form>
+            {% else %}
+            <form class="inline" action="undo-review" method="get" novalidate >{{ govukButton({
+              text: "Put licence in review",
+              classes: "govuk-button--secondary govuk-!-margin-right-2"
+            }) }}</form>
+              {% endif %}
+             <form class="inline" action="progress-update" method="post" novalidate > 
+              {% if licence.progress %}
+              {{ govukButton({
+                text: "Remove progress mark",
+                classes: "govuk-button--secondary govuk-!-margin-right-2"
+              }) }}
+              {% else %}
+              {{ govukButton({
+                text: "Mark progress",
+                classes: "govuk-button--secondary govuk-!-margin-right-2"
+              }) }}
+              {% endif %}
+              </form>
+              <form class="inline" action="remove-licence" method="post" novalidate > 
+              {{ govukButton({
+                text: "Remove from bill run",
+                classes: "govuk-button--secondary"
+              }) }}
+            </form>
+            
+        
+
+  
+    
+     
+
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-2"> Charge periods</h2>
+      <ul class="govuk-list">
+        {% for chargePeriod in licence.chargePeriod %}
+        <li>
+          <a class="govuk-link" href="#{{chargePeriod.startDate}}-{{chargePeriod.endDate}}">{{chargePeriod.startDate | govukDate}} to {{chargePeriod.endDate | govukDate}}{% if not loop.last %} - {{licence.chargeVersions[loop.index0].reason}}{% endif %}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    
+     </div>
+     </div>
+     <div class="divider govuk-!-margin-bottom-6"></div>
+    <!-- page title -->
+<div class="govuk-grid-row govuk-!-margin-bottom-2">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l govuk-!-margin-bottom-2"> Returns</h2>
+    {% include "current/bd/iterations/_includes/billing/tpt/returns-table.html" %} 
+
+    {# include any unmatched returns in another table if there are any#}
+    {% if licence.unmatchedReturns.length %}
+    {% include "current/bd/iterations/_includes/billing/tpt/returns-table-unmatched.html" %} 
+    {% endif %}
+
+    </div>
+    </div>
+  
+  
+     
+  
+
+  {#Loop through the chargeVersions#}
+
+  {% for chargeVersion in licence.chargeVersions %}
+  <!--page divider-->
+  <div class="divider govuk-!-margin-bottom-6"></div>
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-l">Financial year {{chargeVersion.startDate | year}} to {{chargeVersion.startDate | yearPlusPlus}}</span>
+      <h2 class="govuk-heading-l" id="{{licence.chargePeriod[loop.index0].startDate}}-{{licence.chargePeriod[loop.index0].endDate}}">Charge period {{licence.chargePeriod[loop.index0].startDate |govukDate}} to {{licence.chargePeriod[loop.index0].endDate |govukDate}}</h2>
+  
+   <!-- <span class="govuk-caption-m">{{licence.licenceHolder}}</span>-->
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-1">{{chargeVersion.chargeReferences | length | plural('charge reference')}} with {{chargeVersion.chargeReferences[0].chargeElements.length | plural("two-part tariff charge element")}}</h3>
+      {{ govukDetails({
+        classes: "govuk-!-margin-bottom-7",
+        summaryText: licence.licenceHolder + " billing account details",
+        html: "<strong>A12356642X</strong><br>" +licence.licenceHolder + "<br>15 Ward Road<br>Bath<br>BA1 5EH"
+      }) }}
+      {% set chargeReferences = chargeVersion.chargeReferences %}
+      {% set chargeVersionID = loop.index0 %}
+    {% include "current/bd/iterations/_includes/billing/tpt/licence-review.html" %} 
+    </div>
+  </div>
+  {% endfor %}
+ 
+  
+
+
+
+
+
+
+
+
+{% endblock %}

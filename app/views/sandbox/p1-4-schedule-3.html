@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+  
+</style>
+     
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Licence 03/28/61/044</span>
+        <h1 class="govuk-heading-xl">
+          Check the details that have been uploaded
+        </h1>
+
+        <!--<p>
+          Check the details that have been uploaded from the licence.
+        </p>-->
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+<style type="text/css">
+  .highlighted {
+    font-weight: normal;
+    background-color: #FFBF47;
+  }
+</style>
+<h2 class="govuk-heading-m">Conditions from the licence</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              1. Source of supply
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span class="govuk-visually-hidden">1.1</span>Underground strata comprising of Chalk at Apple Tree Farm <span class="govuk-hint">(CATF)</span>.
+            </dd>
+            <dd class="govuk-summary-list__actions">
+               
+                <br>
+                <a class="govuk-link" href="p1-4-1-source-picker">Change</a>
+            </dd>
+          </div>
+        
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              2. Points of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span class="govuk-visually-hidden">2.1</span>At National Grid References <strong>SK&nbsp;675124</strong> marked <span class="map-blob">A</span> on the licence, borehole marked Small Meadow.
+
+              <br class="govuk-!-margin-bottom-3">
+              <span class="govuk-visually-hidden">2.2</span>At National Grid References <strong>SK&nbsp;675126</strong> marked <span class="map-blob">B</span> on the licence, borehole marked Daisy Meadow.
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+              <a class="govuk-link" href="p1-4-2-point-picker-a">Change</a>
+
+              <br class="govuk-!-margin-bottom-8">
+              
+              <br>
+              <a class="govuk-link" href="p1-4-2-point-picker-b">Change</a>
+            </dd>
+
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              3. Means of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">
+                <span class="govuk-visually-hidden">3.1</span>For point A: A borehole not exceeding 55 metres in depth and 219 millimetres in diameter steel lined to 55 metres <span class="highlighted">with a submersible pump.</span></p>
+              <p class="govuk-body">
+                <span class="govuk-visually-hidden">3.2</span>For point B: A borehole not exceeding 60 metres in depth and 400 millimetres in diameter with plain steel lined to 60 metres <span class="highlighted">with a submersible pump.</span></p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+              
+              <br>
+              <br>
+                <a class="govuk-link" href="p1-4-3-means">Add means for<br>point A</a>
+              
+
+              <br>
+              <br>
+              <br>
+              
+              
+              
+                <a class="govuk-link" href="p1-4-3-means-b">Add means for<br>point B</a>
+            
+              
+            </dd>
+          </div>
+
+        </dl>
+
+
+        <div>
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>-->
+
+          <a href="p1-5-purposes" class="govuk-button">
+            Save and continue
+          </a>
+
+    
+          <p class="govuk-hint">
+            The licence will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,182 @@
+{% extends "layouts/_manage.html" %}
+
+<!--set page title-->
+
+
+{% set title = "Abstraction return" %}
+
+
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+
+
+<!--content block-->
+{% block service %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!-- page heading -->
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-l ">Licence {{data.licences[data.ID]['number']}}</span> {{title}}</h1>
+
+  </div>
+</div>
+
+{{ govukSummaryList({
+classes: 'govuk-summary-list--no-border',
+rows: [
+  {
+    key: {
+      text: "Return reference",
+      classes: "meta-data__label"
+    },
+    value: {
+      text: data.licences[data.ID].returns[data.returnIndex].id,
+      classes: "meta-data__value"
+    }
+  },
+  {
+    key: {
+      text: "Site description",
+      classes: "meta-data__label"
+    },
+    value: {
+      text: data.licences[data.ID].returns[data.returnIndex].description,
+      classes: "meta-data__value"
+    }
+  },
+  {
+    key: {
+      text: "Purpose",
+      classes: "meta-data__label"
+    },
+    value: {
+      text: data.licences[data.ID].returns[data.returnIndex].purpose | dump | stripQuotes | stripSqBrackets | replaceComma | striptags(true) | escape | nl2br,
+      classes: "meta-data__value"
+    }
+  },
+  {
+    key: {
+      text: "Returns period",
+      classes: "meta-data__label"
+    },
+    value: {
+      text: "From " + data.licences[data.ID].returns[data.returnIndex].returnsPeriodStart | numberToGovukDate + " to " + data.licences[data.ID].returns[data.returnIndex].returnsPeriodEnd | numberToGovukDate,
+      classes: "meta-data__value"
+    }
+  },
+  {
+    key: {
+      text: "Abstraction period",
+      classes: "meta-data__label"
+    },
+    value: {
+      text: "From " + data.licences[data.ID].returns[data.returnIndex].periodStart | mmddToDate + " to " + data.licences[data.ID].returns[data.returnIndex].periodEnd | mmddToDate,
+      classes: "meta-data__value"
+    }
+  },
+  {
+    key: {
+      text: "Standard tariff",
+      classes: "meta-data__label"
+    }
+  }
+]
+}) }}
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="../../licence-summary#returns">View this licence</a>
+  </div>
+</div>
+
+
+{% if data.licences[data.ID].returns[data.returnIndex].versions.length and data.edit !== "true" %}
+<div class="govuk-grid-row govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-two-thirds">
+    {% if data.licences[data.ID].returns[data.returnIndex].versions[0].nilReturn == true %}
+    <h2 class="govuk-heading-l">Nil return</h2>
+    {{ govukButton({
+      text: "Edit return",
+      href: "?edit=true#"
+    }) }}
+    {% else %}
+    <h2 class="govuk-heading-l">Abstraction volumes</h2>
+    {{ govukButton({
+      text: "Edit return",
+      href: "?edit=true#"
+    }) }}
+    {% include "sandbox/_includes/returns/submission/returns-table.html" %}
+    {% endif %}
+    
+    <h3 class="govuk-heading-m">Submitted by</h2>
+   
+      {% for version in data.licences[data.ID].returns[data.returnIndex].versions %}
+      {% set loopIndex = loop.index0 %}
+      {% if loopIndex == "0" %}
+      {{ govukInsetText({
+        html: data.licences[data.ID].returns[data.returnIndex].versions[loop.index0].submittedBy + "<br>" + data.licences[data.ID].returns[data.returnIndex].versions[loop.index0].submittedDate | formatDate,
+        classes: "govuk-inset-text-blue"
+      }) }}
+      {% else %}
+      {{ govukInsetText({
+        html: data.licences[data.ID].returns[data.returnIndex].versions[loop.index0].submittedBy + "<br>" + data.licences[data.ID].returns[data.returnIndex].versions[loop.index0].submittedDate | formatDate
+      }) }}
+      {% endif %}
+      {% endfor %}
+
+</div>
+</div>
+{% endif %}
+
+{% if (data.licences[data.ID].returns[data.returnIndex].status == "due") or (data.licences[data.ID].returns[data.returnIndex].status == "open") or (data.licences[data.ID].returns[data.returnIndex].status == "overdue") or (data.licences[data.ID].returns[data.returnIndex].status == "received") or data.edit == "true" %}
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-8">
+  <div class="govuk-grid-column-two-thirds">
+      <form action="submission/returnStatus" id="return-status"   data-routing="1" method="post" class="form">
+
+          {{ govukRadios({
+            idPrefix: "returnStatus",
+            name: "returnStatus",
+            fieldset: {
+              legend: {
+                text: "What would you like to do with this return?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "enter",
+                text: "Enter and submit it"
+              },
+              {
+                value: "received",
+                text: "Record receipt (and come back to it later)"
+              }
+            ]
+          })
+        }}
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+    </div>
+
+{% endif %}
+
+
+
+
+{% endblock %}

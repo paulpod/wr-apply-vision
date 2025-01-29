@@ -19,6 +19,10 @@ GOV.UK Prototype Kit
     color: white;
     padding: 0 6px;
   }
+  a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+  
 </style>
      
 <div class="govuk-width-container">
@@ -28,14 +32,14 @@ GOV.UK Prototype Kit
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-xl">Headline caption</span>
+        <span class="govuk-caption-xl">Licence 03/28/61/044</span>
         <h1 class="govuk-heading-xl">
-          Check licence conditions
+          Check the details that have been uploaded
         </h1>
 
-        <p>
+        <!--<p>
           Check the details that have been uploaded from the licence.
-        </p>
+        </p>-->
 
       </div>
     </div>
@@ -45,12 +49,17 @@ GOV.UK Prototype Kit
       <div class="govuk-grid-column-full">
         
         
-
-
+<style type="text/css">
+  .highlighted {
+    font-weight: normal;
+    background-color: #FFBF47;
+  }
+</style>
+<h2 class="govuk-heading-m">Conditions from the licence</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           
-          <h2 class="govuk-heading-m">Schedule of conditions</h2>
+          
 
 
           <div class="govuk-summary-list__row">
@@ -58,12 +67,12 @@ GOV.UK Prototype Kit
               1. Source of supply
             </dt>
             <dd class="govuk-summary-list__value">
-              1.1 Underground strata comprising of Chalk at Apple Tree Farm.
+              <span class="govuk-visually-hidden">1.1</span>Underground strata comprising of Chalk at Apple Tree Farm.
             </dd>
             <dd class="govuk-summary-list__actions">
-              taken from licence
+               
                 <br>
-                <a class="govuk-link" href="#">Confirm source</a>
+                <a class="govuk-link" href="p1-4-1-source-picker">Add source details</a>
             </dd>
           </div>
         
@@ -73,15 +82,19 @@ GOV.UK Prototype Kit
               2. Points of abstraction
             </dt>
             <dd class="govuk-summary-list__value">
-              2.1 At National Grid References <strong>SK&nbsp;675124</strong> marked <span class="map-blob">A</span> on the map.
+              <span class="govuk-visually-hidden">2.1</span>At National Grid References <strong>SK&nbsp;675124</strong> marked <span class="map-blob">A</span> on the licence.
 
               <br class="govuk-!-margin-bottom-3">
-              2.2 At National Grid References <strong>SK&nbsp;675126</strong> marked <span class="map-blob">B</span> on the map.
+              <span class="govuk-visually-hidden">2.2</span>At National Grid References <strong>SK&nbsp;675126</strong> marked <span class="map-blob">B</span> on the licence.
             </dd>
             <dd class="govuk-summary-list__actions">
-              <!--from licence-->
+              
+              <a class="govuk-link" href="p1-4-2-point-picker-a">Add point A</a>
+
+              <br class="govuk-!-margin-bottom-8">
+              
               <br>
-              <a class="govuk-link" href="p1-4-2-point-picker-a">Confirm point A</a>
+              <a class="govuk-link" href="p1-4-2-point-picker-b">Add point B</a>
             </dd>
 
           </div>
@@ -92,20 +105,27 @@ GOV.UK Prototype Kit
             </dt>
             <dd class="govuk-summary-list__value">
               <p class="govuk-body">
-                3.1 For point A: A borehole not exceeding 55 metres in depth and 219 millimetres in diameter steel lined to 55 metres with <a href="">a submersible pump</a>.</p>
+                <span class="govuk-visually-hidden">3.1</span>For point A: A borehole not exceeding 55 metres in depth and 219 millimetres in diameter steel lined to 55 metres <span class="highlighted">with a submersible pump.</span></p>
               <p class="govuk-body">
-                3.2 For point B: A borehole not exceeding 60 metres in depth and 400 millimetres in diameter with plain steel lined to 60 metres with <a href="">a submersible pump</a>.</p>
+                <span class="govuk-visually-hidden">3.2</span>For point B: A borehole not exceeding 60 metres in depth and 400 millimetres in diameter with plain steel lined to 60 metres <span class="highlighted">with a submersible pump.</span></p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <!--taken from licence-->
+              
+              
               <br>
-              <p>
-                <a class="govuk-link" href="p1-4-3-means">Confirm means for point A<span class="govuk-visually-hidden">  </span></a>
-              </p>
               <br>
-              <p style="margin-top: 50px;">
-                <a class="govuk-link" href="p1-4-3-means">Confirm means for point B<span class="govuk-visually-hidden">  </span></a>
-              </p>
+                <a class="govuk-link" href="p1-4-3-means">Add means for<br>point A</a>
+              
+
+              <br>
+              <br>
+              <br>
+              
+              
+              
+                <a class="govuk-link" href="p1-4-3-means">Add means for<br>point B</a>
+            
+              
             </dd>
           </div>
 
@@ -113,9 +133,13 @@ GOV.UK Prototype Kit
 
 
         <div>
-          <button type="submit" class="govuk-button" data-module="govuk-button">
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>-->
+
+          <a href="p1-5-purposes" class="govuk-button">
             Save and continue
-          </button>
+          </a>
 
     
           <p class="govuk-hint">

@@ -1,0 +1,276 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Returns cycles" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- navigation block -->
+<div class="govuk-!-margin-bottom-3">
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-manage.html" %}
+</div>
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Returns overview
+    </h1>
+
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    {{ govukTable({
+        caption: "Current cycle",
+        captionClasses: "govuk-!-font-size-24",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Period",
+            classes: "govuk-!-width-one-quarter"
+          },
+          {
+            text: "Returns due",
+            format: "numeric"
+          },
+          {
+            text: "Licences",
+            format: "numeric"
+          },
+          {
+            text: "Monthly",
+            format: "numeric"
+          },
+          {
+            text: "Weekly",
+            format: "numeric"
+          },
+          {
+            text: "Daily",
+            format: "numeric"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "1 April 2019 to 31 March 2020",
+              classes: "govuk-!-width-one-quarter"
+            },
+            {
+              text: "427",
+              format: "numeric"
+            },
+            {
+              text: "362",
+              format: "numeric"
+            },
+            {
+              text: "304",
+              format: "numeric"
+            },
+            {
+              text: "108",
+              format: "numeric"
+            },
+            {
+              text: "15",
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link" href="returns-overview-report-download?returnsCycle=1%20April%202019%20to%2031%20March%202020">
+                Download report<span class="govuk-visually-hidden"> for 1 April 2019 to 31 March 2020</span>
+              </a>'
+            }
+          ]
+        ]
+      }) }}
+
+  </div>
+</div>
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    {{ govukTable({
+        caption: "Previous cycles",
+        captionClasses: "govuk-!-font-size-24",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Period",
+            classes: "govuk-!-width-one-quarter"
+          },
+          {
+            text: "Returns due",
+            format: "numeric"
+          },
+          {
+            text: "Licences",
+            format: "numeric"
+          },
+          {
+            text: "Monthly",
+            format: "numeric"
+          },
+          {
+            text: "Weekly",
+            format: "numeric"
+          },
+          {
+            text: "Daily",
+            format: "numeric"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "1 November 2018 to 31 October 2019",
+              classes: "govuk-!-width-one-quarter"
+            },
+            {
+              text: "5463",
+              format: "numeric"
+            },
+            {
+              text: "5037",
+              format: "numeric"
+            },
+            {
+              text: "4945",
+              format: "numeric"
+            },
+            {
+              text: "510",
+              format: "numeric"
+            },
+            {
+              text: "56",
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link" href="returns-overview-report-download?returnsCycle=1%20November%202018%20to%2031%20October%202019">
+                Download report<span class="govuk-visually-hidden"> for 1 November 2018 to 31 October 2019</span>
+              </a>'
+            }
+          ],
+          [
+            {
+              text: "1 April 2018 to 31 March 2019",
+              classes: "govuk-!-width-one-quarter"
+            },
+            {
+              text: "3288",
+              format: "numeric"
+            },
+            {
+              text: "8475",
+              format: "numeric"
+            },
+            {
+              text: "6166",
+              format: "numeric"
+            },
+            {
+              text: "2203",
+              format: "numeric"
+            },
+            {
+              text: "28",
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link" href="returns-overview-report-download?returnsCycle=1%20April%202018%20to%2031%20March%202019">
+                Download report<span class="govuk-visually-hidden"> for 1 April 2018 to 31 March 2019</span>
+              </a>'
+            }
+          ],
+          [
+            {
+              text: "1 November 2017 to 31 October 2018",
+              classes: "govuk-!-width-one-quarter"
+            },
+            {
+              text: "1870",
+              format: "numeric"
+            },
+            {
+              text: "5444",
+              format: "numeric"
+            },
+            {
+              text: "5339",
+              format: "numeric"
+            },
+            {
+              text: "566",
+              format: "numeric"
+            },
+            {
+              text: "57",
+              format: "numeric"
+            },
+            {
+              html: '<a class="govuk-link" href="returns-overview-report-download?returnsCycle=1%20November%202017%20to%2031%20October%202018">
+                Download report<span class="govuk-visually-hidden"> for 1 November 2017 to 31 October 2018</span>
+              </a>'
+            }
+          ]
+        ]
+      }) }}
+
+
+  </div>
+</div>
+
+
+{% endblock %}

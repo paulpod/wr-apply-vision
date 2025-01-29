@@ -1,0 +1,98 @@
+{% extends "layout_wrls.html" %}
+
+{% set InsetText %}
+<div class="govuk-inset-text govuk-!-margin-bottom-2">
+  We'll show all the bills created in the service on or after this date. This will not include zero value and de minimus bills.
+</div>
+{% endset %}
+
+{% set title = "What date do you need to reissue a bill from?" %}
+{% set qTitle = '<span class="govuk-caption-l">Billing account ' + data['invoiceAccount'] + '</span>' + title + InsetText|safe %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- navigation block -->
+<div class="govuk-!-margin-bottom-3">
+
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-manage.html" %}
+</div>
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-!-margin-bottom-3"></div>
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    {{ govukDateInput({
+      id: "rebilldedDate",
+      namePrefix: "rebilldedDate",
+      fieldset: {
+        legend: {
+          text:  qTitle |safe,
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      }
+    }) }}
+
+
+
+
+
+    {{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-right-1",
+  href: "check-rebill"
+}) }}
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

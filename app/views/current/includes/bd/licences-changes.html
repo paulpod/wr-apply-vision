@@ -1,0 +1,238 @@
+
+{% set tableCaption = 'Change request<br><span class="govuk-caption-l">4 licences</span>' %}
+
+  {% if [data.chargeVersions[0].chargeStatus] == "CHANGES" %}
+  {{ govukTable({
+    caption: tableCaption | safe,
+    captionClasses: "govuk-heading-l",
+    firstCellIsHeader: false,
+    classes: "govuk-table-fix",
+    head: [
+      {
+        text: "Licence"
+      },
+      {
+        text: "Licence holder"
+
+      },
+      {
+        text: "Set up by"
+
+      },
+      {
+        text: "Change request"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+    [
+      {
+        text: '03/28/60/0031'
+      },
+      {
+        text: "Bottled Water Plc"
+      },
+      {
+        text: "your.name@madeup.com"
+      },
+
+      {
+        text: data['requestChanges']
+      },
+      {
+        html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0">View<span class="govuk-visually-hidden"> draft charge information</span></a>'
+      }
+    ],
+      [
+        {
+          text: '12/23/43/0044'
+        },
+        {
+          text: "Irene Smithson"
+        },
+        {
+          text: "emma.nevin@madeup.com"
+        },
+
+        {
+          text: "Please change the abstraction start month to April"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=CHANGES&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false&requestChanges=Please%20change%20the%20start%20month%20to%20April">View<span class="govuk-visually-hidden"> draft charge information</span>'
+        }
+      ],
+      [
+        {
+          text: '03/28/60/0031'
+        },
+        {
+          text: "Reg Spreadbury"
+        },
+        {
+          text: "barry.crampton@madeup.com"
+        },
+        {
+          text: "Please change the purpose to Spray"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=CHANGES&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false&requestChanges=Please%20change%20the%20purpose%20to%20Spray">View<span class="govuk-visually-hidden"> draft charge information</span>'
+        }
+      ],
+      [
+        {
+          text: '03/28/61/029'
+        },
+        {
+          text: "Folkstone Farms Ltd."
+        },
+        {
+          text: "rose.conelly@madeup.com"
+        },
+
+        {
+          text: "Please created a second time limited element"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=CHANGES&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false&requestChanges=Please%20created%20a%20second%20time%20limited%20element">View<span class="govuk-visually-hidden"> draft charge information</span>'
+        }
+      ],
+
+      [
+        {
+          text: '23/33/76/0044',
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "Coastal Water Ltd.",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "jo.langton@madeup.com",
+          classes: 'govuk-table__cell--no-border'
+        },
+
+        {
+          text: "There is a purpose missing from the licence",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=CHANGES&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false&requestChanges=There%20is%20a%20purpose%20missing%20from%20the%20licence">View<span class="govuk-visually-hidden"> draft charge information</span>',
+          classes: 'govuk-table__cell--no-border'
+        }
+      ]
+
+    ]
+  }) }}
+
+  {% else %}
+
+
+  {{ govukTable({
+    caption: tableCaption | safe,
+    captionClasses: "govuk-heading-l",
+    firstCellIsHeader: false,
+    classes: "govuk-table-fix",
+    head: [
+      {
+        text: "Licence"
+      },
+      {
+        text: "Licence holder"
+
+      },
+      {
+        text: "Set up by"
+
+      },
+      {
+        text: "Change request"
+      },
+      {
+        text: "Action"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: '12/23/43/0044'
+        },
+        {
+          text: "Irene Smithson"
+        },
+        {
+          text: "emma.nevin@madeup.com"
+        },
+
+        {
+          text: "Please change the abstraction start month to April"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version/charge-data-check">View<span class="govuk-visually-hidden"> draft charge information</span>'
+        }
+      ],
+      [
+        {
+          text: '03/28/60/0031'
+        },
+        {
+          text: "Reg Spreadbury"
+        },
+        {
+          text: "barry.crampton@madeup.com"
+        },
+        {
+          text: "Please change the purpose to Spray"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=CHANGES&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false&requestChanges=Please%20change%20the%20purpose%20to%20Spray">View<span class="govuk-visually-hidden"> draft charge information</span>'
+        }
+      ],
+      [
+        {
+          text: '03/28/61/029'
+        },
+        {
+          text: "Folkstone Farms Ltd."
+        },
+        {
+          text: "rose.conelly@madeup.com"
+        },
+
+        {
+          text: "Please created a second time limited element"
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version?chargeInfoNumber=0&chargeVersions[0][chargeStatus]=CHANGES&chargeVersions[0][chargeStart]=22%20April%202019&chargeVersions[0][reasonNewCharge]=New%20Licence&chargeVersions[0][free]=false&requestChanges=Please%20created%20a%20second%20time%20limited%20element">View<span class="govuk-visually-hidden"> draft charge information</span>'
+        }
+      ],
+
+      [
+        {
+          text: '23/33/76/0044',
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "Coastal Water Ltd.",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "jo.langton@madeup.com",
+          classes: 'govuk-table__cell--no-border'
+        },
+
+        {
+          text: "There is a purpose missing from the licence",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          html: '<a class="govuk-link" href="/bd/charges-2020/charge-version/charge-data-check">View<span class="govuk-visually-hidden"> draft charge information</span>',
+          classes: 'govuk-table__cell--no-border'
+        }
+      ]
+
+    ]
+  }) }}
+
+  {% endif %}

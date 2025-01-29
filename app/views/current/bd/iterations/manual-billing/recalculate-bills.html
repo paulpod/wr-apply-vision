@@ -1,0 +1,76 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "You’re about to mark this licence for the next two-part tariff supplementary bill run" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- navigation block -->
+<div class="govuk-!-margin-bottom-3">
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-view.html" %}
+</div>
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-!-margin-bottom-3"></div>
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- page heading -->
+    <span class="govuk-caption-l">Licence 03/28/60/0032</span>
+    <h1 class="govuk-heading-l">{{title}}</h1>
+
+  </div>
+</div>
+
+
+<form action="recalculate-bills-confirmation?suppBilling=true&TpTSupplementary=true" method="post" class="form">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+<p class="govuk-body">When you create the bill run, this licence will have bills for the year {{data.TpTSupplementaryYear}}.</p> 
+
+
+      <button type="submit" class="govuk-button">
+        Confirm
+      </button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Charge information valid from 1 April 2022" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "#1",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+<div class="govuk-!-margin-bottom-9">
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-view.html" %}
+</div>
+
+
+{% endblock %}
+
+{% block content %}
+
+<!--
+  If you need to get the charge category on the front end this should be available on the back end though
+
+  {% from "current/bd/iterations/_includes/charge_categories/charge_reference.html" import chargeReferences  %}
+
+  {% for i in chargeReferences %}
+  {{i.resctrictions}}
+  {% if (source == i.source) and (loss == i.loss) and (model == i.model) and (volume >= i.minVolume) and  (volume <= i.maxVolume) and (restriction == i.restriction) %}
+  {{i.chargeNumber}}
+  {{i.chargeDescription}}
+  {# if no match remove the restriction parameter and try and match #}
+  {% elif (source == i.source) and (loss == i.loss) and (model == i.model) and (volume >= i.minVolume) and  (volume <= i.maxVolume)%}
+  {{i.chargeNumber}}
+  {{i.chargeDescription}}
+  {% endif %}
+  {% endfor %}
+-->
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!-- page heading -->
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2"><span class="govuk-caption-l ">Licence 03/28/60/0032</span> {{title}}</h1>
+<p class="govuk-body ">
+  {% set status = "review"%}
+    {{govukTag({
+text: "review",
+classes: "review" | tagColour + ' govuk-!-font-size-27'
+})}} </p>
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form method="post" class="form" id="charge-information">
+
+<hr class="govuk-section-break ">
+      {% include "current/bd/iterations/_includes/reason-new-charge.html" %}
+
+      <hr class="govuk-section-break ">
+            {% include "current/bd/iterations/_includes/notes.html" %}
+
+    <!--  16 Feb This feature was dropped        <hr class="govuk-section-break ">
+                  {% include "current/bd/iterations/_includes/agreements.html" %} -->
+
+
+<hr class="govuk-section-break govuk-section-break govuk-section-break--m">
+      {% include "current/bd/iterations/_includes/elements-check.html" %}
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

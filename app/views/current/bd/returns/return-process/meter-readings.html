@@ -1,0 +1,393 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Meter readings - GOV.UK" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+    {% include "current/includes/nav/nav-bd-manage.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-width-container">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+          <!-- page heading -->
+          {% if permits[1].LicenceName %}
+
+            <h1 class="govuk-heading-l">
+              <span class="screen-reader-only">Return status</span>
+              <span class="govuk-caption-xl">Licence {{ permits[1].LicenceSerialNo }}</span>
+              {{ permits[1].LicenceName }}
+            </h1>
+
+          {% else %}
+
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+              <span class="govuk-caption-xl">Licence 03/28/60/0032</span>
+              Return status
+            </h1>
+
+          {% endif %}
+
+      <form  action="confirm-meter-readings" id="return-process" data-routing="1" method="post" class="form">
+
+
+
+        {% call govukFieldset({
+legend: {
+  text: "Meter readings",
+  classes: "govuk-fieldset__legend--m",
+  isPageHeading: true
+}
+}) %}
+
+
+<!--only show if JS enabled-->
+<div id="hint" class="govuk-hint" style="display: none;">
+  To paste across multiple rows each value must be on a new line
+</div>
+
+
+{{ govukInput({
+  label: {
+    html: 'Start reading'
+  },
+  id: "startReading",
+  name: "startReadinge",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+
+<!--April-->
+{% set loop = 31 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' April'
+  },
+  id: i +" April",
+  name: i +" April",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+<!--May-->
+{% set loop = 32 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' May'
+  }, 
+  id: i +" May",
+  name: i +" May",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+<!--June-->
+{% set loop = 31 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' June'
+  },
+  id: i +" June",
+  name: i +" June",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+<!--July-->
+{% set loop = 32 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' July'
+  },
+  id: i +" July",
+  name: i +" July",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+<!--August-->
+{% set loop = 32 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' August'
+  },
+  id: i +" August",
+  name: i +" August",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+<!--September-->
+{% set loop = 31 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' September'
+  },
+  id: i +" September",
+  name: i +" September",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+<!--Ocotber-->
+{% set loop = 32 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' October'
+  },
+  id: i +" October",
+  name: i +" October",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+<!--November-->
+{% set loop = 31 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' November'
+  },
+  id: i +" November",
+  name: i +" November",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+<!--December-->
+{% set loop = 32 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' December'
+  },
+  id: i +" December",
+  name: i +" December",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+<!--January-->
+{% set loop = 32 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' January'
+  },
+  id: i +" January",
+  name: i +" January",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+<!--February-->
+{% set loop = 29 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' February'
+  },
+  id: i +" February",
+  name: i +" February",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+<!--March-->
+{% set loop = 32 %}
+{% for i in range(1, loop) -%}
+
+{{ govukInput({
+  label: {
+    html: i + ' March'
+  },
+  id: i +" March",
+  name: i + " March",
+  classes: "govuk-input--width-10 inputText"
+}) }}
+{%- endfor %}
+
+
+{% endcall %}
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script>
+      $(function() {
+        $('form[data-routing]').on('submit', function(ev) {
+          // FInd selected radio button
+          const url = $(this).find('input:checked').val();
+
+          if(url) {
+            ev.preventDefault();
+            window.location.href = url;
+            return false;
+          }
+        });
+      })
+
+
+
+// Get the element with id "event-name-hint"
+const hintElement = document.getElementById("hint");
+
+// Check if the DOM body has the class "js-enabled"
+const hasJSEnabledClass = document.body.classList.contains("js-enabled");
+
+console.log(hintElement)
+
+// Show or hide the element based on the condition
+if (hasJSEnabledClass) {
+  hintElement.style.display = "block"; // Show the element
+} else {
+  hintElement.style.display = "none"; // Hide the element
+}
+
+
+
+
+// Keep track of the currently focused input field index
+let focusedIndex = -1;
+document.addEventListener('DOMContentLoaded', () => {
+
+  
+    // Get all input elements with class "inputText"
+    const inputFields = document.querySelectorAll(".inputText");
+ 
+
+  // Attach focus listener to each input field
+  inputFields.forEach(field => {
+    field.addEventListener("focus", () => {
+      currentlyFocusedInput = field; // Update focused element
+      const name = currentlyFocusedInput?.name; // Get name if it exists
+
+      // Find the index of the matching input field (optional)
+      if (name) {
+        for (let i = 0; i < inputFields.length; i++) {
+          const inputField = inputFields[i];
+          if (inputField.hasAttribute("name") && name.toLowerCase() === inputField.name.toLowerCase()) {
+            focusedIndex = i;
+            break; // Exit loop on first match
+          }
+        }
+      }
+    });
+  });
+  
+  
+  // Attach paste event listener to the document
+  document.addEventListener('paste', handlePaste);
+
+});
+
+function handlePaste(event) {
+  // Check if the pasted target is an input element
+  if (event.target.localName !== 'input') return;
+
+  event.preventDefault(); // Prevent default paste behavior (optional)
+
+  // Get all input elements with class "inputText"
+  const inputFields = document.querySelectorAll(".inputText");
+
+
+  // Get the pasted data
+  const pastedText = (event.clipboardData || window.clipboardData).getData('text');
+  const values = pastedText.toUpperCase().split(/\r?\n/);
+
+
+  // Ensure focusedIndex is within valid range
+  focusedIndex = Math.max(0, Math.min(focusedIndex, inputFields.length - 1)); // Clamp to valid range
+
+  // Loop through values and input fields, starting from focusedIndex
+  for (let i = 0; i < values.length && i + focusedIndex < inputFields.length; i++) {
+    const currentFieldIndex = focusedIndex + i;
+    inputFields[currentFieldIndex].value = values[i].trim(); // Trim leading/trailing whitespace
+  }
+
+  // Set focus to the last pasted field (if any)
+  const lastPastedIndex = Math.min(focusedIndex + values.length - 1, inputFields.length - 1); // Clamp to valid range
+  if (lastPastedIndex >= 0) {
+    inputFields[lastPastedIndex].focus();
+  }
+
+
+}
+
+
+    </script>
+
+  </main>
+</div>
+{% endblock %}
+

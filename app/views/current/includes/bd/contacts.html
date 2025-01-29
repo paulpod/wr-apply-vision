@@ -1,0 +1,50 @@
+
+
+
+  {{ govukTable({
+    caption: "Contacts",
+    captionClasses: "govuk-heading-l",
+    firstCellIsHeader: false,
+    classes: "govuk-table-fix",
+    head: [
+      {
+        text: "Contact name",
+        classes: 'govuk-!-width-one-third'
+      },
+      {
+        text: "Role",
+        classes: 'govuk-!-width-one-third'
+      },
+      {
+        text: "Created date",
+        classes: 'govuk-!-width-one-third'
+      }
+    ],
+    rows: [
+      [
+        {
+          text: 'Dawidek Jevnic'
+        },
+        {
+          text: "Billing contact"
+        },
+        {
+          text: "31 January 2019"
+        }
+      ],
+      [
+        {
+          text: 'Joanna Southall',
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "Returns contact",
+          classes: 'govuk-table__cell--no-border'
+        },
+        {
+          text: "5 February 2018",
+          classes: 'govuk-table__cell--no-border'
+        }
+      ]
+      ]
+    }) }}

@@ -1,0 +1,87 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "You've marked 1 bill for reissue" %}
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- navigation block -->
+<div class="govuk-!-margin-bottom-3">
+
+  <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-manage.html" %}
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-!-margin-bottom-3"></div>
+
+<!--Previous page title -- The bill you’ve marked for  reissue is ready for the bill run-->
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-6"">
+
+  <!--  <h1 class="govuk-heading-l"><span class="govuk-caption-l">Billing account  {{data['invoiceAccount']}}</span>{{ title }}</h1> -->
+
+    {{ govukPanel({
+  titleText:  title,
+  html: 'The next supplementary bill run you create will include a credit note and invoice for this bill'
+}) }}
+
+</div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <p class="govuk-body">Bill marked for reissue:</p>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+      <li>OP123344</li>
+      </ul>
+
+      {{ govukButton({
+    text: "Create a supplementary bill run",
+    href: "pick-supplementary-region"
+  }) }}
+<!--<p class="govuk-body"><a class="govuk-link" href="pick-supplementary-region">Create a supplementary bill run</a></p>-->
+    <p class="govuk-body">or</p>
+    <p class="govuk-body"><a class="govuk-link" href="billing-account?status=building">Return to billing account</a></p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

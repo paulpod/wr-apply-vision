@@ -1,0 +1,139 @@
+{% extends "layout_wrls.html" %}
+
+{% set title = "Select bill run type" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "/bd/account/change-password-check",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+  {% include "current/includes/nav/nav-bd-bill-runs.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <form data-routing="1" method="post" class="form" id="choose-bill-type">
+
+
+
+
+
+
+        {{ govukRadios({
+          idPrefix: "charge-type",
+          name: "charge-type",
+          fieldset: {
+            legend: {
+              text: [title],
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "pick-annual-region",
+              text: "Annual"
+            },
+            {
+              value: "pick-supplementary-region?credit=false",
+              text: "Supplementary"
+            },
+            {
+              value: "pick-two-part-region",
+              text: "Two-part tariff annual",
+              hint: {text:"Second part charges only" }
+            },
+            {
+              value: "pick-two-part-region",
+              text: "Two-part tariff supplementary",
+              hint: {text:"Second part charges for the current charge scheme only" }
+            }
+          ]
+        }) }}
+
+
+
+
+
+
+
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+  <script>
+
+
+
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('input:checked').val();
+        console.log(url);
+
+        if(url) {
+
+
+                /* TpT season moved onto its own page to accomodate SROC WATER-4284
+                
+                if( $("#tptSeason").is(':checked')){
+          let  season = "summer"
+          let radioUrl = $(this).find('input:checked').val();
+          const newurl = radioUrl+season;
+          ev.preventDefault();
+          window.location.href = newurl;
+          return false;
+        } else if ( $("#tptSeason-2").is(':checked')){
+          let  season = "winter and all year"
+          let radioUrl = $(this).find('input:checked').val();
+          const newurl = radioUrl+season;
+          ev.preventDefault();
+          window.location.href = newurl;
+          return false;
+        }*/
+
+
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}

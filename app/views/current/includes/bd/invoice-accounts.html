@@ -1,0 +1,37 @@
+
+    {{ govukTable({
+      caption: "Billing accounts",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      classes: "govuk-table-fix",
+      head: [
+        {
+          text: "Account",
+          classes: 'govuk-!-width-one-third'
+        },
+        {
+          text: "Licences",
+          classes: 'govuk-!-width-one-third'
+        },
+        {
+          text: "Created date",
+          classes: 'govuk-!-width-one-third'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'KL0987623',
+            classes: 'govuk-table__cell--no-border'
+          },
+          {
+          html: "00/22/001/02<br>03/28/61/029",
+            classes: 'govuk-table__cell--no-border'
+          },
+          {
+            text: "31 January 2019",
+            classes: 'govuk-table__cell--no-border'
+          }
+        ]
+        ]
+      }) }}

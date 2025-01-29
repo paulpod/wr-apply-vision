@@ -1,0 +1,319 @@
+
+<!--{% set elements = [data.elements.element1, data.elements.element2, data.elements.element3] %}
+
+
+
+{% set elements = [data.elements[0],data.elements[1],data.elements[2]] %} -->
+
+{% set elementNumber = "" %}
+
+{% set elements = data['elements'] %}
+
+
+{% set numberOfElements = elements.length %}
+
+
+{% for i in elements %}
+
+<!--formating for the abstraction period dates-->
+      {% set monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %}
+      {% set monthNumber = [i.abstractionStartMonth] %}
+      {% set monthNumberEnd = [i.abstractionEndMonth] %}
+
+      {% set month = monthNames[monthNumber - 1] %}
+      {% set monthEnd = monthNames[monthNumberEnd - 1] %}
+
+      {% set abstractionStart = [i.abstractionStartDay] + " " + month %}
+      {% set abstractionEnd = [i.abstractionEndDay] + " " + monthEnd %}
+
+
+
+     {% set elementNumber = loop.index0 %}
+
+
+     <!--set billable quanity if needed-->
+     {% if [i.billableQuantityNeeded] == "yes" %}
+     {% set billableQuantity = [i.billableQuantity] + " megalitres per year" %}
+     {% else %}
+     {% set billableQuantity = "Not set" %}
+     {% endif %}
+
+     <!--set time limit if needed-->
+     {% if [i.timeLimit] == "yes" %}
+     {% set monthNumbertimeLimit = [i.timeLimitMonth] %}
+     {% set monthtimeLimit = monthNames[monthNumbertimeLimit - 1] %}
+     {% set timeLimit = [i.timeLimitStartDay] + " " + [i.timeLimitStartDay] | toMonth + " " + [i.timeLimitStartYear] + " to " + [i.timeLimitDay] + " " + monthtimeLimit + " " + [i.timeLimitYear]%}
+     {% else %}
+     {% set timeLimit = "No" %}
+     {% endif %}
+
+      <section class="govuk-!-margin-bottom-7">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+
+            <hr class="govuk-section-break ">
+                  {% include "current/bd/iterations/_includes/notes.html" %}
+
+              <!-- 16 Feb feature was cut   <hr class="govuk-section-break ">
+                        {% include "current/bd/iterations/_includes/agreements.html" %} -->
+
+            <h2 class="govuk-heading-m" id="element{{[loop.index]}}">Element {{[loop.index]}}
+          </h2>
+
+                {{ govukSummaryList({
+                  classes: "govuk-!-margin-bottom-1",
+                rows: [
+                  {
+                    key: {
+                      text: "Purpose"
+                    },
+                    value: {
+                      text: [i.purpose]
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-element-purpose?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Purpose"
+                        }
+                      ]
+                    }
+                  },
+
+                  {
+                     key: {
+                       text: "Description"
+                     },
+                     value: {
+                       text: [i.description]
+                     },
+                     actions: {
+                       items: [
+                         {
+                           href: "/bd/charges-2020/add-element-description?elementNew=false&change=true&elementNumber=" + elementNumber,
+                           text: "Change",
+                           visuallyHiddenText: "Description"
+                         }
+                       ]
+                     }
+                   },
+
+
+                  {
+                    key: {
+                      text: "Abstraction period"
+                    },
+                    value: {
+                      text: [abstractionStart] + " to " + [abstractionEnd]
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-abstraction-period?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Abstraction period"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Authorised quantity"
+                    },
+                    value: {
+                      text: [i.authorisedQuantity] + " megalitres per year"
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-authorised-quantity?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Authorised quantity"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Billable quantity"
+                    },
+                    value: {
+                      text: [billableQuantity]
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-authorised-quantity?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Billable quantity"
+                        }
+                      ]
+                    }
+                  },
+
+                  {
+                    key: {
+                      text: "Time limit"
+                    },
+                    value: {
+                      text: [timeLimit]
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-time-limit?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Time limit"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Source"
+                    },
+                    value: {
+                      text: [i.source]
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-source?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Source"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Season"
+                    },
+                    value: {
+                      text: [i.season]
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-season?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Season"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Loss"
+                    },
+                    value: {
+                      text: [i.loss]
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/bd/charges-2020/add-loss?elementNew=false&change=true&elementNumber=" + elementNumber,
+                          text: "Change",
+                          visuallyHiddenText: "Loss"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Agreements apply"
+                    },
+                    value: {
+                      text: "No"
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "agreements apply"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    classes: 'govuk-summary-list--no-border',
+                    key: {
+                      text: "Environmental Improvement Unit Charge"
+                    },
+                    value: {
+                      text: "Other"
+                    }
+                  }
+
+
+                ]
+              }) }}
+
+              {% if numberOfElements > 1 %}
+              <span class=" govuk-body  govuk-!-font-size-19">
+
+                {% if elementNumber == numberOfElements - 1 %}
+
+                {{ govukButton({
+                text: "Add another element",
+                classes: "govuk-button--secondary govuk-!-margin-right-6",
+                href: "/bd/charges-2020/add-element-purpose?elementNew=true&elementNumber=" + numberOfElements
+                }) }}
+
+                {% endif %}
+            <!--    <a href="/bd/charges-2020/charge-version/confirm-copy-element?elementCopy=true&elementNumber={{elementNumber}}" role="button" draggable="false" class="govuk-button govuk-button--secondary">
+                Copy element</a>
+              <span class="govuk-!-margin-left-1 govuk-!-margin-right-1">|</span> -->
+              <a href="/bd/charges-2020/charge-version/confirm-remove-element?removeElement=true&elementNumber={{elementNumber}}"  role="button" draggable="false" class="govuk-button govuk-button--secondary">Remove element</a></span>
+              {% else %}
+            <!--  <span class="govuk-body  govuk-!-font-size-19" ><a href="/bd/charges-2020/charge-version/confirm-copy-element?elementCopy=true&elementNumber={{elementNumber}}"  role="button" draggable="false" class="govuk-button govuk-button--secondary">Copy element</a></span> -->
+            {% set elementNumber = elementNumber + 1 %}
+
+
+            {{ govukButton({
+            text: "Add another element",
+            classes: "govuk-button--secondary",
+            href: "/bd/charges-2020/add-element-purpose?elementNew=true&elementNumber=" + elementNumber
+            }) }}
+              {% endif %}
+      </div>
+      </div>
+      </section>
+
+    {% endfor %}
+
+
+{% if numberOfElements == 0 %}
+<h2 class="govuk-heading-m">Element</h2>
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-full">
+{% set elementNumber = elementNumber + 1 %}
+
+
+{{ govukButton({
+text: "Add an element",
+classes: "govuk-button--secondary",
+href: "/bd/charges-2020/how-to-create-element?elementNew=true&elementNumber=" + elementNumber
+}) }}
+
+</div>
+</div>
+{% else %}
+<!--
+    <div class="govuk-grid-row govuk-!-margin-bottom-6">
+      <div class="govuk-grid-column-full"> -->
+{% set elementNumber = elementNumber + 1 %}
+
+<!--
+    {{ govukButton({
+  text: "Add another element",
+  classes: "govuk-button--secondary",
+  href: "/bd/charges-2020/add-element-purpose?elementNew=true&elementNumber=" + elementNumber
+}) }}
+
+</div>
+</div> -->
+{% endif %}

@@ -20,22 +20,29 @@ GOV.UK Prototype Kit
     padding: 0 6px;
   }
 </style>
+
+
+<style>
+   a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+</style>
      
 <div class="govuk-width-container">
-  <a href="#" class="govuk-back-link">Back</a>
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-xl">Headline caption</span>
+        <!--<span class="govuk-caption-xl">Headline caption</span>-->
         <h1 class="govuk-heading-xl">
-          Check licence details
+          Check the licence details that have been uploaded 
         </h1>
 
-        <p>
+        <!--<p>
           Check the details that have been uploaded from the licence.
-        </p>
+        </p>-->
 
       </div>
     </div>
@@ -66,11 +73,11 @@ GOV.UK Prototype Kit
             </dt>
             <dd class="govuk-summary-list__value">
               03/28/61/*S/0004
-              <br>
-              This has been added from the applications system (log and track)
+             
+              
             </dd>
             <dd class="govuk-summary-list__actions">
-              <!--automated-->
+              Added from<br>log and track
               <!--<br>
               <a class="govuk-link" href="#">Change</a>-->
             </dd>
@@ -106,7 +113,7 @@ GOV.UK Prototype Kit
               PO1 5YP
             </dd>
             <dd class="govuk-summary-list__actions">
-              from licence
+              <!--from licence-->
               <br>
               <a class="govuk-link" href="#">Change</a>
             </dd>
@@ -114,53 +121,53 @@ GOV.UK Prototype Kit
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Date of issue (signature date)
+              Licence issue date
             </dt>
             <dd class="govuk-summary-list__value">
               01/04/2023
             </dd>
             <dd class="govuk-summary-list__actions">
               <!--from licence-->
-              <a class="govuk-link" href="#">Change</a>
+              <a class="govuk-link" href="p1-3-date">Change</a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Effective start date
+              Date effective
             </dt>
             <dd class="govuk-summary-list__value">
               01/04/2023
             </dd>
             <dd class="govuk-summary-list__actions">
               <!--from licence-->
-              <a class="govuk-link" href="#">Change</a>
+              <a class="govuk-link" href="p1-3-date">Change</a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Expiry date
+              Date of expiry
             </dt>
             <dd class="govuk-summary-list__value">
               31/03/2034
             </dd>
             <dd class="govuk-summary-list__actions">
               <!--from licence-->
-              <a class="govuk-link" href="#">Change</a>
+              <a class="govuk-link" href="p1-3-date">Change</a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Original issue date
+              Date of original issue
             </dt>
             <dd class="govuk-summary-list__value">
               01/04/2023
             </dd>
             <dd class="govuk-summary-list__actions">
               <!--from licence-->
-              <a class="govuk-link" href="#">Change</a>
+              <a class="govuk-link" href="p1-3-date">Change</a>
             </dd>
           </div>
 
@@ -169,9 +176,14 @@ GOV.UK Prototype Kit
 
 
         <div>
-          <button type="submit" class="govuk-button" data-module="govuk-button">
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>-->
+
+          <a href="p1-4-schedule" class="govuk-button">
             Save and continue
-          </button>
+          </a>
+
 
     
           <p class="govuk-hint">
