@@ -1,0 +1,261 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  .blueblob {
+    display: inline-block;
+    background-color: #2B8CC4;
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    //padding: 0 6px;
+  }
+</style>
+
+
+<style>
+   a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Licence 03/28/61/044</span>
+        <h1 class="govuk-heading-xl">
+          Check the details that have been uploaded
+        </h1>
+
+        <!--<p>
+          Check the details that have been uploaded from the licence.
+        </p>-->
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          <h2 class="govuk-heading-m">Schedule of conditions</h2>
+
+
+        
+
+          
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              4. Purpose of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+              <span style="text-decoration: underline;"><span class="govuk-visually-hidden">4.1</span>From point A:</span>
+              <br>
+              <span class="govuk-visually-hidden">4.1.1</span>
+              <span class="blueblob">1</span> Agriculture other than spray irrigation
+              <br>
+              <br>
+              <span style="text-decoration: underline;"><span class="govuk-visually-hidden">4.2</span>From point B:</span>
+              <br>
+              <span class="govuk-visually-hidden">4.2.1</span>
+              <span class="blueblob">2</span> Trickle irrigation - direct
+              <br>
+              <br>
+              <span class="govuk-visually-hidden">4.2.2</span>
+              <span class="blueblob">3</span> Filling a sealed storage reservoir for subsequent trickle irrigation
+             
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <!-- Purpose codes-->
+                <br>
+                <span class="govuk-hint">A AGR 140 - General Farming & Domestic</span>
+                <br>
+              
+                <a class="govuk-link" href="p1-5-4-purpose-picker-1">Change</a>
+
+                <br>
+                <br>
+                <span class="govuk-hint">A AGR 600 - Trickle Irrigation - Direct</span>
+                <br>
+              
+                <a class="govuk-link" href="p1-5-4-purpose-picker-b1">Change</a>
+                <br>
+                <br>
+                <a class="govuk-link" href="p1-5-4-purpose-picker-b2">Add code for this</a>
+             
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              5. Period of abstraction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              All year
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+             
+              <a class="govuk-link" href="p1-4-5-period">Change</a>
+            </dd>
+
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+
+            <dt class="govuk-summary-list__key">
+              6. Quantities
+              <br>
+              <br>
+              <br>
+              <span style="font-weight: normal;">
+                For the purpose of <span class="blueblob">1</span> agriculture other than irrigation:
+                <br>
+                <br>
+                <br>
+                For the purpose <span class="blueblob">2</span> trickle irrigation <span>and</span> <span class="blueblob">3</span> storage for subsequent trickle irrigation:
+              </span>
+            </dt>
+            <dd class="govuk-summary-list__value" >
+              The maximum quantity of water to be abstracted
+              <br>
+              <br>              
+              4 cubic metres per hour<br>
+              6 cubic metres per day<br>
+              2,890 cubic metres per year<br>
+              <br>
+              25 cubic metres per hour<br>
+              230 cubic metres per day<br>
+              51,830 cubic metres per year
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+              <br>
+              <br>
+              <br>
+              <a class="govuk-link" href="p1-4-5-period">Change</a>
+              <br>
+              <br>
+              <br>
+              <br>
+              <a class="govuk-link" href="p1-4-5-period">Change</a>
+            </dd>
+
+
+
+            <!--<div style="width:100%;display:block">
+              <p>
+                Define aggregates for <a class="govuk-link" href="p1-4-5-aggs">these quantities</a>
+              </p>
+            </div>-->
+
+
+            
+
+          </div>
+
+          
+
+        </dl>
+
+
+
+        <div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+
+    
+          <p class="govuk-hint">
+            The licence will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+
