@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  .govuk-radios__label {
+    margin-top: -7px;
+  }
+</style>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+
+    <div class="govuk-grid-row">
+       <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Point A purpose</span>
+        <h1 class="govuk-heading-l">
+          Use code for General agriculture (AGR)
+        </h1>
+
+        
+     
+
+    <div class="govuk-form-group address-lookup">
+      <label for="address-picker" class="govuk-label  ">
+        Select use code for “Trickle irrigation - direct”
+      </label>
+
+      <div id="address-picker-hint" class="govuk-hint">
+        Type code, or part of description to begin
+      </div>
+        <div id="my-autocomplete-wrapper">
+            <select id="address-picker" class="govuk-select">
+              <option value="" selected disabled hidden></option>
+              {% for address in data['aagruses'] %}
+                <option value="{{ address.id }}">{{ address.id }} - {{ address.line_1 }}</option>
+              {% endfor %}
+            </select>
+        </div>
+    </div>
+    <!-- end form group item -->
+
+
+    <br>
+    <!--<div class="govuk-!-margin-bottom-8">
+      <p>
+        <a href="#" onclick="return false;">Save and add</a> another point
+      </p>
+    </div>-->
+
+
+
+
+    <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>-->
+
+    <a href="p1-5-purposes-2" class="govuk-button" >
+      Save and continue
+    </a>
+    
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+    </div>
+
+
+
+
+
+
+
+  </div><!-- end column div -->
+
+</div><!-- end row div -->
+
+
+  
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#address-picker')
+  })
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#subcode-picker')
+  })
+</script>
+
+{% endblock %}
+
+
