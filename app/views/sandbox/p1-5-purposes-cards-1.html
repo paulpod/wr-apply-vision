@@ -65,62 +65,121 @@ GOV.UK Prototype Kit
         
         
 
+<style>
+   .govuk-summary-list__actions {
+    width: 4em;
+   }
+   .govuk-summary-list__key {
+    width: 16em;
+   }
+   .val {
+    display: block;
+    width: 24em;
+   }
 
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          
-          <h2 class="govuk-heading-m">Schedule of conditions</h2>
-
+</style>
 
         
-
           
+      <h2 class="govuk-heading-m">Schedule of conditions</h2>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              4. Purpose of abstraction
-            </dt>
-            <dd class="govuk-summary-list__value">
-              
-              <span style="text-decoration: underline;"><span class="govuk-visually-hidden">4.1</span>From point A:</span>
-              <br>
-              <span class="govuk-visually-hidden">4.1.1</span>
-              <span class="blueblob">1</span> Agriculture other than spray irrigation
-              <br>
-              <br>
-              <span style="text-decoration: underline;"><span class="govuk-visually-hidden">4.2</span>From point B:</span>
-              <br>
-              <span class="govuk-visually-hidden">4.2.1</span>
-              <span class="blueblob">2</span> Trickle irrigation - direct
-              <br>
-              <br>
-              <br>
-              <span class="govuk-visually-hidden">4.2.2</span>
-              <span class="blueblob">3</span> Filling a sealed storage reservoir for subsequent trickle irrigation
-             
-            </dd>
-            <dd class="govuk-summary-list__actions">
-                <!-- Purpose codes-->
-                <br>
-                <span class="govuk-hint">A AGR 140 - General Farming & Domestic</span>
-                <br>
-              
-                <a class="govuk-link" href="p1-5-4-purpose-picker-1">Change</a>
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            4. Purpose of abstraction
+          </h2>
+        </div>
+        
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
 
-                <br>
-                <br>
-                <span class="govuk-hint">A AGR 600 - Trickle Irrigation - Direct</span>
-                <br>
+            
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-border">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-visually-hidden">4.1</span>
+                From point A:
+              </dt>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span style="font-weight: normal;">
+                  <span class="govuk-visually-hidden">4.1.1</span>
+                  <span class="blueblob">1</span> Agriculture other than spray irrigation
+                </span>
+              </dt>
+
               
-                <a class="govuk-link" href="p1-5-4-purpose-picker-b1">Change</a>
-                <br>
-                <br>
-                <span class="govuk-hint">A AGR 620 - Trickle Irrigation - Storage</span>
-                <br>
-                <a class="govuk-link" href="p1-5-4-purpose-picker-b2">Change</a>
-             
-            </dd>
-          </div>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-hint val">A AGR 140 - General Farming & Domestic</span>
+              </dd>
+
+              
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="p1-5-4-purpose-picker-1">
+                  Change
+                </a>
+              </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-border">
+              <dt class="govuk-summary-list__key">
+                <span class="govuk-visually-hidden">4.2</span>
+                From point B:
+              </dt>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span style="font-weight: normal;">
+                  <span class="govuk-visually-hidden">4.2.1</span>
+                  <span class="blueblob">2</span> Trickle irrigation - direct
+                </span>
+              </dt>
+
+              
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-hint val">A AGR 600 - Trickle Irrigation - Direct</span>
+              </dd>
+
+              
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="p1-5-4-purpose-picker-2">
+                  Change
+                </a>
+              </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <span style="font-weight: normal;">
+                  <span class="govuk-visually-hidden">4.2.1</span>
+                  <span class="blueblob">3</span> Filling a sealed storage reservoir for subsequent trickle irrigation 
+                </span>
+              </dt>
+
+              
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-hint val">Empty</span>
+              </dd>
+
+              
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="p1-5-4-purpose-picker-2">
+                  Add code
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+
+
 
 
           <div class="govuk-summary-list__row">
