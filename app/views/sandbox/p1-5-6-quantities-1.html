@@ -1,0 +1,228 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  .govuk-radios__label {
+    margin-top: -7px;
+  }
+</style>
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  .blueblob {
+    display: inline-block;
+    background-color: #2B8CC4;
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    //padding: 0 6px;
+  }
+</style>
+
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-m"><span class="blueblob">1</span> Agriculture other than spray irrigation</span>
+        
+        <h1 class="govuk-heading-l" style="padding-top:0.2em">
+          Quantities for purpose 1
+        </h1>
+        
+
+        <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="licence-issue-number-hint">
+
+         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <!--<h3 class="govuk-fieldset__heading">
+            Authorised quantities
+          </h3>
+          </legend>-->
+        
+
+        <div id="licence-issue-number-hint" class="govuk-hint govuk-!-margin-bottom-4">
+          Enter the amounts from the licence for at least one of the time periods
+        </div>
+
+
+        <!--<div id="licence-issue-number-hint" class="govuk-hint govuk-!-margin-bottom-2">
+          All new licences start with issue 1, but it may be edited
+        </div>-->
+
+       
+        
+
+        <p>
+          Hourly
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> m<sup>3</sup> each hour
+        </p>
+
+
+        <p>
+          Daily
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> m<sup>3</sup> each day
+        </p>
+
+        <p>
+          Annual
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> m<sup>3</sup> each year
+        </p>
+
+        
+        <p>
+          Instantaneous
+          <br>
+          <input type="text" id="licence-issue-number" name="quantity-annual" class="govuk-input govuk-input--width-10" autocomplete="off" /> l<sup>3</sup> per second
+        </p>
+
+     
+      </fieldset>
+    </div>
+    <!-- end form group item -->
+
+
+     
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+   
+
+
+    
+
+
+
+
+    
+
+<br>
+    <!--<div class="govuk-!-margin-bottom-8">
+      <p>
+        <a href="#" onclick="return false;">Save and add</a> another point
+      </p>
+    </div>-->
+
+
+
+
+    <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>-->
+
+    <a href="p1-5-4-purpose-picker-2-b" class="govuk-button" >
+      Save and continue
+    </a>
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#address-picker')
+  })
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#subcode-picker')
+  })
+</script>
+
+{% endblock %}
+
+
