@@ -44,6 +44,19 @@ GOV.UK Prototype Kit
     color: white;
     //padding: 0 6px;
   }
+  .quantblob {
+    display: inline-block;
+    background-color: #f48838;
+    
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    //padding: 0 6px;
+  }
 </style>
 
 
@@ -58,33 +71,33 @@ GOV.UK Prototype Kit
         <!--<span class="govuk-caption-m"><span class="blueblob">1</span> Trickle irrigation - direct and<br>
         <span class="blueblob">2</span> Filling a sealed storage resevoir for subsequent trickle irrigation</span>-->
         
-        <h1 class="govuk-heading-xl" style="padding-top:0.2em">
-          Link quantities
-        </h1>
-
-
-
         <div class="govuk-form-group">
-
-          <h3>First set of quantities from the licence</h3>
-
-          <p>
-            4 cubic metres per hour<br>
-                6 cubic metres per day<br>
-                2,890 cubic metres per year<br>
-          </p>
-
-
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-                  How would you like to link these quantities?
+                <h1 class="govuk-heading-xl" style="margin-top:0.2em;margin-bottom:0">
+                  How would you like to link<br>these quantities?
                 </h1>
               </legend>
-              <div id="contact-hint" class="govuk-hint">
+
+
+              <p>Set <span class="quantblob">1</span> of quantities from the licence
+
+                <div class="govuk-inset-text" style="margin-top: 15px;">
+                  4 cubic metres per hour<br>
+                  6 cubic metres per day<br>
+                  2,890 cubic metres per year<br>
+                </div>
+              </p>
+
+
+            
+                <!--<h1 class="govuk-fieldset__heading">
+                  How would you like to link these quantities?
+                </h1>-->
+              
+              <!--<div id="contact-hint" class="govuk-hint">
                 Select one option
-              </div>
+              </div>-->
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-point">
@@ -201,7 +214,7 @@ GOV.UK Prototype Kit
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="all">
                   <label class="govuk-label govuk-radios__label" for="contact-3">
-                    One set of quantities for all points and purposes
+                    Link these quantities to all points and purposes 
                   </label>
                 </div>
 
