@@ -1,0 +1,343 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  .govuk-radios__label {
+    margin-top: -7px;
+  }
+</style>
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  .blueblob {
+    display: inline-block;
+    background-color: #2B8CC4;
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    //padding: 0 6px;
+  }
+  .quantblob {
+    display: inline-block;
+    background-color: #f48838;
+    
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    //padding: 0 6px;
+  }
+</style>
+
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <!--<span class="govuk-caption-m"><span class="blueblob">1</span> Trickle irrigation - direct and<br>
+        <span class="blueblob">2</span> Filling a sealed storage resevoir for subsequent trickle irrigation</span>-->
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-heading-xl" style="margin-top:0.2em;margin-bottom:0">
+                  How would you like to link<br>these quantities?
+                </h1>
+              </legend>
+
+
+              <p>Set <span class="quantblob">1</span> of quantities from the licence
+
+                <div class="govuk-inset-text" style="margin-top: 15px;">
+                  25 cubic metres per hour<br>
+                230 cubic metres per day<br>
+                51,830 cubic metres per year
+                </div>
+              </p>
+
+
+            
+                <!--<h1 class="govuk-fieldset__heading">
+                  How would you like to link these quantities?
+                </h1>-->
+              
+              <!--<div id="contact-hint" class="govuk-hint">
+                Select one option
+              </div>-->
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-point">
+                  <label class="govuk-label govuk-radios__label" for="contact">
+                    Select from points
+                  </label>
+                </div>
+
+                   
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-point">
+                      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            Select all points that these quantities apply to
+                        </legend>
+                        <!--<div id="waste-hint" class="govuk-hint">
+                          Select all that apply for this set of quantities
+                        </div>-->
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                              Point A
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                              Point B
+                            </label>
+                          </div>
+
+                           
+
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="all" data-behaviour="exclusive">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                              Link these quantities to all points
+                            </label>
+                          </div>
+                          
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!-- end form group item -->
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                  <label class="govuk-label govuk-radios__label" for="contact-2">
+                    Select from purposes
+                  </label>
+                </div>
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            Select all purposes that these quantities apply to
+                        </legend>
+                        <!--<div id="waste-hint" class="govuk-hint">
+                          Select all that apply for the second   group
+                        </div>-->
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="purpose-1" name="purposes" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="purpose-1">
+                              <span style="position: relative;top:-12px">Purpose <span class="blueblob">1</span></span>
+                            </label>
+                            <span class="govuk-hint" style="position: relative;left:-106px;top:24px">
+                                Agriculture other than spray irrigation
+                            </span>
+                          </div>
+                          <br>
+
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="purpose-2" name="purposes" type="checkbox" value="mines">
+                            <label class="govuk-label govuk-checkboxes__label" for="purpose-2">
+                              <span style="position: relative;top:-12px">Purpose <span class="blueblob">2</span></span>
+                            </label>
+                            <span class="govuk-hint" style="position: relative;left:-106px;top:24px">
+                              Trickle irrigation - direct
+                            </span>
+                          </div>
+                          <br>
+
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="purpose-3" name="purposes" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="purpose-3">
+                              <span style="position: relative;top:-12px">Purpose <span class="blueblob">3</span></span>
+
+                            </label>
+                            <span class="govuk-hint" style="position: relative;left:-106px;top:24px">
+                                Filling a sealed storage reservoir for subsequent trickle irrigation 
+                            </span>
+                          </div>
+                          <br>
+
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="purpose-4" name="purposes" type="checkbox" value="all" data-behaviour="exclusive">
+                            <label class="govuk-label govuk-checkboxes__label" for="purpose-4">
+                              Link these quantities to all purposes
+                            </label>
+                          </div>
+
+                         
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!-- end form group item -->
+
+                <div>
+                  <p style="margin-left: 12px;">or</p>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="all">
+                  <label class="govuk-label govuk-radios__label" for="contact-3">
+                    Link these quantities to all points and purposes 
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+
+          <br>
+
+          <br>
+
+
+
+          
+
+     
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+   
+
+
+    
+
+
+
+
+    
+
+<br>
+    <!--<div class="govuk-!-margin-bottom-8">
+      <p>
+        <a href="#" onclick="return false;">Save and add</a> another point
+      </p>
+    </div>-->
+
+
+
+
+    <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>-->
+
+    <a href="p1-5-4-purpose-picker-2-b" class="govuk-button" >
+      Save and continue
+    </a>
+
+    <div>
+      <p class="govuk-hint">
+        The licence will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#address-picker')
+  })
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#subcode-picker')
+  })
+</script>
+
+{% endblock %}
+
+

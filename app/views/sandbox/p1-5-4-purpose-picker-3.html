@@ -22,43 +22,112 @@ GOV.UK Prototype Kit
   }
 </style>
 
-  <main class="govuk-main-wrapper " id="main-content" role="main">
 
 <div class="govuk-width-container">
   <a href="#" class="govuk-back-link">Back</a>
 
+  <main class="govuk-main-wrapper " id="main-content" role="main">
 
     <div class="govuk-grid-row">
-       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">Point A purpose 1</span>
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Point B purpose 2</span>
         <h1 class="govuk-heading-l">
-          Select use code for general agriculture (AGR)
+          Primary purpose code
         </h1>
 
-        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="crossRegionFlag-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <p>
+                Point B purpose 2: “Filling a sealed storage reservoir for subsequent trickle irrigation”
+              </p>
+            </legend>
+            
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P1" name="P1" type="radio" value="A">
+                <label class="govuk-label govuk-radios__label" for="P1">
+                  Agriculture
+                  <span class="govuk-hint govuk-radios__hint">A</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P2" name="P2" type="radio" value="C">
+                <label class="govuk-label govuk-radios__label" for="P2">
+                  Crown and government
+                  <span class="govuk-hint govuk-radios__hint">C</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P3" name="P3" type="radio" value="E">
+                <label class="govuk-label govuk-radios__label" for="P3">
+                  Environmental
+                  <span class="govuk-hint govuk-radios__hint">E</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P4" name="P4" type="radio" value="I">
+                <label class="govuk-label govuk-radios__label" for="P4">
+                  Industrial, commercial and pulic services
+                  <span class="govuk-hint govuk-radios__hint">I</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P5" name="P5" type="radio" value="M">
+                <label class="govuk-label govuk-radios__label" for="P5">
+                  Amenity
+                  <span class="govuk-hint govuk-radios__hint">M</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P6" name="P6" type="radio" value="W">
+                <label class="govuk-label govuk-radios__label" for="P6">
+                  Production of energy
+                  <span class="govuk-hint govuk-radios__hint">P</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P7" name="P7" type="radio" value="W">
+                <label class="govuk-label govuk-radios__label" for="P7">
+                  Water supply
+                  <span class="govuk-hint govuk-radios__hint">W</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="P8" name="P8" type="radio" value="X">
+                <label class="govuk-label govuk-radios__label" for="P8">
+                  Impounding
+                  <span class="govuk-hint govuk-radios__hint">X</span>
+                </label>
+              </div>
+
+
+
      
 
-    <div class="govuk-form-group address-lookup">
-      <label for="address-picker" class="govuk-label  ">
-        Point A: “Agriculture other than spray irrigation”
-      </label>
-
-      <div id="address-picker-hint" class="govuk-hint">
-        Type code, or part of description to begin
       </div>
-        <div id="my-autocomplete-wrapper">
-            <select id="address-picker" class="govuk-select">
-              <option value="" selected disabled hidden></option>
-              {% for address in data['aagruses'] %}
-                <option value="{{ address.id }}">{{ address.id }} - {{ address.line_1 }}</option>
-              {% endfor %}
-            </select>
-        </div>
     </div>
-    <!-- end form group item -->
+    <!-- end grid row -->
+
+   
 
 
-    <br>
+    
+
+
+
+
+    
+
+<br>
     <!--<div class="govuk-!-margin-bottom-8">
       <p>
         <a href="#" onclick="return false;">Save and add</a> another point
@@ -72,28 +141,65 @@ GOV.UK Prototype Kit
       Save and continue
     </button>-->
 
-    <a href="p1-5-purposes-1" class="govuk-button" >
+    <a href="p1-5-4-purpose-picker-3a" class="govuk-button" >
       Save and continue
     </a>
-    
 
     <div>
       <p class="govuk-hint">
         The licence will remain in draft.
       </p>
+
+
+
     </div>
-
-
-
 
 
 
 
   </div><!-- end column div -->
 
-</div><!-- end row div -->
 
 
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
   
 
 
