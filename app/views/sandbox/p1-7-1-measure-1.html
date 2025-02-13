@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Licence 03/28/61/044</span>
+        <h1 class="govuk-heading-xl">
+          Select how the quantities are measured
+        </h1>
+
+     
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  
+</style>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="crossRegionFlag-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <!--<p>
+                Select a point already listed at this location or create a new point
+              </p>
+            </legend>-->
+            <div id="crossRegionFlag-hint" class="govuk-hint">
+              Measurement may be required at each point, or for each purpose, or for both
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag" name="crossRegionFlag" type="radio" value="PUR">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag">
+                  Measured for each purpose
+                  <!--<span class="govuk-hint govuk-radios__hint">AAG</span>-->
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="PNT">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-2">
+                  Measured at each point
+                  <!--<span class="govuk-hint govuk-radios__hint">EST</span>-->
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-3" name="crossRegionFlag" type="radio" value="PNP">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-3">
+                  Measured at each point and every purpose
+                  <!--<span class="govuk-hint govuk-radios__hint">KAD</span>-->
+                </label>
+              </div>
+
+              
+
+             
+
+              
+
+
+
+            </div>
+          </fieldset>
+        </div>
+        <!-- end form group item -->
+
+
+        <div>
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>-->
+
+          <a href="p1-7-measure-cards-2" class="govuk-button">
+            Save and continue
+          </a>
+
+
+    
+          <p class="govuk-hint">
+            The licence will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

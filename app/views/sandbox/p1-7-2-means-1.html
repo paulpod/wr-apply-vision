@@ -30,7 +30,7 @@ GOV.UK Prototype Kit
       <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-xl">Point A</span>
         <h1 class="govuk-heading-xl">
-          Select means of abstraction
+          Select the means of measurement for point A
         </h1>
 
      
@@ -51,148 +51,146 @@ GOV.UK Prototype Kit
     left: -60px;
     
   }
-  .govuk-radios__label {
-    margin-top: -7px;
-  }
+  
 </style>
+
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="crossRegionFlag-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <!--<h3 class="govuk-fieldset__heading">
-                What is the means of abstraction for point A?
-              </h3>-->
-                <p>Point A: sumbersible pump</p>
-            </legend>
-
+              <!--<p>
+                Select a point already listed at this location or create a new point
+              </p>
+            </legend>-->
             <!--<div id="crossRegionFlag-hint" class="govuk-hint">
-              Select one option
+              Points already listed at this location
             </div>-->
-
             <div class="govuk-radios" data-module="govuk-radios">
 
-              <!-- see the file p1-4-3-means-prefixedcode for ones like that -->
-
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag" name="crossRegionFlag" type="radio" value="M1">
+                <input class="govuk-radios__input" id="crossRegionFlag" name="crossRegionFlag" type="radio" value="AAG">
                 <label class="govuk-label govuk-radios__label" for="crossRegionFlag">
-                  Artesian<span class="govuk-hint govuk-radios__hint">ART</span>
+                  As agreed with agency
+                  <span class="govuk-hint govuk-radios__hint">AAG</span>
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="M2">
+                <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="EST">
                 <label class="govuk-label govuk-radios__label" for="crossRegionFlag-2">
-                  Bucket<span class="govuk-hint govuk-radios__hint">BUC</span>
+                  Estimated volume
+                  <span class="govuk-hint govuk-radios__hint">EST</span>
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-4" name="crossRegionFlag" type="radio" value="M4">
+                <input class="govuk-radios__input" id="crossRegionFlag-3" name="crossRegionFlag" type="radio" value="KAD">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-3">
+                  Known area <span class="times-lc">&times;</span> depth
+                  <span class="govuk-hint govuk-radios__hint">KAD</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-4" name="crossRegionFlag" type="radio" value="KCO">
                 <label class="govuk-label govuk-radios__label" for="crossRegionFlag-4">
-                  Gravity<span class="govuk-hint govuk-radios__hint">GRA</span>
+                  Known capacity <span class="times-lc">&times;</span> number of fills
+                  <span class="govuk-hint govuk-radios__hint">KCO</span>
                 </label>
               </div>
-
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-3" name="crossRegionFlag" type="radio" value="M3">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-3">Gravity and fixed means<span class="govuk-hint govuk-radios__hint">GFX</span>
+                <input class="govuk-radios__input" id="crossRegionFlag-5" name="crossRegionFlag" type="radio" value="LEV">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-5">
+                  Level/stage at flow measuring structure
+                  <span class="govuk-hint govuk-radios__hint">LEV</span>
                 </label>
               </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-6" name="crossRegionFlag" type="radio" value="LIV">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-6">
+                  Number of livestock <span class="times-lc">&times;</span> standard rate
+                  <span class="govuk-hint govuk-radios__hint">LIV</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-7" name="crossRegionFlag" type="radio" value="MTR" checked>
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-7">
+                  Meter
+                  <span class="govuk-hint govuk-radios__hint">MTR</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-8" name="crossRegionFlag" type="radio" value="MXM">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-8">
+                  Mixed means
+                  <span class="govuk-hint govuk-radios__hint">MXM</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-9" name="crossRegionFlag" type="radio" value="OCM">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-9">
+                  Open channel measurement
+                  <span class="govuk-hint govuk-radios__hint">OCM</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-10" name="crossRegionFlag" type="radio" value="OTH">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-10">
+                  Other means
+                  <span class="govuk-hint govuk-radios__hint">OTH</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-11" name="crossRegionFlag" type="radio" value="PEO">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-11">
+                  Number of people <span class="times-lc">&times;</span> standard rate
+                  <span class="govuk-hint govuk-radios__hint">PEO</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-12" name="crossRegionFlag" type="radio" value="PRT">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-12">
+                  Pump rate <span class="times-lc">&times;</span> time
+                  <span class="govuk-hint govuk-radios__hint">PRT</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-13" name="crossRegionFlag" type="radio" value="PWC">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-13">
+                  Power consumed
+                  <span class="govuk-hint govuk-radios__hint">PWC</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-14" name="crossRegionFlag" type="radio" value="PWG">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-14">
+                  Power generated
+                  <span class="govuk-hint govuk-radios__hint">PWG</span>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-15" name="crossRegionFlag" type="radio" value="UNM">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-15">
+                  Unspecified means
+                  <span class="govuk-hint govuk-radios__hint">UNM</span>
+                </label>
+              </div>
+
+
+             
 
               
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-5" name="crossRegionFlag" type="radio" value="M5">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-5">
-                  Gravity and sluice (adjustable)<span class="govuk-hint govuk-radios__hint">GSA</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-6" name="crossRegionFlag" type="radio" value="M6">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-6">
-                  Hydram(s)<span class="govuk-hint govuk-radios__hint">HYD</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-7" name="crossRegionFlag" type="radio" value="M7">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-7">
-                  Mixed means<span class="govuk-hint govuk-radios__hint">MXM</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-8" name="crossRegionFlag" type="radio" value="M8">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-8">
-                  Other means<span class="govuk-hint govuk-radios__hint">OTH</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-11" name="crossRegionFlag" type="radio" value="M11">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-11">
-                  Submersible pump (fixed)<span class="govuk-hint govuk-radios__hint">SPF</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-12" name="crossRegionFlag" type="radio" value="M12">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-12">
-                  Submersible pump (mobile)<span class="govuk-hint govuk-radios__hint">SPM</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-9" name="crossRegionFlag" type="radio" value="M9">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-9">
-                  Surface mounted pump (fixed)<span class="govuk-hint govuk-radios__hint">SMF</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-10" name="crossRegionFlag" type="radio" value="M10">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-10">
-                  Surface mounted pump (mobile)<span class="govuk-hint govuk-radios__hint">SMM</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-13" name="crossRegionFlag" type="radio" value="M13">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-13">
-                  Unspecified means<span class="govuk-hint govuk-radios__hint">UNM</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-14" name="crossRegionFlag" type="radio" value="M14">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-14">
-                  Unspecified pump<span class="govuk-hint govuk-radios__hint">UNP</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-15" name="crossRegionFlag" type="radio" value="M15">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-15">
-                  Unspecified structure and means<span class="govuk-hint govuk-radios__hint">UNS</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-16" name="crossRegionFlag" type="radio" value="M14">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-16">
-                  Weir and gravity<span class="govuk-hint govuk-radios__hint">WRG</span>
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="crossRegionFlag-17" name="crossRegionFlag" type="radio" value="M15">
-                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-17">
-                  Weir and pump<span class="govuk-hint govuk-radios__hint">WRP</span>
-                </label>
-              </div>
 
 
 
@@ -204,12 +202,14 @@ GOV.UK Prototype Kit
 
         <div>
           <!--<button type="submit" class="govuk-button" data-module="govuk-button">
-            Save and continue
+            Continue
           </button>-->
 
-          <a href="p1-4-schedule-cards-4" class="govuk-button" >
+          <a href="p1-7-measure-cards-2" class="govuk-button">
             Save and continue
           </a>
+
+
     
           <p class="govuk-hint">
             The licence will remain in draft.
