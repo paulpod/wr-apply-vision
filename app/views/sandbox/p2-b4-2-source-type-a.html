@@ -1,0 +1,447 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Abstraction licence application 123456</span>
+        <h1 class="govuk-heading-xl">
+          Select source of supply
+        </h1>
+
+     
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  
+</style>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="crossRegionFlag-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-heading-m">
+                Which type of abstraction point will you be abstracting from?
+              </h2>
+              <!--<p>
+                Select a source for “Underground strata comprising of Chalk at Apple Tree Farm” or create a new source
+              </p>-->
+            </legend>
+            
+
+            <!--
+Adit (mine)
+Borehole
+Excavation (unlined)
+Groundwater fed lagoon
+Mineshaft
+Mixed groundwater
+Seepage catchpit
+Well
+Wellpoints
+By-pass channel
+Canal
+Catchpit
+Drain
+Excavation (lined)
+Leat
+Mixed surface water
+Off-stream excavation
+Off-stream lagoon
+Off-stream lake
+Off-stream mill pond
+Off-stream pond
+Off-stream reservoir
+Off-stream source
+On-stream excavation
+On-stream lagoon
+On-stream lake
+On-stream mill pond
+On-stream pond
+On-stream reservoir
+On-stream source
+Pipe
+River
+Spring
+Stream
+Tidal waters
+            -->
+
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-1" name="crossRegionFlag" type="radio" value="M1">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-1">
+                  By-pass channel
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="M2">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-2">
+                  Canal
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-3" name="crossRegionFlag" type="radio" value="M3">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-3">
+                  Catchpit
+                </label>
+              </div>
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-4" name="crossRegionFlag" type="radio" value="M4">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-4">
+                  Drain
+                </label>
+              </div>
+
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-5" name="crossRegionFlag" type="radio" value="M5">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-5">
+                  Excavation (lined)
+                </label>
+              </div>
+
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-6" name="crossRegionFlag" type="radio" value="M6">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-6">
+                  Leat
+                </label>
+              </div>
+
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-7" name="crossRegionFlag" type="radio" value="M7">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-7">
+                  Mixed surface water
+                </label>
+              </div>
+
+
+
+
+
+              <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="crossRegionFlag-8" name="crossRegionFlag" type="radio" value="M8" data-aria-controls="conditional-point">
+                  <label class="govuk-label govuk-radios__label" for="crossRegionFlag-8">
+                    Excavation
+                  </label>
+                </div>
+
+                   
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-point">
+                      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <span style="font-weight:normal">Tell us how the excavation is connected</span>
+                        </legend>
+                        <!--<div id="waste-hint" class="govuk-hint">
+                          Select all that apply for this set of quantities
+                        </div>-->
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                              On-stream excavation
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                              Off-stream excavation
+                            </label>
+                          </div>
+
+                           
+
+                          
+                          
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!-- end form group item -->
+
+
+
+              <!--<div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-8" name="crossRegionFlag" type="radio" value="M8">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-8">
+                  Excavation
+                </label>
+              </div>-->
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-9" name="crossRegionFlag" type="radio" value="M9">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-9">
+                  Lagoon
+                </label>
+              </div>
+
+
+
+              <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="crossRegionFlag-10" name="crossRegionFlag" type="radio" value="M10" data-aria-controls="conditional-point-2">
+                  <label class="govuk-label govuk-radios__label" for="crossRegionFlag-10">
+                    Lake
+                  </label>
+                </div>
+
+
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-point-2">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <span style="font-weight:normal">Tell us how the excavation is connected</span>
+                    </legend>
+                    <!--<div id="waste-hint" class="govuk-hint">
+                      Select all that apply for this set of quantities
+                    </div>-->
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                          On-stream lake
+                           <span class="govuk-hint govuk-radios__hint">This means a lake fed directly from a stream</span>
+                        </label>
+
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                          Off-stream excavation
+                           <span class="govuk-hint govuk-radios__hint">A lake fed indirectly</span>
+                        </label>
+                      </div>
+
+                       
+
+                      
+                      
+                    </div>
+                  </fieldset>
+                </div>
+                <!-- end form group item -->
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-11" name="crossRegionFlag" type="radio" value="M11">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-11">
+                  Mill pond
+                </label>
+              </div>
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-12" name="crossRegionFlag" type="radio" value="M12">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-12">
+                  Pond
+                </label>
+              </div>
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-13" name="crossRegionFlag" type="radio" value="M13">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-13">
+                  Reservoir
+                </label>
+              </div>
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-14" name="crossRegionFlag" type="radio" value="M14">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-14">
+                  Source
+                </label>
+              </div>
+
+
+              
+              
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-15" name="crossRegionFlag" type="radio" value="M15">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-15">
+                  Pipe
+                </label>
+              </div>
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-16" name="crossRegionFlag" type="radio" value="M16">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-16">
+                  River
+                </label>
+              </div>
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-17" name="crossRegionFlag" type="radio" value="M17">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-17">
+                  Spring
+                </label>
+              </div>
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-18" name="crossRegionFlag" type="radio" value="M18">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-18">
+                  Stream
+                </label>
+              </div>
+
+
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-19" name="crossRegionFlag" type="radio" value="M19">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-19">
+                  Tidal waters
+                </label>
+              </div>
+
+
+
+
+              <div>
+                <p style="margin-left: 12px;">or</p>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-4" name="crossRegionFlag" type="radio" value="X2">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-4">
+                  I cannot answer this question
+                </label>
+              </div>
+
+
+              
+
+
+
+            </div>
+          </fieldset>
+        </div>
+        <!-- end form group item -->
+
+
+        <div>
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>-->
+
+    <a href="p1-4-schedule-cards-1" class="govuk-button" >
+      Save and continue
+    </a>
+    
+          <p class="govuk-hint">
+            The application will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+
