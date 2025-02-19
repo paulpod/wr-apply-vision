@@ -1,0 +1,232 @@
+
+
+[
+  {
+	"id": "1",
+    "line_1": "Agriculture, general",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "2",
+    "line_1": "Aquaculture fish",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "3",
+    "line_1": "Aquaculture plant",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "4",
+    "line_1": "Brewery or winery",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "5",
+    "line_1": "Business Park",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "6",
+    "line_1": "Chemical",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "7",
+    "line_1": "Construction",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "8",
+    "line_1": "Crown - other",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "10",
+    "line_1": "Dairy",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "140",
+    "line_1": "Detention and immigration centre",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+	"id": "150",
+    "line_1": "Drainage operations",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "160",
+    "line_1": "Electricity generation",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "170",
+    "line_1": "General Use Relating To Secondary Category (Low Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "180",
+    "line_1": "General Use Relating To Secondary Category (Very Low Loss)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "190",
+    "line_1": "General Washing/Process Washing",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "200",
+    "line_1": "Heat Pump",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "220",
+    "line_1": "Hydraulic Rams",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "230",
+    "line_1": "Hydraulic Testing",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "250",
+    "line_1": "Lake & Pond Throughflow",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "280",
+    "line_1": "Make-Up Or Top Up Water",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "310",
+    "line_1": "Non-Evaporative Cooling",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "350",
+    "line_1": "Process Water",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "380",
+    "line_1": "Spray Irrigation - Anti Frost",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "390",
+    "line_1": "Spray Irrigation - Anti Frost Storage",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "400",
+    "line_1": "Spray Irrigation - Direct",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "410",
+    "line_1": "Spray Irrigation - Spray Irrigation Definition Order",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "420",
+    "line_1": "Spray Irrigation - Storage",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "430",
+    "line_1": "Supply To A Canal For Throughflow",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "440",
+    "line_1": "Supply To A Leat For Throughflow",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "450",
+    "line_1": "Transfer Between Sources (Pre Water Act 2003)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "460",
+    "line_1": "Vegetable Washing",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "600",
+    "line_1": "Trickle Irrigation - Direct",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "610",
+    "line_1": "Trickle Irrigation - Under Cover/Containers",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "620",
+    "line_1": "Trickle Irrigation - Storage",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "630",
+    "line_1": "Flood Irrigation, Including Water Meadows, Warping And Pest Control",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "640",
+    "line_1": "Wet Fencing And Nature Conservation",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "650",
+    "line_1": "Transfer Between Sources (Post Water Act 2003)",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  },
+  {
+  "id": "660",
+    "line_1": "Dewatering",
+    "line_2": "AGR",
+    "town": "General Agriculture"
+  }
+]
