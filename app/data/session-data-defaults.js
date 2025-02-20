@@ -20,7 +20,7 @@ Example usage:
 let dpsaddresses                = require('./dpsaddresses.json')
 let aagruses                  = require('./a-agr-uses.json')
 let auses                  = require('./a-uses.json')
-let applyuses                  = require('./apply-uses.json')
+let applyuses                  = require('./apply-uses2.json')
 
 module.exports = {
   dpsaddresses,aagruses,auses,applyuses,
