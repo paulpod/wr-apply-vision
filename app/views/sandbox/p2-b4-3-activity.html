@@ -30,9 +30,9 @@ GOV.UK Prototype Kit
 
     <div class="govuk-grid-row">
        <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">Point B purpose 2</span>
+        <span class="govuk-caption-l">Abstraction licence application 123456</span>
         <h1 class="govuk-heading-l">
-          Select use code for General agriculture (AGR)
+          What type of activity or business goes on at your site?
         </h1>
 
         
@@ -40,17 +40,17 @@ GOV.UK Prototype Kit
 
     <div class="govuk-form-group address-lookup">
       <label for="address-picker" class="govuk-label  ">
-        Point B purpose 2: Filling a sealed storage reservoir for subsequent trickle irrigation
+        You must select one of the categories of activity
       </label>
 
       <div id="address-picker-hint" class="govuk-hint">
-        Search by code or code description
+        Search by typing the a word that might describe
       </div>
         <div id="my-autocomplete-wrapper">
             <select id="address-picker" class="govuk-select">
               <option value="" selected disabled hidden></option>
               {% for address in data['applyuses'] %}
-                <option value="{{ address.id }}">{{ address.id }} - {{ address.line_1 }}</option>
+                <option value="{{ address.id }}">{{ address.line_1 }}</option>
               {% endfor %}
             </select>
         </div>
