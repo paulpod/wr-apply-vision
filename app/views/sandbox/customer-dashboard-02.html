@@ -1,0 +1,282 @@
+{% extends "layouts/_manage.html" %}
+
+<!--set title-->
+{% set title = [data.customers[data.customerID]['name']] + " customer summary" %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+<!--content block-->
+{% block service %}
+
+
+<style type="text/css">
+  .bar {
+    border: 1px solid #b1b4b6;
+    padding: 3px;
+    margin: 0.33em 0;
+    background-color: #fff;
+  }
+  .progress-60 {
+    background-image: url('/public/images/blue-progress-stripes.png');
+    width:60%;
+    height:0.66em;
+  }
+  .progress-text {
+    visibility: hidden;
+  }
+
+</style>
+
+<!-- page title -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Customer</span>
+      Big Smith Farms Limited
+    </h1>
+  </div>
+</div>
+
+
+<!--<div class="govuk-!-margin-bottom-6">
+  <p class="govuk-body">Registered to <a href="user-status" class="no-break">admin@{{data['customerName'] | lower | replaceWS}}.com</a></p>
+</div> -->
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+
+  <h2 class="govuk-tabs__title">
+    Licence views
+  </h2>
+
+  <!-- tab navigation -->
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item" tabindex="0">
+      <a class="govuk-tabs__tab" href="#licences">
+        Licences
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item" tabindex="0">
+      <a class="govuk-tabs__tab govuk-tabs__tab--selected" href="#applications">
+        Applications
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item" tabindex="0">
+      <a class="govuk-tabs__tab" href="#billing-accounts">
+        Billing accounts
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item" tabindex="0">
+      <a class="govuk-tabs__tab" href="#contacts">
+        Contacts
+      </a>
+    </li>
+  <!--  <li class="govuk-tabs__list-item" tabindex="0">
+      <a class="govuk-tabs__tab" href="#returns">
+        Addresses
+      </a>
+    </li> -->
+  </ul>
+
+  <!-- tab 0 -->
+  <section class="govuk-tabs__panel" id="licences">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-heading-l">Licences</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Licence</th>
+          <th scope="col" class="govuk-table__header">Licence name</th>
+          <th scope="col" class="govuk-table__header">Start date</th>
+          <th scope="col" class="govuk-table__header">End date</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+    <!--getting the licence data-->
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+
+         <!--set the link to go to a specific licence-->
+          <a href="licence?ID=1" class="govuk-link">
+
+          03/28/60/0032</a></td>
+        <td class="govuk-table__cell">Glindenfold Lake</td>
+        <td class="govuk-table__cell">1 June 1985</td>
+        <td class="govuk-table__cell">
+          
+          30 April 2022
+          
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+
+         <!--set the link to go to a specific licence-->
+          <a href="licence?ID=3" class="govuk-link">
+
+          03/28/60/0035</a></td>
+        <td class="govuk-table__cell">George Furrow</td>
+        <td class="govuk-table__cell">1 June 1985</td>
+        <td class="govuk-table__cell">
+          
+          15 September 2022
+          
+        </td>
+      </tr>
+
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+
+         <!--set the link to go to a specific licence-->
+          <a href="licence?ID=4" class="govuk-link">
+
+          03/28/60/0033</a></td>
+        <td class="govuk-table__cell">Dale Barrow</td>
+        <td class="govuk-table__cell">1 September 1990</td>
+        <td class="govuk-table__cell">
+          
+          15 September 2022
+          
+        </td>
+      </tr>
+
+      
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+
+         <!--set the link to go to a specific licence-->
+          <a href="licence?ID=8" class="govuk-link">
+
+          11/22/32/03</a></td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell">1 April 2000</td>
+        <td class="govuk-table__cell">
+          
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+ </section>
+
+ <!--tab 1-->
+  <section class="govuk-tabs__panel" id="applications">
+
+   <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-heading-l">Applications</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Application and licence numbers</th>
+          <th scope="col" class="govuk-table__header">Licence name</th>
+          <th scope="col" class="govuk-table__header">Activity and description</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+    <!--getting the licence data-->
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell" style="border-bottom: none;">
+
+         <!--set the link to go to a specific licence-->
+          
+          NPS/WR/042596<br>
+          03/28/60/0032
+          <br>
+
+          <div class="bar">
+
+            <div class="progress-60">
+              <span class="progress-text">progress: 60%</span>
+            </div>
+
+          </div>
+         
+
+        </td>
+        <td class="govuk-table__cell" style="border-bottom: none;">Cherry farm </td>
+        <td class="govuk-table__cell" style="border-bottom: none;">
+          Orchard
+          <br>Trickle irrigation from a borehole with pump</td>
+        <td class="govuk-table__cell" style="border-bottom: none;">
+          
+          <strong class="govuk-tag govuk-tag--green">
+            Submitted
+          </strong> 
+          <p style="margin-top: 0.3em;">
+          30/01/2025
+          </p>
+
+          <strong class="govuk-tag govuk-tag--blue">
+            Payment&nbsp;required
+          </strong> 
+          
+
+          <p style="margin-top: 0.3em;">
+            <a href="#" class="govuk-link">View invoice</a> and
+            <br><a href="https://www.payments.service.gov.uk" class="govuk-link">pay online</a>
+          </p>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  </section>
+
+ <!--tab 2-->
+  <section class="govuk-tabs__panel" id="billing-accounts">
+
+   <!--billing accounts table-->
+   {% include "sandbox/_includes/customer/billing-accounts-table.html" %}
+
+  </section>
+
+  <!-- tab 3 -->
+  <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="contacts">
+
+
+
+    <!-- contacts table -->
+    {% include "sandbox/_includes/customer/contacts-table.html" %}
+
+    <!--add a contact-->
+    {{ govukButton({
+    text: "Set up a new contact",
+    href: "customer/add/select-a-contact-type?contactID=",
+    classes: "govuk-!-margin-right-3"
+    }) }}
+
+
+    <!--remove a contact-->
+    {{ govukButton({
+    text: "Remove a contact",
+    href: "customer/remove/select-which-contact-to-remove",
+    classes: "govuk-button--secondary"
+    }) }}
+
+   </section>
+
+<!--  tab 4
+  <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="returns">
+
+    contacts table
+  {#  {% include "sandbox/_includes/customer/addresses-table.html" %} #}
+
+  </section>-->
+
+</div>
+
+{% endblock %}
