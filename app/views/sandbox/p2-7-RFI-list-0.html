@@ -1,0 +1,321 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  .blueblob {
+    display: inline-block;
+    background-color: #2B8CC4;
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    //padding: 0 6px;
+  }
+  .quantblob {
+    display: inline-block;
+    background-color: #f48838;
+    
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    //padding: 0 6px;
+  }
+</style>
+
+
+<style>
+   a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Licence 03/28/61/044</span>
+        <h1 class="govuk-heading-xl">
+          Requested information
+        </h1>
+        <span class="govuk-caption-xl">Application number: NPS/WR/040145</span>
+
+        <!--<p>
+          Check the details that will be requested from the applicant
+        </p>-->
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+<style>
+   .govuk-summary-list__actions {
+    width: 4em;
+   }
+   .govuk-summary-list__key {
+    width: 16em;
+   }
+   .val {
+    display: block;
+    width: 24em;
+   }
+
+</style>
+
+        
+          
+      <br>
+
+      <h2 class="govuk-heading-m">
+        Check the details that will be requested from the applicant
+      </h2>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper" style="margin-bottom:-0.34em">
+          <h2 class="govuk-summary-card__title">
+            2. Completeness
+          </h2>
+
+          <dd class="govuk-summary-list__actions" style="margin-bottom:-10px;padding-top: 5px;">
+            <!--<a class="govuk-link" href="p1-5-4-purpose-picker-1">
+              Add&nbsp;purpose
+            </a>-->
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+
+            
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-border">
+              <dt class="govuk-summary-list__key" style="padding-bottom: 0.12em;padding-top: 0;">
+                <span class="govuk-visually-hidden">4.1</span>
+                <span style="font-weight: bold;">Company details:</span>
+              </dt>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key" style="padding-bottom: 0.74em;">
+                <span style="font-weight: normal;">
+                  <span class="govuk-visually-hidden">4.1.1</span>
+                  The company name entered does not match name as listed at Companies House
+                </span>
+              </dt>
+
+              
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-hint val">
+                  Big Smyth Farm<br>
+                  12345623
+
+                </span>
+              </dd>
+
+              
+              <dd class="govuk-summary-list__actions"  style="padding-bottom: 0;">
+                <a class="govuk-link" href="p2-7-edit-1">
+                  <br>
+                  Edit note
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key" style="padding-bottom: 0.74em;">
+                <span style="font-weight: normal;">
+                  <span class="govuk-visually-hidden">4.1.1</span>
+                  Supporting financial information covering 5 years (2020-2025) to be requested
+                </span>
+              </dt>
+
+              
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-hint val">
+                  
+
+                </span>
+              </dd>
+
+              
+              <dd class="govuk-summary-list__actions"  style="padding-bottom: 0;">
+                <a class="govuk-link" href="p2-7-edit-1">
+                  <br>
+                  Edit note
+                </a>
+              </dd>
+            </div>
+
+
+            <div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-border">
+              <dt class="govuk-summary-list__key" style="padding-bottom: 0.12em;">
+                <span class="govuk-visually-hidden">4.2</span>
+                <span style="font-weight: bold;">Attachment</span>
+              </dt>
+            </div>
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key" style="padding-bottom: 16px;">
+                <span style="font-weight: normal;">
+                  <span class="govuk-visually-hidden">4.2.1</span>
+                  A clearer layout of the multiple boreholes and pumps and meters at location has been requested
+                </span>
+              </dt>
+
+              
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-hint val">Not yet received</span>
+              </dd>
+
+              
+              <dd class="govuk-summary-list__actions">
+                <!--<a class="govuk-link" href="p1-5-4-purpose-picker-2">
+                  Add
+                </a>
+                <span class="govuk-hint" style="padding-left:0.33em;padding-right:0em">|</span>-->
+                <a class="govuk-link" href="p1-5-4-purpose-picker-2">
+                  Edit note
+                </a>
+              </dd>
+            </div>
+
+
+            <!--<div class="govuk-summary-list__row" >
+              <dt class="govuk-summary-list__key"  style="padding-bottom: 0;">
+                <span style="font-weight: normal;">
+                  <span class="govuk-visually-hidden">4.2.1</span>
+                  <span class="blueblob">3</span> Filling a sealed storage reservoir for subsequent trickle irrigation 
+                </span>
+              </dt>
+
+              
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-hint val"></span>
+              </dd>
+
+              
+              <dd class="govuk-summary-list__actions"  style="padding-bottom: 0;">
+                <a class="govuk-link" href="p1-5-4-purpose-picker-3">
+                  <br>
+                  Add code
+                </a>
+              </dd>
+            </div>-->
+          </dl>
+        </div>
+      </div>
+
+
+      <style>
+        .pseudo-card {
+          border: 1px solid #b1b4b6;
+          padding: 15px 20px;
+          margin-bottom: 30px;
+        }
+      </style>
+
+
+          </dl>
+        </div>
+      </div>
+
+
+
+        <div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Send information request to customer
+          </button>
+
+    
+          <p class="govuk-hint">
+            An email will be sent to farmerdave@bigsmithfarms.co.uk
+            <br>
+            <a href="#">Preview the email</a> that will be sent
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

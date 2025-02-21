@@ -27,6 +27,28 @@
     visibility: hidden;
   }
 
+  .notify-blob {
+    width:12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0;
+    position: absolute;
+
+    top:10px;
+    right:10px;
+  }
+
+  .notify-text {
+    color: white;
+    visibility: hidden;
+  }
+
+
 </style>
 
 <!-- page title -->
@@ -59,6 +81,10 @@
       </a>
     </li>
     <li class="govuk-tabs__list-item" tabindex="0">
+      <div class="notify-blob">
+        <span class="notify-text">1 notification</span>
+      </div>
+      
       <a class="govuk-tabs__tab govuk-tabs__tab--selected" href="#applications">
         Applications
       </a>
