@@ -2,7 +2,7 @@ Note this is prototype code. Not intended for production use.
 
 Get up and running in 5 minutes
 
-Clone this repo using '''git clone [repo_Github_URL] [local_dir]```
+Clone this repo using ```git clone [repo_Github_URL] [local_dir]```
 
 Move into the local copy ```cd [local_dir]```
 
