@@ -12,7 +12,7 @@ Run it ```npm run dev```
 
 Look at it in your browser ```http://localhost:3000/```
 
-You’ll probably want to detach from the original repo to create your own at this point, so use ```git remote rm origin``` to remove this repo and and either create a new one on github.com in a browser or use ```gh repo create``` - once you've done that use ```git remote add origin https://github.com/username/my-new-repo.git``` to add it as a new remote for your prototype. Now do a quick git push origin main and you‘ll see the contents of your new prototype fill the empty repo. Good job!
+You’ll probably want to detach from the original repo to create your own at this point, so use ```git remote rm origin``` to remove this repo and and either create a new one on github.com in a browser or use ```gh repo create``` - once you've done that use ```git remote add origin https://github.com/username/my-new-repo.git``` to add it as a new remote for your prototype. Now do a quick ```git push origin main``` and you‘ll see the contents of your new prototype fill the empty repo. Good job!
 
 Working with other people? Make a branch ```git checkout -b myFeature```
 
