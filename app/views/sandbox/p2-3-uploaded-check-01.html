@@ -1,0 +1,399 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+</style>
+
+
+<style>
+   a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <!--<span class="govuk-caption-xl">Headline caption</span>-->
+        <h1 class="govuk-heading-xl">
+          Check the details from Part A
+        </h1>
+
+        <!--<p>
+          This page is showing existing details for your account, please change any that are different for this application.
+        </p>-->
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-m">Pre-application</h2>
+
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Submitted as a pre‐application? 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+        </dl>
+        
+        <h2 class="govuk-heading-m">Licence applied for</h2>
+
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Licence type 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              New full abstraction licence
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+        </dl>
+        
+        <h2 class="govuk-heading-m">Funding</h2>
+
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grants
+              
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes<br>
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+              <br>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grant details</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+              Local community grant available under the Edwards Scheme 2025
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+              <br>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">About the applicant</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Applicant type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Registered company
+             
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+              <a class="govuk-link" href="#">Change</a>
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company name
+            </dt>
+            <dd class="govuk-summary-list__value">
+             
+              Big Smith Farms limited
+              
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+              <a class="govuk-link" href="#">Change</a>
+
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+             
+              01278745
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+              <a class="govuk-link" href="#">Change</a>
+
+            </dd>
+          </div>
+
+
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registered company address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              17 Hampshire way<br>
+              Portsmouth<br>
+              PO1 5YP
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+              <br>
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+         
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              07700 900457
+              <br>
+              office@bigsmithfarms.co.uk
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+            <dt class="govuk-summary-list__key">
+              Main business address is same as registered address?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          </dl>
+
+        <h2 class="govuk-heading-m">Main contact</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Francis Coppola
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Position
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+              Farm manager
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              07700 900457
+              <br>
+              01273 592333
+              <br>
+              manager@bigsmithfarms.co.uk
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              17 Hampshire way<br>
+              Portsmouth<br>
+              PO1 5YP
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+              <br>
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+
+        </dl>
+
+        <h2 class="govuk-heading-m">Other contacts</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact is the same for:
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Site operations
+              <br>
+              Abstraction returns
+              <br>
+              Annual bills
+              <br>
+              Application charge
+              <br>
+              Additional application charges
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--from licence-->
+              
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          
+
+          </dl>
+
+
+
+        <div>
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>-->
+
+          <a href="p1-4-schedule-cards-0" class="govuk-button">
+            Save and continue
+          </a>
+
+
+    
+          <p class="govuk-hint">
+            The application will remain in draft.
+          </p>
+        </div>
+
+
+       
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

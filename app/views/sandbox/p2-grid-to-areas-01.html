@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+</style>
+
+
+<style>
+   a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <!--<span class="govuk-caption-xl">Headline caption</span>-->
+        <h1 class="govuk-heading-xl">
+          Check reporting areas
+        </h1>
+
+        <p>
+           These reporting areas derive from the national grid reference (NGR) of the first point on this licence.
+        </p>
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-m">Reporting areas based on NGR SK 675124</h2>
+
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              SUC area 
+              <br>
+              <span class="govuk-hint">Standard unit charge</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ARSUC
+              <br>
+              <span class="govuk-hint">Anglian region standard unit charge</span>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+       
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              EIUC area
+              <br>
+              <span class="govuk-hint">Environment improvement unit charge</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ANOTH
+              <br>
+              <span class="govuk-hint">Anglian EIUC - other</span>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Agency area<br>
+              
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ARNA<br>
+              <span class="govuk-hint">Northern area</span>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+              <br>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              LEAP<br>
+              <span class="govuk-hint">Local environment agency plan</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              N1<br>
+              <span class="govuk-hint">Ancholme Grimsby</span>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+              <br>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CAMS<br>
+              <span class="govuk-hint">Catchment abstraction management system</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ACN03<br>
+              <span class="govuk-hint">Grimsby, Ancholme & region</span>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+              <br>
+            </dd>
+          </div>
+        </dl>
+
+        
+
+
+
+        <div>
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>-->
+
+          <a href="p1-4-schedule-cards-0" class="govuk-button">
+            Save and continue
+          </a>
+
+
+    
+          <p class="govuk-hint">
+            The application will remain in draft.
+          </p>
+        </div>
+
+
+       
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

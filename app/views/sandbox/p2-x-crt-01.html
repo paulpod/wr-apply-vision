@@ -1,0 +1,261 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  .govuk-radios__label {
+    margin-top: -7px;
+  }
+</style>
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  .blueblob {
+    display: inline-block;
+    background-color: #2B8CC4;
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    //padding: 0 6px;
+  }
+  .quantblob {
+    display: inline-block;
+    background-color: #f48838;
+    
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    //padding: 0 6px;
+  }
+</style>
+
+
+<div class="govuk-width-container">
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <!--<span class="govuk-caption-m"><span class="blueblob">1</span> Trickle irrigation - direct and<br>
+        <span class="blueblob">2</span> Filling a sealed storage resevoir for subsequent trickle irrigation</span>-->
+        
+        <div class="govuk-form-group">
+          <span class="govuk-caption-xl">Canal & River Trust (CRT)</span>
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-heading-l" style="margin-top:0.2em;margin-bottom:0">
+                  Is the applicant applying for a licence to abstract water from inland waters owned or managed by the CRT?
+                </h1>
+              </legend>
+
+
+             
+
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-point">
+                  <label class="govuk-label govuk-radios__label" for="contact">
+                    Yes
+                  </label>
+                </div>
+
+                   
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-point">
+                      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                        
+
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h2 class="govuk-heading-m" style="margin-top:0.2em;margin-bottom:0">
+                                Is the applicant the Canal & River Trust?
+                            </h2>
+                          </legend>
+
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="crossRegionFlag-1" name="crossRegionFlag" type="radio" value="M1">
+                            <label class="govuk-label govuk-radios__label" for="crossRegionFlag-1">
+                              Yes
+                              
+                            </label>
+                          </div>
+
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="M2">
+                            <label class="govuk-label govuk-radios__label" for="crossRegionFlag-2">
+                              No
+                              
+                            </label>
+                          </div>
+                      
+                        
+
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!-- end form group item -->
+
+                
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="all">
+                  <label class="govuk-label govuk-radios__label" for="contact-3">
+                    No
+                  </label>
+                </div>
+
+          
+            </fieldset>
+          </div>
+
+
+          <br>
+
+          <br>
+
+
+
+          
+
+     
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+   
+
+
+    
+
+
+
+
+    
+
+<br>
+    <!--<div class="govuk-!-margin-bottom-8">
+      <p>
+        <a href="#" onclick="return false;">Save and add</a> another point
+      </p>
+    </div>-->
+
+
+
+
+    <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>-->
+
+    <a href="p1-5-purposes-cards-4" class="govuk-button" >
+      Save and continue
+    </a>
+
+    <div>
+      <p class="govuk-hint">
+        The application will remain in draft.
+      </p>
+
+
+
+    </div>
+
+
+
+
+  </div><!-- end column div -->
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    
+     <!-- end column -->
+    
+ 
+    <!--<h4>Steps</h4>
+
+    <p>
+      <ul>
+        <li>Licence number</li>
+        <li>Licence dates</li>
+        <li class="govuk-!-margin-bottom-2">Notes</li>
+
+        <li>Licence versions</li>
+        <li>Licence type</li>
+        <li class="govuk-!-margin-bottom-2">Licence holder</li>
+
+        <li>Licence purposes</li>
+          <ul class="govuk-!-margin-bottom-2">
+            <li>Period</li>
+            <li>Amounts</li>
+            <li>Points</li>
+            <li>Conditions</li>
+            <li>Agreements</li>
+          </ul>
+
+        <li>Licence areas<br>
+        <i>based on the point(s)</i></li>
+
+      </ul>
+   
+    </p>-->
+
+   
+
+  </div><!-- end column -->
+</div><!-- end row -->
+  
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#address-picker')
+  })
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#subcode-picker')
+  })
+</script>
+
+{% endblock %}
+
+

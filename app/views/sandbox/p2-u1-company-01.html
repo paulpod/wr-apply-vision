@@ -1,0 +1,262 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  .inline-error {
+    color: #d4351c;
+    font-weight: bold;
+    border-left: 4px solid #d4351c;
+    padding-left: 10px;
+    margin-left: -14px;
+
+
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <!--<a href="javascript:window.history.back();" class="govuk-back-link">Back</a>-->
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Big Smith Farms Limited</span>
+        <h1 class="govuk-heading-xl">
+          Check your company details
+        </h1>
+        <span class="govuk-caption-l">Application NPS/WR/040265</span>
+        <br>
+
+        <p>
+          On your water licence application, our checks found that the details you supplied about your company do not match those registered at Companies House.
+        </p>
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <h3 class="govuk-heading-m">At Companies House</h3>
+
+    <p>
+      <strong>Company name</strong><br>
+      Big Smith Farms Limited
+    </p>
+
+    <p>
+      <strong>Company number</strong><br>
+      230145983
+    </p>
+
+    <p>
+      <strong>Registered address</strong><br>
+      <span class="inline-error">17 Hampshire Way</span><br>
+      Portsmouth<br>
+      PO1 5PY
+    </p>
+
+    <p>
+      <strong>Registered directors</strong><br>
+      Francis Coppola<br>
+      Sofia Coppola
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <h3 class="govuk-heading-m">On your application</h3>
+
+    <p>
+      <strong>Company name</strong><br>
+      Big Smith Farms Limited
+    </p>
+
+    <p>
+      <strong>Company number</strong><br>
+      230145983
+    </p>
+
+    <p>
+      <strong>Registered address</strong><br>
+      <span class="inline-error">18 Hampshire Way</span><br>
+      Portsmouth<br>
+      PO1 5PY
+    </p>
+
+    <p>
+      <strong>Registered directors</strong><br>
+      Francis Coppola<br>
+      Sofia Coppola
+    </p>
+  </div>
+
+        
+
+</div>
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+<style type="text/css">
+  .govuk-radios__hint {
+    
+    position: relative;
+    left: -60px;
+    
+  }
+  
+</style>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="crossRegionFlag-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <!--<p>
+                Choose one
+              </p>-->
+            </legend>
+            <!--<div id="crossRegionFlag-hint" class="govuk-hint">
+              Points already listed at this location
+            </div>-->
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag" name="crossRegionFlag" type="radio" value="M1">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag">
+                  the address registered at Companies House is incorrect
+                </label>
+              </div>
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag" name="crossRegionFlag" type="radio" value="M1">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag">
+                   the address registered at Companies House is correct
+                  </label>
+              </div>
+
+              <!--<div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-2" name="crossRegionFlag" type="radio" value="M2">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-2">
+                  Temporary licence
+                </label>
+              </div>-->
+
+              <!--<div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-3" name="crossRegionFlag" type="radio" value="M3">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-3">
+                  Impoundment licence
+                </label>
+              </div>-->
+
+
+              <!--<div>
+                <p style="margin-left: 12px;">or</p>
+              </div>-->
+
+              <!--<div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="crossRegionFlag-3" name="crossRegionFlag" type="radio" value="X2">
+                <label class="govuk-label govuk-radios__label" for="crossRegionFlag-3">
+                  Something else
+                 
+                </label>
+              </div>-->
+
+
+              
+
+
+
+            </div>
+          </fieldset>
+        </div>
+        <!-- end form group item -->
+
+
+        <div>
+          <!--<button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>-->
+
+          <a href="p1-4-schedule-cards-2" class="govuk-button">
+            Send correction
+          </a>
+
+
+    
+          <!--<p class="govuk-hint">
+            Your application will remain in draft.
+          </p>-->
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+

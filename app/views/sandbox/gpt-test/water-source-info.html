@@ -1,0 +1,22 @@
+<!-- Water Source Information Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Source Information</title>
+</head>
+<body>
+    <h1>Water Source Information</h1>
+    <form action="abstraction-details.html" method="POST">
+        <label for="source-type">What is the type of water source?</label><br>
+        <input type="radio" id="river" name="source-type" value="river" required>
+        <label for="river">River</label><br>
+        <input type="radio" id="borehole" name="source-type" value="borehole" required>
+        <label for="borehole">Borehole</label><br>
+        <input type="radio" id="reservoir" name="source-type" value="reservoir" required>
+        <label for="reservoir">Reservoir</label><br>
+        <button type="submit">Continue</button>
+    </form>
+</body>
+</html>

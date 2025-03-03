@@ -1,0 +1,338 @@
+{% extends "layout.html" %}
+//the pages in the sandbox use the _BASE.html layout, you can switch them to use the Search/Manage nav bar by using the _manage.html layout
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+  .govuk-tag--darkblue {
+    color: white;
+    background: rgb(20.3, 78.4, 128.8);
+  }
+  .map-blob {
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding: 0 6px;
+  }
+  .blueblob {
+    display: inline-block;
+    background-color: #2B8CC4;
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    //padding: 0 6px;
+  }
+  .quantblob {
+    display: inline-block;
+    background-color: #f48838;
+    
+    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    //padding: 0 6px;
+  }
+</style>
+
+
+<style>
+   a:visited.govuk-link  {
+    color: #005EA5 !important;
+  }
+</style>
+     
+<div class="govuk-width-container">
+  <a href="javascript:window.history.back();" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Bob Jackson, validation officer</span>
+
+        <!--<p>
+          Check the details that have been uploaded from the licence.
+        </p>-->
+
+      </div>
+    </div>
+    <!-- end grid row -->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        
+
+<style>
+   .govuk-summary-list__actions {
+    width: 4em;
+   }
+   .govuk-summary-list__key {
+    width: 16em;
+   }
+   .val {
+    display: block;
+    width: 24em;
+   }
+
+</style>
+
+
+
+
+      <h1 class="govuk-heading-xl">
+        Application NPS/WR/040145
+      </h1>
+          
+      <p>
+        
+        <strong>Deadline: </strong>
+        <span style="color: rgb(0, 89.6, 48);">12/04/25</span>
+        <br>
+        <strong>Time spent so far: </strong>
+        <span style="color: rgb(0, 89.6, 48);">4m 23s</span>
+
+        <br>
+        <strong>Status: </strong>
+        <strong class="govuk-tag govuk-tag--green">
+          on track
+        </strong>
+
+      </p>
+
+      
+
+
+
+
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <!--<div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>-->
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading" style="max-width:950px">
+          RFI outstanding<span style="font-weight:normal"> - <a href="#" class="govuk-link">see details and status</a></span>
+        </p>
+      </div>
+    </div>
+
+
+
+      
+      <h2 class="govuk-heading-m">Validation tasks</h2>
+
+      
+
+
+
+
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="p2-x-crt-01" aria-describedby="company-details-1-status">
+              Check application type
+            </a>
+           
+            
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            <strong class="govuk-tag govuk-tag--green">
+              Complete
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-2-status">
+              Check licence purpose
+            </a>
+            
+          </div>
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <strong class="govuk-tag govuk-tag--green">
+              Complete
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-3-hint company-details-3-status">
+              Check source of supply
+            </a>
+            <!--<div id="company-details-3-hint" class="govuk-task-list__hint">
+              Include 5 years of the company’s relevant financial information
+            </div>-->
+          </div>
+          <div class="govuk-task-list__status" id="company-details-3-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              In progress
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-4-status">
+              Check water quantities
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-4-status">
+            <strong class="govuk-tag govuk-tag--green">
+              Complete
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-4-status">
+              Check justification of need
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-4-status">
+            <strong class="govuk-tag govuk-tag--orange">
+              Pending
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+              Canal & River Trust application?
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--orange">
+              Pending
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+              Check exemptions
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--orange">
+              Pending
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+              Check water efficiency
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--grey">
+              Cannot start yet
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+              Hand over to determination
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--grey">
+              Cannot start yet
+            </strong>
+          </div>
+        </li>
+        
+      </ul>
+
+
+
+
+
+
+
+
+
+
+        <div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Return to queue
+          </button>
+
+    
+          <p class="govuk-hint">
+            The application will remain in draft.
+          </p>
+        </div>
+
+
+        </div><!-- end column div -->
+      </div>
+    </div><!-- end row -->
+  </main>
+</div>
+
+
+<script>
+   // Attach paste event listener to the document
+  document.addEventListener('paste', parseDateInput);
+  
+
+  function parseDateInput() {
+  // Get references to the day, month, and year input fields
+  const dayInput = document.getElementById('signature-date-day');
+  const monthInput = document.getElementById('signature-date-month');
+  const yearInput = document.getElementById('signature-date-year');
+
+  // Add an event listener to each input field
+  dayInput.addEventListener('input', handleDateInput);
+  monthInput.addEventListener('input', handleDateInput);
+  yearInput.addEventListener('input', handleDateInput);
+
+  function handleDateInput(event) {
+    // Get the value from the input field that triggered the event
+    const inputValue = event.target.value;
+
+    // Check if the input value contains a slash, period, or hyphen
+    //  - - - - - - - - - - - - - -  match(/[/\.-]/)
+    const dateSeparator = inputValue.match(/[/. \-]/);
+    if (dateSeparator) {
+      // Split the input value into day, month, and year
+      const dateparts = inputValue.split(dateSeparator);
+
+      // Populate the correct input fields
+      dayInput.value = dateparts[0];
+      monthInput.value = dateparts[1];
+      yearInput.value = dateparts[2];
+
+    }
+  }
+  // Move focus to the year input field
+    yearInput.focus();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+
